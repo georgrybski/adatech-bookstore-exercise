@@ -11,9 +11,9 @@ public class Bookstore {
 
     private static HashMap<Integer, String> categories =
             new HashMap(Map.of(
-                    1, "albums", 2, "books",
-                    3, "films", 4, "games",
-                    5, "toys"
+                    1, "Albums", 2, "Books",
+                    3, "Films", 4, "Games",
+                    5, "Toys"
             ));
     private static HashMap<String, HashMap<String, InventoryItem>> inventory = new HashMap<>();
 
@@ -23,13 +23,13 @@ public class Bookstore {
         money.add(total);
     }
 
-    private HashMap<String, HashMap<String, InventoryItem>> initializeInventory() {
+    private void initializeInventory() {
         var inventory = new HashMap<String, HashMap<String, InventoryItem>>();
 
         categories.values().stream()
                 .forEach(category -> inventory.put(category, new HashMap<>()));
 
-        return inventory;
+
     }
 
 }

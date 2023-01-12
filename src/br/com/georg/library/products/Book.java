@@ -1,8 +1,10 @@
 package br.com.georg.library.products;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class Book extends Product {
 
@@ -12,7 +14,7 @@ public class Book extends Product {
 
     private String publisher;
 
-    private static Map<Integer,String> genres = new HashMap<>();
+    private static HashMap<Integer,String> genres = new HashMap<>();
 
     private static String[] genreArray = new String[] {
             "Adventure stories", "Classics", "Crime",
@@ -24,13 +26,18 @@ public class Book extends Product {
             "Thrillers", "War", "Women’s fiction",
             "Young adult", "Autobiography and memoir",
             "Biography", "Essays", "Non-fiction novel",
-            "Self-help"};
+            "Self-help", "Psychology", "Geology",
+            "Chemistry", "Astronomy", "Zoology",
+            "Mathematics and logic", "Programming", "Data Science"};
 
-    private static String[] genreMenuOptions =
-            genres.entrySet()
-                    .stream()
-                    .map(entry -> entry.getKey() + " - " + entry.getValue())
-                    .toArray(String[]::new);
+
+    public static HashMap<Integer,String> initializeGenresHashMap() {
+        for (int index = 0; index < genreArray.length; index++) {
+            genres.put(index, genreArray[index]);
+        }
+
+        return genres;
+    }
 
     public Book(String name, BigDecimal price, Integer quantity, Integer genre, String author, String publisher) {
         super(name, price, quantity);
@@ -55,8 +62,8 @@ public class Book extends Product {
         return genres;
     }
 
-    public static String[] getGenreMenuOptions() {
-        return genreMenuOptions;
+    public static String[] getGenreArray() {
+        return genreArray;
     }
 
     public void setGenre(String genre) {
@@ -71,11 +78,11 @@ public class Book extends Product {
         this.publisher = publisher;
     }
 
-    public static void setGenres(Map<Integer, String> genres) {
+    public static void setGenres(HashMap<Integer, String> genres) {
         Book.genres = genres;
     }
 
-    public static void setGenreMenuOptions(String[] genreMenuOptions) {
-        Book.genreMenuOptions = genreMenuOptions;
+    public static void setGenreArray(String[] genreArray) {
+        Book.genreArray = genreArray;
     }
 }
