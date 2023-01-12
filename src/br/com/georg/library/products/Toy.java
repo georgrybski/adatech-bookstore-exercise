@@ -3,12 +3,12 @@ package br.com.georg.library.products;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class Toy extends Product {
     private String type;
+
     private static Map<Integer,String> types = new HashMap(Map.of());
-//    private static Stream<Map.Entry<Integer,String>> typesStream = types.entrySet().stream();
+
     private static String[] typeMenuOptions =
         types.entrySet()
                 .stream()
@@ -30,5 +30,17 @@ public class Toy extends Product {
 
     public static String[] getTypeMenuOptions() {
         return typeMenuOptions;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public static void setTypes(Map<Integer, String> types) {
+        Toy.types = types;
+    }
+
+    public static void setTypeMenuOptions(String[] typeMenuOptions) {
+        Toy.typeMenuOptions = typeMenuOptions;
     }
 }
