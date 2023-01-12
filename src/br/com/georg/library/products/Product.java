@@ -2,14 +2,14 @@ package br.com.georg.library.products;
 
 import java.math.BigDecimal;
 
-public class Product {
+public abstract class Product {
     private String name;
     private Integer ID;
     private BigDecimal price;
     private Integer quantity;
     private static Integer IDCounter = 1;
 
-    public Product(String name, BigDecimal price, Integer quantity) {
+    protected Product(String name, BigDecimal price, Integer quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
