@@ -12,5 +12,4 @@ public class Bookstore {
         money.add(total);
     }
 
-
 }
