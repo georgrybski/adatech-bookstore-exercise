@@ -18,7 +18,10 @@ public class Cart {
     }
 
     public void checkout() {
-
+        Cashier.completeSale(this);
     }
 
+    public void emptyCart() {
+        items = new ArrayList<>();
+    }
 }
