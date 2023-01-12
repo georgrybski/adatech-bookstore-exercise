@@ -12,7 +12,19 @@ public class Book extends Product {
 
     private String publisher;
 
-    private static Map<Integer,String> genres = new HashMap(Map.of());
+    private static Map<Integer,String> genres = new HashMap<>();
+
+    private static String[] genreArray = new String[] {
+            "Adventure stories", "Classics", "Crime",
+            "Fairy tales, fables, and folk tales",
+            "Fantasy", "Historical fiction", "Horror",
+            "Humour and satire", "Literary fiction",
+            "Mystery", "Poetry", "Plays", "Romance",
+            "Science fiction", "Short stories",
+            "Thrillers", "War", "Women’s fiction",
+            "Young adult", "Autobiography and memoir",
+            "Biography", "Essays", "Non-fiction novel",
+            "Self-help"};
 
     private static String[] genreMenuOptions =
             genres.entrySet()
