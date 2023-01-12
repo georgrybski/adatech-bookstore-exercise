@@ -2,12 +2,10 @@ package br.com.georg.library.utilities;
 
 import br.com.georg.library.products.Product;
 
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class Order {
     private ArrayList<Product> items;
@@ -32,4 +30,13 @@ public class Order {
             orders.put(username, ordersArrayList);
         }
     }
+
+    public static ArrayList<Order> getOrdersFrom(String username) {
+        if(orders.containsKey(username)) {
+            return orders.get(username);
+        }
+        return null;
+    }
+
+
 }
