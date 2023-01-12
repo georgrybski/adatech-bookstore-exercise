@@ -12,13 +12,15 @@ public class Album extends Product {
 
     private String seal;
 
-    private static Map<Integer,String> genres = new HashMap(Map.of());
+    private static HashMap<Integer,String> genres = new HashMap<>();
 
-    private static String[] genreMenuOptions =
-            genres.entrySet()
-                    .stream()
-                    .map(entry -> entry.getKey() + " - " + entry.getValue())
-                    .toArray(String[]::new);
+    private static String[] genreArray = new String[] {
+            "Pop", "Hip hop", "Rock", "Rhythm and blues", "Soul", "Reggae",
+            "Country", "Funk", "Folk", "Middle Eastern", "Jazz", "Disco",
+            "Classical", "Electronic", "Music of Latin America", "Blues",
+            "New-age", "Vocal music", "Music of Africa", "Christian music",
+            "Music of Asia", "Ska", "Traditional music", "Independent music"
+    };
 
     public Album(String name, BigDecimal price, Integer quantity, String author, String genre, String seal) {
         super(name, price, quantity);
@@ -39,12 +41,12 @@ public class Album extends Product {
         return seal;
     }
 
-    public static Map<Integer, String> getGenres() {
+    public static HashMap<Integer, String> getGenres() {
         return genres;
     }
 
-    public static String[] getGenreMenuOptions() {
-        return genreMenuOptions;
+    public static String[] getGenreArray() {
+        return genreArray;
     }
 
     public void setAuthor(String author) {
@@ -59,11 +61,11 @@ public class Album extends Product {
         this.seal = seal;
     }
 
-    public static void setGenres(Map<Integer, String> genres) {
+    public static void setGenres(HashMap<Integer, String> genres) {
         Album.genres = genres;
     }
 
-    public static void setGenreMenuOptions(String[] genreMenuOptions) {
-        Album.genreMenuOptions = genreMenuOptions;
+    public static void setGenreArray(String[] genreArray) {
+        Album.genreArray = genreArray;
     }
 }

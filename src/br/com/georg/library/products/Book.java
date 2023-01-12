@@ -1,5 +1,7 @@
 package br.com.georg.library.products;
 
+import br.com.georg.library.utilities.HashMapTools;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,7 +16,6 @@ public class Book extends Product {
 
     private String publisher;
 
-    private static HashMap<Integer,String> genres = new HashMap<>();
 
     private static String[] genreArray = new String[] {
             "Adventure stories", "Classics", "Crime",
@@ -30,14 +31,7 @@ public class Book extends Product {
             "Chemistry", "Astronomy", "Zoology",
             "Mathematics and logic", "Programming", "Data Science"};
 
-
-    public static HashMap<Integer,String> initializeGenresHashMap() {
-        for (int index = 0; index < genreArray.length; index++) {
-            genres.put(index, genreArray[index]);
-        }
-
-        return genres;
-    }
+    private static HashMap<Integer,String> genres = HashMapTools.initializeGenresOrTypesHashMap(genreArray);
 
     public Book(String name, BigDecimal price, Integer quantity, Integer genre, String author, String publisher) {
         super(name, price, quantity);
@@ -58,7 +52,7 @@ public class Book extends Product {
         return publisher;
     }
 
-    public static Map<Integer, String> getGenres() {
+    public static HashMap<Integer, String> getGenres() {
         return genres;
     }
 
