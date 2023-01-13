@@ -31,11 +31,26 @@ public class Book extends Product {
     private static HashMap<Integer,String> genres =
             HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
-    public Book(String name, BigDecimal price, Integer quantity, Integer genre, String author, String publisher) {
+    public Book(String name, BigDecimal price, Integer quantity,
+                Integer genre, String author, String publisher) {
         super(name, price, quantity);
         this.genre = genres.get(genre);
         this.author = author;
         this.publisher = publisher;
+    }
+
+    private Book(String name, BigDecimal price, Integer ID, Integer quantity,
+                 String genre, String author, String publisher) {
+        super(name, price, ID, quantity);
+        this.genre = genre;
+        this.author = author;
+        this.publisher = publisher;
+    }
+
+    @Override
+    public Book copy(Integer quantity) {
+        return new Book(this.getName(), this.getPrice(), this.getID(), quantity,
+                this.getGenre(), this.getAuthor(), this.getPublisher());
     }
 
     public String getGenre() {
