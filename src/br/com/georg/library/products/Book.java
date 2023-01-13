@@ -3,10 +3,7 @@ package br.com.georg.library.products;
 import br.com.georg.library.utilities.HashMapTools;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Stream;
 
 public class Book extends Product {
 

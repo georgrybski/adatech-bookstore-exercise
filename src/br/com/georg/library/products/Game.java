@@ -4,7 +4,6 @@ import br.com.georg.library.utilities.HashMapTools;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Game extends Product {
 

@@ -2,7 +2,6 @@ package br.com.georg.library.products;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Album extends Product {
 

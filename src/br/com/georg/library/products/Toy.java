@@ -1,19 +1,19 @@
 package br.com.georg.library.products;
 
+import br.com.georg.library.utilities.HashMapTools;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Toy extends Product {
     private String type;
 
-    private static Map<Integer,String> types = new HashMap(Map.of());
-
-    private static String[] typeMenuOptions =
-        types.entrySet()
-                .stream()
-                .map(entry -> entry.getKey() + " - " + entry.getValue())
-                .toArray(String[]::new);
+    private static String[] typesArray = new String[]{
+        "Action figures", "Animals", "Cars and radio controlled", "Construction toys",
+        "Creative toys", "Dolls", "Educational toys", "Electronic toys", "Executive toys",
+        "Food-related toys", "Puzzle", "Science and optical", "Sound toys"
+    };
+    private static HashMap<Integer,String> types = HashMapTools.initializeGenresOrTypesHashMap(typesArray);
 
     public Toy(String name, BigDecimal price, Integer quantity, Integer type){
         super(name, price, quantity);
@@ -24,23 +24,23 @@ public class Toy extends Product {
         return type;
     }
 
-    public static Map<Integer, String> getTypes() {
+    public static HashMap<Integer, String> getTypes() {
         return types;
     }
 
-    public static String[] getTypeMenuOptions() {
-        return typeMenuOptions;
+    public static String[] getTypesArray() {
+        return typesArray;
     }
 
     public void setType(String type) {
         this.type = type;
     }
 
-    public static void setTypes(Map<Integer, String> types) {
+    public static void setTypes(HashMap<Integer, String> types) {
         Toy.types = types;
     }
 
-    public static void setTypeMenuOptions(String[] typeMenuOptions) {
-        Toy.typeMenuOptions = typeMenuOptions;
+    public static void setTypesArray(String[] typesArray) {
+        Toy.typesArray = typesArray;
     }
 }
