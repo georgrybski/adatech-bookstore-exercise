@@ -4,7 +4,6 @@ import br.com.georg.library.products.Product;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Order {

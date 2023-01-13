@@ -3,20 +3,12 @@ package br.com.georg.library.utilities;
 import br.com.georg.library.products.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class Bookstore {
 
     private static BigDecimal money = BigDecimal.valueOf(0);
-
-    private static String[] categoriesArray = new String[] {
-            "Albums", "Books", "Films", "Games", "Toys"
-    };
-
-    private static HashMap<Integer, String> categories = HashMapTools.initializeGenresOrTypesHashMap(categoriesArray);
 
     private static HashMap<String, HashMap<Integer, String>> genresAndTypesHashMap =
             new HashMap<>(Map.of(
@@ -24,6 +16,13 @@ public class Bookstore {
                     "Films", Film.getGenres(), "Games", Game.getGenres(),
                     "Toys", Toy.getTypes()
             ));
+
+    private static HashMap<Integer, String> categories =
+            HashMapTools.initializeGenresOrTypesHashMap(
+                    genresAndTypesHashMap.keySet()
+                                         .stream()
+                                         .toArray(String[]::new)
+            );
 
     private static HashMap<String, HashMap<String, HashMap<String, InventoryItem>>> inventory = initializeInventory();
 
