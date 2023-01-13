@@ -1,5 +1,7 @@
 package br.com.georg.library.products;
 
+import br.com.georg.library.utilities.HashMapTools;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,13 +14,13 @@ public class Game extends Product {
 
     private String studio;
 
-    private static Map<Integer,String> genres = new HashMap(Map.of());
+    private static String[] genresArray = new String[] {
+            "First Person Shooter", "Action-Adventure",
+            "Survival", "Puzzle", "Role-Playing Games",
+            "MMO", "Sports", "Sandbox", "Educational"
+    };
+    private static HashMap<Integer,String> genres = HashMapTools.initializeGenresOrTypesHashMap(genresArray);
 
-    private static String[] genreMenuOptions =
-            genres.entrySet()
-                    .stream()
-                    .map(entry -> entry.getKey() + " - " + entry.getValue())
-                    .toArray(String[]::new);
 
     public Game(String name, BigDecimal price, Integer quantity, String distribuitor, Integer genre, String studio) {
         super(name, price, quantity);
@@ -39,12 +41,12 @@ public class Game extends Product {
         return studio;
     }
 
-    public static Map<Integer, String> getGenres() {
+    public static HashMap<Integer, String> getGenres() {
         return genres;
     }
 
-    public static String[] getGenreMenuOptions() {
-        return genreMenuOptions;
+    public static String[] getGenresArray() {
+        return genresArray;
     }
 
     public void setDistribuitor(String distribuitor) {
@@ -59,11 +61,11 @@ public class Game extends Product {
         this.studio = studio;
     }
 
-    public static void setGenres(Map<Integer, String> genres) {
+    public static void setGenres(HashMap<Integer, String> genres) {
         Game.genres = genres;
     }
 
-    public static void setGenreMenuOptions(String[] genreMenuOptions) {
-        Game.genreMenuOptions = genreMenuOptions;
+    public static void setGenresArray(String[] genresArray) {
+        Game.genresArray = genresArray;
     }
 }
