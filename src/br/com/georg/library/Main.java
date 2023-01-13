@@ -2,8 +2,10 @@ package br.com.georg.library;
 
 
 import br.com.georg.library.products.Product;
+import br.com.georg.library.products.Toy;
 import br.com.georg.library.utilities.Bookstore;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 

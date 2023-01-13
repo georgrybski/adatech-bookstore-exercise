@@ -21,6 +21,16 @@ public class Toy extends Product {
         this.type = types.get(type);
     }
 
+    private Toy(String name, BigDecimal price, Integer ID, Integer quantity, String type) {
+        super(name, price, ID,quantity);
+        this.type = type;
+    }
+
+    @Override
+    public Product copy(Integer quantity) {
+        return new Toy(this.getName(), this.getPrice(), this.getID(), quantity, this.type);
+    }
+
     public String getType() {
         return type;
     }
@@ -44,4 +54,5 @@ public class Toy extends Product {
     public static void setTypesArray(String[] typesArray) {
         Toy.typesArray = typesArray;
     }
+
 }

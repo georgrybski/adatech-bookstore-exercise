@@ -10,21 +10,21 @@ public class Product {
     private Integer quantity;
     private static Integer IDCounter = 1;
 
-    public Product(String name, BigDecimal price, Integer quantity) {
+    protected Product(String name, BigDecimal price, Integer quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         ID = IDCounter++;
     }
 
-    public Product(String name, BigDecimal price, Integer ID, Integer quantity) {
+    protected Product(String name, BigDecimal price, Integer ID, Integer quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.ID = ID;
     }
 
-    public Product copy(Integer quantity) {
+    protected Product copy(Integer quantity) {
         return new Product(this.name, this.price, this.ID, quantity);
     }
 
