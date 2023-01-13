@@ -1,5 +1,7 @@
 package br.com.georg.library.products;
 
+import br.com.georg.library.utilities.HashMapTools;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 
@@ -11,8 +13,6 @@ public class Album extends Product {
 
     private String seal;
 
-    private static HashMap<Integer,String> genres = new HashMap<>();
-
     private static String[] genreArray = new String[] {
             "Pop", "Hip hop", "Rock", "Rhythm and blues", "Soul", "Reggae",
             "Country", "Funk", "Folk", "Middle Eastern", "Jazz", "Disco",
@@ -20,6 +20,8 @@ public class Album extends Product {
             "New-age", "Vocal music", "Music of Africa", "Christian music",
             "Music of Asia", "Ska", "Traditional music", "Independent music"
     };
+
+    private static HashMap<Integer,String> genres = HashMapTools.initializeGenresOrTypesHashMap(genreArray);
 
     public Album(String name, BigDecimal price, Integer quantity, String author, String genre, String seal) {
         super(name, price, quantity);

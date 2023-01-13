@@ -1,6 +1,9 @@
 package br.com.georg.library.utilities;
 
+import br.com.georg.library.products.*;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -9,13 +12,20 @@ public class Bookstore {
 
     private static BigDecimal money = BigDecimal.valueOf(0);
 
-    private static HashMap<Integer, String> categories =
-            new HashMap(Map.of(
-                    1, "Albums", 2, "Books",
-                    3, "Films", 4, "Games",
-                    5, "Toys"
+    private static String[] categoriesArray = new String[] {
+            "Albums", "Books", "Films", "Games", "Toys"
+    };
+
+    private static HashMap<Integer, String> categories = HashMapTools.initializeGenresOrTypesHashMap(categoriesArray);
+
+    private static HashMap<String, HashMap<Integer, String>> genresAndTypesHashMap =
+            new HashMap<>(Map.of(
+                    "Albums", Album.getGenres(), "Books", Book.getGenres(),
+                    "Films", Film.getGenres(), "Games", Game.getGenres(),
+                    "Toys", Toy.getTypes()
             ));
-    private static HashMap<String, HashMap<String, InventoryItem>> inventory = new HashMap<>();
+
+    private static HashMap<String, HashMap<String, HashMap<String, InventoryItem>>> inventory = initializeInventory();
 
     private Bookstore(){}
 
@@ -23,13 +33,26 @@ public class Bookstore {
         money.add(total);
     }
 
-    private void initializeInventory() {
-        var inventory = new HashMap<String, HashMap<String, InventoryItem>>();
+    private static HashMap<String, HashMap<String, HashMap<String, InventoryItem>>> initializeInventory() {
+        var inventory = new HashMap<String, HashMap<String, HashMap<String, InventoryItem>>>();
 
         categories.values().stream()
                 .forEach(category -> inventory.put(category, new HashMap<>()));
 
+        for (Map.Entry<String, HashMap<Integer, String>> outerEntry: genresAndTypesHashMap.entrySet()) {
+            for (Map.Entry<Integer, String> innerEntry : outerEntry.getValue().entrySet() ) {
+                inventory.get(outerEntry.getKey()).put(innerEntry.getValue(), new HashMap<>());
+            }
+        }
 
+        return inventory;
     }
 
+    public static HashMap<Integer, String> getCategories() {
+        return categories;
+    }
+
+    public static HashMap<String, HashMap<String, HashMap<String, InventoryItem>>> getInventory() {
+        return inventory;
+    }
 }

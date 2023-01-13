@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 public class Menu {
 
+    private static final String[] PRODUCT_CATEGORY_MENU_OPTIONS = createGenreAndTypeMenuOptions(Bookstore.getCategories());
     private static final String[] ALBUM_GENRE_MENU_OPTIONS = createGenreAndTypeMenuOptions(Album.getGenres());
     private static final String[] BOOK_GENRE_MENU_OPTIONS = createGenreAndTypeMenuOptions(Book.getGenres());
     private static final String[] FILM_GENRE_MENU_OPTIONS = createGenreAndTypeMenuOptions(Film.getGenres());
