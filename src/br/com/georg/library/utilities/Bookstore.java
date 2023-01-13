@@ -18,7 +18,7 @@ public class Bookstore {
             ));
 
     private static HashMap<Integer, String> categories =
-            HashMapTools.initializeGenresOrTypesHashMap(
+            HashMapTools.initializeCategoryGenresOrTypesHashMap(
                     genresAndTypesHashMap.keySet()
                                          .stream()
                                          .toArray(String[]::new)

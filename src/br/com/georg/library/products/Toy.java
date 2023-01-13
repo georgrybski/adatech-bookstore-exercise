@@ -13,7 +13,8 @@ public class Toy extends Product {
         "Creative toys", "Dolls", "Educational toys", "Electronic toys", "Executive toys",
         "Food-related toys", "Puzzle", "Science and optical", "Sound toys"
     };
-    private static HashMap<Integer,String> types = HashMapTools.initializeGenresOrTypesHashMap(typesArray);
+    private static HashMap<Integer,String> types =
+            HashMapTools.initializeCategoryGenresOrTypesHashMap(typesArray);
 
     public Toy(String name, BigDecimal price, Integer quantity, Integer type){
         super(name, price, quantity);

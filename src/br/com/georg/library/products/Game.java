@@ -18,7 +18,8 @@ public class Game extends Product {
             "Survival", "Puzzle", "Role-Playing Games",
             "MMO", "Sports", "Sandbox", "Educational"
     };
-    private static HashMap<Integer,String> genres = HashMapTools.initializeGenresOrTypesHashMap(genresArray);
+    private static HashMap<Integer,String> genres =
+            HashMapTools.initializeCategoryGenresOrTypesHashMap(genresArray);
 
 
     public Game(String name, BigDecimal price, Integer quantity, String distribuitor, Integer genre, String studio) {

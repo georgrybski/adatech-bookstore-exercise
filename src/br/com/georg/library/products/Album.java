@@ -21,7 +21,7 @@ public class Album extends Product {
             "Music of Asia", "Ska", "Traditional music", "Independent music"
     };
 
-    private static HashMap<Integer,String> genres = HashMapTools.initializeGenresOrTypesHashMap(genreArray);
+    private static HashMap<Integer,String> genres = HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
     public Album(String name, BigDecimal price, Integer quantity, String author, String genre, String seal) {
         super(name, price, quantity);

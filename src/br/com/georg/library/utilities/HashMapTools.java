@@ -6,7 +6,7 @@ public class HashMapTools {
 
     private HashMapTools(){}
 
-    public static HashMap<Integer,String> initializeGenresOrTypesHashMap(String[] genreOrTypeArray) {
+    public static HashMap<Integer,String> initializeCategoryGenresOrTypesHashMap(String[] genreOrTypeArray) {
         HashMap<Integer,String> hashMap = new HashMap<>();
         for (int index = 0; index < genreOrTypeArray.length; index++) {
             hashMap.put(index, genreOrTypeArray[index]);

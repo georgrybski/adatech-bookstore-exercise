@@ -20,7 +20,8 @@ public class Film extends Product {
             "Horror", "Mystery", "Romance", "Sports",
             "Thriller", "Western", "Science Fiction"
     };
-    private static HashMap<Integer,String> genres = HashMapTools.initializeGenresOrTypesHashMap(genreArray);
+    private static HashMap<Integer,String> genres =
+            HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
 
     public Film(String name, BigDecimal price, Integer quantity, String studio, String directors, Integer genre, String producer) {
