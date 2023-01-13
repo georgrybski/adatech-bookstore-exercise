@@ -23,11 +23,25 @@ public class Album extends Product {
 
     private static HashMap<Integer,String> genres = HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
-    public Album(String name, BigDecimal price, Integer quantity, String author, String genre, String seal) {
+    public Album(String name, BigDecimal price, Integer quantity, String author, Integer genre, String seal) {
         super(name, price, quantity);
         this.author = author;
         this.genre = genres.get(genre);
         this.seal = seal;
+    }
+
+    private Album(String name, BigDecimal price, Integer ID, Integer quantity,
+                  String author, String genre, String seal) {
+        super(name, price, ID, quantity);
+        this.author = author;
+        this.genre =  genre;
+        this.seal = seal;
+    }
+
+    @Override
+    public Album copy(Integer quantity) {
+        return new Album(this.getName(), this.getPrice(), this.getID(),
+                quantity, this.getAuthor(), this.getGenre(), this.getSeal());
     }
 
     public String getAuthor() {
