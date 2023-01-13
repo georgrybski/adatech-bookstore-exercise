@@ -3,20 +3,26 @@ package br.com.georg.library.utilities;
 import br.com.georg.library.products.Product;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Order {
+
     private ArrayList<Product> items;
     private BigDecimal total;
     private String username;
+    private String date;
 
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     private static HashMap<String, ArrayList<Order>> orders = new HashMap<>();
 
     private Order(ArrayList<Product> items, BigDecimal total, String username) {
         this.items = items;
         this.total = total;
         this.username = username;
+        date = LocalDateTime.now().format(formatter);
     }
 
     public static void archive(ArrayList<Product> items, BigDecimal total, String username) {
@@ -36,6 +42,5 @@ public class Order {
         }
         return null;
     }
-
 
 }

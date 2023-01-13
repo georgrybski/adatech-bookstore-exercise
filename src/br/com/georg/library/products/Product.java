@@ -2,19 +2,32 @@ package br.com.georg.library.products;
 
 import java.math.BigDecimal;
 
-public abstract class Product {
+public class Product {
     private String name;
     private Integer ID;
     private BigDecimal price;
+
     private Integer quantity;
     private static Integer IDCounter = 1;
 
-    protected Product(String name, BigDecimal price, Integer quantity) {
+    public Product(String name, BigDecimal price, Integer quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         ID = IDCounter++;
     }
+
+    public Product(String name, BigDecimal price, Integer ID, Integer quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.ID = ID;
+    }
+
+    public Product copy(Integer quantity) {
+        return new Product(this.name, this.price, this.ID, quantity);
+    }
+
 
     public String getName() {
         return name;
@@ -38,5 +51,9 @@ public abstract class Product {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Integer getID() {
+        return ID;
     }
 }

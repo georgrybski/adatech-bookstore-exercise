@@ -68,4 +68,5 @@ public class Game extends Product {
     public static void setGenresArray(String[] genresArray) {
         Game.genresArray = genresArray;
     }
+
 }

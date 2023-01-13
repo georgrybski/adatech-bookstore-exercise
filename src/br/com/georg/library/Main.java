@@ -1,5 +1,7 @@
 package br.com.georg.library;
 
+
+import br.com.georg.library.products.Product;
 import br.com.georg.library.utilities.Bookstore;
 
 import java.util.HashMap;
@@ -13,10 +15,10 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        for (Map.Entry<String, HashMap<String, HashMap<String, InventoryItem>>> outerEntry : hashMap.entrySet()) {
+        for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> outerEntry : hashMap.entrySet()) {
             System.out.println("Outer key: " + outerEntry.getKey() + " | Outer value: " + outerEntry.getValue());
             System.out.println();
-            for (Map.Entry<String, HashMap<String, InventoryItem>> innerEntry : outerEntry.getValue().entrySet()) {
+            for (Map.Entry<String, HashMap<String, Product>> innerEntry : outerEntry.getValue().entrySet()) {
                 System.out.println("    Inner key: " + innerEntry.getKey() + " | Inner value: " + innerEntry.getValue());
             }
             System.out.println();
