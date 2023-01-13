@@ -3,6 +3,7 @@ package br.com.georg.library.products;
 import br.com.georg.library.utilities.HashMapTools;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Album extends Product {
@@ -21,12 +22,14 @@ public class Album extends Product {
             "Asian music", "Ska", "Traditional music", "Independent music"
     };
 
-    private static HashMap<Integer,String> genres = HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
+    private static String[] sortedGenreArray = Arrays.stream(genreArray).sorted().toArray(String[]::new);
 
-    public Album(String name, BigDecimal price, Integer quantity, String author, Integer genre, String seal) {
-        super(name, price, quantity);
+    private static HashMap<Integer,String> genres = HashMapTools.initializeCategoryGenresOrTypesHashMap(sortedGenreArray);
+
+    public Album(String category, String name, BigDecimal price, String author, String genre, String seal, Integer quantity) {
+        super(name, price, quantity, category, genre);
         this.author = author;
-        this.genre = genres.get(genre);
+        this.genre = genre;
         this.seal = seal;
     }
 
@@ -58,6 +61,10 @@ public class Album extends Product {
 
     public static HashMap<Integer, String> getGenres() {
         return genres;
+    }
+
+    public static String[] getSortedGenreArray() {
+        return sortedGenreArray;
     }
 
     public static String[] getGenreArray() {

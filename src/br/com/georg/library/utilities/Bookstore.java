@@ -11,28 +11,9 @@ public class Bookstore {
 
     private static BigDecimal money = BigDecimal.valueOf(0);
 
-    private static HashMap<String, HashMap<Integer, String>> genresAndTypesHashMap =
-            new HashMap<>(Map.of(
-                    "Albums", Album.getGenres(), "Books", Book.getGenres(),
-                    "Films", Film.getGenres(), "Games", Game.getGenres(),
-                    "Toys", Toy.getTypes()
-            ));
-
-
-    private static String[] categoriesArray =
-            new String[]{"Albums", "Books", "Films", "Games", "Toys"};
-
-//    private static HashMap<Integer, String> categories =
-//            HashMapTools.initializeCategoryGenresOrTypesHashMap(
-//                    genresAndTypesHashMap.keySet()
-//                                         .stream()
-//                                         .toArray(String[]::new)
-//            );
-    private static HashMap<Integer, String> categories = HashMapTools.initializeCategoryGenresOrTypesHashMap(categoriesArray);
-
-
 
     private static HashMap<String, HashMap<String, HashMap<String, Product>>> inventory = initializeInventory();
+
 
     private Bookstore(){}
 
@@ -43,10 +24,10 @@ public class Bookstore {
     private static HashMap<String, HashMap<String, HashMap<String, Product>>> initializeInventory() {
         var inventory = new HashMap<String, HashMap<String, HashMap<String, Product>>>();
 
-        categories.values().stream()
+        Product.getCategories().values().stream()
                 .forEach(category -> inventory.put(category, new HashMap<>()));
 
-        for (Map.Entry<String, HashMap<Integer, String>> outerEntry: genresAndTypesHashMap.entrySet()) {
+        for (Map.Entry<String, HashMap<Integer, String>> outerEntry: Product.getGenresAndTypesHashMap().entrySet()) {
             for (Map.Entry<Integer, String> innerEntry : outerEntry.getValue().entrySet() ) {
                 inventory.get(outerEntry.getKey()).put(innerEntry.getValue(), new HashMap<>());
             }
@@ -61,22 +42,45 @@ public class Bookstore {
 
 
         Integer category = (Menu.getProductCategory()) -1;
-        String categoryString = categoriesArray[category];
+        String categoryString = Product.getCategoriesArray()[category];
         Integer genreType = Menu.getInt(Arrays.stream(Menu.GENRE_TYPE_ARRAYS.get(categoryString)).map(s -> i[0]++ + " - " + s).toArray(String[]::new));
-        String genreTypeString = Menu.GENRE_TYPE_ARRAYS.get(categoriesArray[category])[genreType -1];
-        Product product = new Game("StarField", BigDecimal.valueOf(100), 72, "Bethesda", genreType, "Bethesda");
-        String id = categoryString.substring(0,3) + genreTypeString.substring(0,3) + "0".repeat(4-product.getID().length()) + product.getID();
-        System.out.println(id);
-        product.setID(id);
-        inventory.get(categoryString).get(genreTypeString).put(id, product);
+
+//        Menu.createCategoryGenreAndTypeMenuOptions(Album.getGenres());
+        String genreTypeString = Menu.GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[category])[genreType -1];
+
+        Product product = new Album(
+                categoryString,
+                Input.getString("Insert the name of the " + categoryString),
+                Input.getBigDecimal("Insert the " + categoryString + " price", "Invalid value!", true),
+                Input.getString("Insert the" + categoryString + " author"),
+                genreTypeString,
+                Input.getString("Insert the " +categoryString + "Seal"),
+                Input.getInteger(1, Integer.MAX_VALUE, "How many are being put in stock?", "Invalid value Insert a positive integer.")
+                );
+
+        inventory.get(categoryString).get(genreTypeString).put(product.getID(), product);
         System.out.println(inventory);
 
-
-//        Integer type = Menu.getInt((inventory.get(categoriesArray[category-1])).keySet().stream().map(key -> i[0]++ + " | " + key).toArray(String[]::new));
     }
 
-    public static HashMap<Integer, String> getCategories() {
-        return categories;
+    public static void addAlbum() {
+
+    }
+
+    public static void addBook() {
+
+    }
+
+    public static void addFilm() {
+
+    }
+
+    public static void addGame() {
+
+    }
+
+    public static void addToy() {
+
     }
 
     public static HashMap<String, HashMap<String, HashMap<String, Product>>> getInventory() {

@@ -22,10 +22,10 @@ public class Game extends Product {
             HashMapTools.initializeCategoryGenresOrTypesHashMap(genresArray);
 
 
-    public Game(String name, BigDecimal price, Integer quantity, String distribuitor, Integer genre, String studio) {
-        super(name, price, quantity);
+    public Game(String category, String name, BigDecimal price, Integer quantity, String distribuitor, String genre, String studio) {
+        super(name, price, quantity, category, genre);
         this.distribuitor = distribuitor;
-        this.genre = genres.get(genre);
+        this.genre = genre;
         this.studio = studio;
     }
 

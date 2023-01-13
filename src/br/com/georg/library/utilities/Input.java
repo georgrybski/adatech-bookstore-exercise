@@ -1,6 +1,9 @@
 package br.com.georg.library.utilities;
 
+import br.com.georg.library.products.Product;
+
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -49,7 +52,40 @@ public class Input {
     }
 
 
-    private static BigDecimal getBigDecimal(String prompt, String invalidValueMsg, boolean firstTry) {
+    public static void getAlbumInput() {
+
+    }
+
+    public static void getBookInput() {
+
+    }
+
+    public static void getFilmInput() {
+
+    }
+
+    public static void getGameInput() {
+
+    }
+
+    public static void getToyInput() {
+
+    }
+
+    public static String getProductName(String category) {
+        return getString("Insert the " + category.substring(0,category.length()-1) + "'s name");
+    }
+
+    public static BigDecimal getProductPrice(String category) {
+        return getBigDecimal(
+                "Insert the " + category.substring(0,category.length()-1) + "'s price ($USD)",
+                "Invalid input! Please insert a positive value, separeted by a dot(.) if necessary.",
+                true
+                );
+    }
+
+
+    public static BigDecimal getBigDecimal(String prompt, String invalidValueMsg, boolean firstTry) {
         BigDecimal input = (BigDecimal) input("BigDecimal", invalidValueMsg, prompt, firstTry);
         if (input != null && input.compareTo(BigDecimal.valueOf(1)) > 0) {
             return input;

@@ -1,6 +1,10 @@
 package br.com.georg.library.products;
 
+import br.com.georg.library.utilities.HashMapTools;
+
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Product {
     private String name;
@@ -9,11 +13,26 @@ public class Product {
     private Integer quantity;
     private static Integer IDCounter = 1;
 
-    protected Product(String name, BigDecimal price, Integer quantity) {
+    private static HashMap<String, HashMap<Integer, String>> genresAndTypesHashMap =
+            new HashMap<>(Map.of(
+                    "Albums", Album.getGenres(), "Books", Book.getGenres(),
+                    "Films", Film.getGenres(), "Games", Game.getGenres(),
+                    "Toys", Toy.getTypes()
+            ));
+
+    private static String[] categoriesArray =
+            new String[]{"Albums", "Books", "Films", "Games", "Toys"};
+
+    private static HashMap<Integer, String> categories = HashMapTools.initializeCategoryGenresOrTypesHashMap(categoriesArray);
+
+    protected Product(String name, BigDecimal price, Integer quantity, String category, String genreType) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        ID = (IDCounter++).toString();
+        String id = (IDCounter++).toString();
+        ID = category.substring(0,3).toUpperCase() +
+                genreType.substring(0,3).toUpperCase() +
+                "0".repeat(4 - id.length()) + id;
     }
 
     protected Product(String name, BigDecimal price, String ID, Integer quantity) {
@@ -58,5 +77,17 @@ public class Product {
 
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public static HashMap<String, HashMap<Integer, String>> getGenresAndTypesHashMap() {
+        return genresAndTypesHashMap;
+    }
+
+    public static String[] getCategoriesArray() {
+        return categoriesArray;
+    }
+
+    public static HashMap<Integer, String> getCategories() {
+        return categories;
     }
 }
