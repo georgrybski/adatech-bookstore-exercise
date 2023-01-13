@@ -30,8 +30,8 @@ public class Book extends Product {
     private static HashMap<Integer,String> genres =
             HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
-    public Book(String category, String name, BigDecimal price, Integer quantity,
-                String genre, String author, String publisher) {
+    public Book(String category, String name, BigDecimal price,
+                String genre, String author, String publisher, Integer quantity) {
         super(name, price, quantity, category, genre);
         this.genre = genre;
         this.author = author;

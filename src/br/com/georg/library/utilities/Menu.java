@@ -30,62 +30,59 @@ public class Menu {
                         .map(s -> i[0]++ + " - " + s).toArray(String[]::new)
         );
         String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber -1];
-
         String productName = Input.getProductName(categoryString);
         BigDecimal productPrice = Input.getProductPrice(categoryString);
+
+        Product newProduct = null;
         switch (categoryString) {
             case "Albums":
+                newProduct = new Album(
+                        categoryString, productName, productPrice, genreTypeString,
+                        Input.getProductAuthor(categoryString),
+                        Input.getRecordLabel(), Input.getProductQuantity()
+                );
                 break;
             case "Books":
+                newProduct = new Book(
+                        categoryString, productName, productPrice, genreTypeString,
+                        Input.getProductAuthor(categoryString),
+                        Input.getPublisher(), Input.getProductQuantity()
+                );
                 break;
             case "Films":
+                newProduct = new Film(
+                        categoryString, productName, productPrice, genreTypeString,
+                        Input.getStudio(categoryString),
+                        Input.getDirector(),
+                        Input.getProducer(),
+                        Input.getProductQuantity()
+                );
                 break;
             case "Games":
+                newProduct = new Game(
+                        categoryString, productName, productPrice, genreTypeString,
+                        Input.getDirector(),
+                        Input.getStudio(categoryString),
+                        Input.getProductQuantity()
+                );
                 break;
             case "Toys":
-
+                newProduct = new Toy(
+                        categoryString, productName, productPrice, genreTypeString,
+                        Input.getProductQuantity()
+                );
+                break;
         }
+
+        Bookstore.getInventory()
+                .get(categoryString)
+                .get(genreTypeString)
+                .put(newProduct.getID(), newProduct);
     }
-
-
-
-//    private static final String[] ALBUM_GENRE_MENU_OPTIONS =
-//            createCategoryGenreAndTypeMenuOptions(Album.getGenres());
-//
-
-//    private static final String[] BOOK_GENRE_MENU_OPTIONS =
-//            createCategoryGenreAndTypeMenuOptions(Book.getGenres());
-//    private static final String[] FILM_GENRE_MENU_OPTIONS =
-//            createCategoryGenreAndTypeMenuOptions(Film.getGenres());
-//    private static final String[] GAME_GENRE_MENU_OPTIONS =
-//            createCategoryGenreAndTypeMenuOptions(Game.getGenres());
-//    private static final String[] TOY_TYPE_MENU_OPTIONS =
-//            createCategoryGenreAndTypeMenuOptions(Toy.getTypes());
-
 
     public static int getProductCategory() {
         return getInt(PRODUCT_CATEGORY_MENU_OPTIONS);
     }
-//
-//    public static int getAlbumGenre() {
-//        return getInt(ALBUM_GENRE_MENU_OPTIONS);
-//    }
-//
-//    public static int getBookGenre() {
-//        return getInt(BOOK_GENRE_MENU_OPTIONS);
-//    }
-//
-//    public static int getFilmGenre() {
-//        return getInt(FILM_GENRE_MENU_OPTIONS);
-//    }
-//
-//    public static int getGameGenre() {
-//        return getInt(GAME_GENRE_MENU_OPTIONS);
-//    }
-//
-//    public static int getToyType() {
-//        return getInt(TOY_TYPE_MENU_OPTIONS);
-//    }
 
     public static int getInt(String[] opcoes) {
         String prompt = "Insert a value between " + 1 + " and " + opcoes.length;

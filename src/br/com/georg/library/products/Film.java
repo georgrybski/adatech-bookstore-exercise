@@ -24,7 +24,7 @@ public class Film extends Product {
             HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
 
-    public Film(String category, String name, BigDecimal price, Integer quantity, String studio, String directors, String genre, String producer) {
+    public Film(String category, String name, BigDecimal price, String genre, String studio, String directors, String producer, Integer quantity) {
         super(name, price, quantity, category, genre);
         this.studio = studio;
         this.directors = directors;

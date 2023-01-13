@@ -1,9 +1,6 @@
 package br.com.georg.library.utilities;
 
-import br.com.georg.library.products.Product;
-
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -72,18 +69,53 @@ public class Input {
 
     }
 
-    public static String getProductName(String category) {
-        return getString("Insert the " + category.substring(0,category.length()-1) + "'s name");
-    }
-
     public static BigDecimal getProductPrice(String category) {
         return getBigDecimal(
-                "Insert the " + category.substring(0,category.length()-1) + "'s price ($USD)",
+                "Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s price ($USD)",
                 "Invalid input! Please insert a positive value, separeted by a dot(.) if necessary.",
                 true
                 );
     }
 
+    public static String getProductField(String category, String field) {
+        return getString("Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s " + field);
+    }
+
+    public static String getProductName(String category) {
+        return getProductField(category, "name");
+    }
+
+    public static String getProductGenre(String category) {
+        return getProductField(category, "genre");
+    }
+
+    public static String getProductAuthor(String category) {
+        return getProductField(category, "author");
+    }
+
+    public static String getStudio(String category) {
+        return getProductField(category, "studio");
+    }
+
+    public static String getRecordLabel() {
+        return getString("Insert the album's record label");
+    }
+
+    public static String getPublisher() {
+        return getString("Insert the book's publisher");
+    }
+
+    public static String getProducer() {
+        return getString("Insert the film's producer");
+    }
+
+    public static String getDirector() {
+        return getString("Insert the film's director");
+    }
+
+    public static String getDistribuitor() {
+        return getString("Insert the game's distribuitor");
+    }
 
     public static BigDecimal getBigDecimal(String prompt, String invalidValueMsg, boolean firstTry) {
         BigDecimal input = (BigDecimal) input("BigDecimal", invalidValueMsg, prompt, firstTry);
@@ -92,6 +124,18 @@ public class Input {
         }
         return getBigDecimal(prompt, invalidValueMsg, false);
     }
+
+
+    public static Integer getProductQuantity() {
+        return getInteger(1, Integer.MAX_VALUE,
+                "Insert the number of items to be added to stock",
+                "Invalid Input. Please insert a integer greater than 0");
+    }
+
+    public static String getProductStudio(String category, String field) {
+        return getString("Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s " + field);
+    }
+
 
     private static Object input(String type, String invalidValueMessage, String prompt, boolean firstTry) {
         Scanner scn = new Scanner(System.in);
