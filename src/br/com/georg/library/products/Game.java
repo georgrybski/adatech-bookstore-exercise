@@ -29,6 +29,19 @@ public class Game extends Product {
         this.studio = studio;
     }
 
+    private Game(String name, BigDecimal price, Integer ID, Integer quantity, String distribuitor, String genre, String studio) {
+        super(name, price, ID, quantity);
+        this.distribuitor = distribuitor;
+        this.genre = genre;
+        this.studio = studio;
+    }
+
+    @Override
+    public Game copy(Integer quantity) {
+        return new Game(this.getName(), this.getPrice(), this.getID(), quantity,
+                this.getDistribuitor(), this.getGenre(), this.getStudio());
+    }
+
     public String getDistribuitor() {
         return distribuitor;
     }
