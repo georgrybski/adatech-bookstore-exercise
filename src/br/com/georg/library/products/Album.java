@@ -16,9 +16,9 @@ public class Album extends Product {
     private static String[] genreArray = new String[] {
             "Pop", "Hip hop", "Rock", "Rhythm and blues", "Soul", "Reggae",
             "Country", "Funk", "Folk", "Middle Eastern", "Jazz", "Disco",
-            "Classical", "Electronic", "Music of Latin America", "Blues",
-            "New-age", "Vocal music", "Music of Africa", "Christian music",
-            "Music of Asia", "Ska", "Traditional music", "Independent music"
+            "Classical", "Electronic", "Latin American Music", "Blues",
+            "New-age", "Vocal music", "African music", "Christian music",
+            "Asian music", "Ska", "Traditional music", "Independent music"
     };
 
     private static HashMap<Integer,String> genres = HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
@@ -30,7 +30,7 @@ public class Album extends Product {
         this.seal = seal;
     }
 
-    private Album(String name, BigDecimal price, Integer ID, Integer quantity,
+    private Album(String name, BigDecimal price, String ID, Integer quantity,
                   String author, String genre, String seal) {
         super(name, price, ID, quantity);
         this.author = author;

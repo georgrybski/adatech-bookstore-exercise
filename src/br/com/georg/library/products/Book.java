@@ -1,7 +1,6 @@
 package br.com.georg.library.products;
 
 import br.com.georg.library.utilities.HashMapTools;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 
@@ -39,7 +38,7 @@ public class Book extends Product {
         this.publisher = publisher;
     }
 
-    private Book(String name, BigDecimal price, Integer ID, Integer quantity,
+    private Book(String name, BigDecimal price, String ID, Integer quantity,
                  String genre, String author, String publisher) {
         super(name, price, ID, quantity);
         this.genre = genre;

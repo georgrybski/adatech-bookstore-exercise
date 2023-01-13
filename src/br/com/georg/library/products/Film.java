@@ -32,7 +32,7 @@ public class Film extends Product {
         this.producer = producer;
     }
 
-    private Film(String name, BigDecimal price, Integer ID , Integer quantity,
+    private Film(String name, BigDecimal price, String ID , Integer quantity,
                  String studio, String directors, String genre, String producer){
         super(name, price, ID, quantity);
         this.studio = studio;

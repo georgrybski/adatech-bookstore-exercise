@@ -4,9 +4,8 @@ import java.math.BigDecimal;
 
 public class Product {
     private String name;
-    private Integer ID;
+    private String ID;
     private BigDecimal price;
-
     private Integer quantity;
     private static Integer IDCounter = 1;
 
@@ -14,10 +13,10 @@ public class Product {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        ID = IDCounter++;
+        ID = (IDCounter++).toString();
     }
 
-    protected Product(String name, BigDecimal price, Integer ID, Integer quantity) {
+    protected Product(String name, BigDecimal price, String ID, Integer quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -53,7 +52,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Integer getID() {
+    public String getID() {
         return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }

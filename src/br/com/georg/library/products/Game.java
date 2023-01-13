@@ -29,7 +29,7 @@ public class Game extends Product {
         this.studio = studio;
     }
 
-    private Game(String name, BigDecimal price, Integer ID, Integer quantity, String distribuitor, String genre, String studio) {
+    private Game(String name, BigDecimal price, String ID, Integer quantity, String distribuitor, String genre, String studio) {
         super(name, price, ID, quantity);
         this.distribuitor = distribuitor;
         this.genre = genre;

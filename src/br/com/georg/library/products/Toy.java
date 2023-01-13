@@ -21,7 +21,7 @@ public class Toy extends Product {
         this.type = types.get(type);
     }
 
-    private Toy(String name, BigDecimal price, Integer ID, Integer quantity, String type) {
+    private Toy(String name, BigDecimal price, String ID, Integer quantity, String type) {
         super(name, price, ID,quantity);
         this.type = type;
     }
