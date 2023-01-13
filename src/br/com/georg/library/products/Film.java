@@ -1,8 +1,9 @@
 package br.com.georg.library.products;
 
+import br.com.georg.library.utilities.HashMapTools;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Film extends Product {
 
@@ -14,13 +15,13 @@ public class Film extends Product {
 
     private String producer;
 
-    private static Map<Integer,String> genres = new HashMap(Map.of());
+    private static String[] genreArray = new String[] {
+            "Action", "Adventure", "Comedy", "Drama",
+            "Horror", "Mystery", "Romance", "Sports",
+            "Thriller", "Western", "Science Fiction"
+    };
+    private static HashMap<Integer,String> genres = HashMapTools.initializeGenresOrTypesHashMap(genreArray);
 
-    private static String[] genreMenuOptions =
-            genres.entrySet()
-                    .stream()
-                    .map(entry -> entry.getKey() + " - " + entry.getValue())
-                    .toArray(String[]::new);
 
     public Film(String name, BigDecimal price, Integer quantity, String studio, String directors, Integer genre, String producer) {
         super(name, price, quantity);
@@ -46,12 +47,12 @@ public class Film extends Product {
         return producer;
     }
 
-    public static Map<Integer, String> getGenres() {
+    public static HashMap<Integer, String> getGenres() {
         return genres;
     }
 
-    public static String[] getGenreMenuOptions() {
-        return genreMenuOptions;
+    public static String[] getGenreArray() {
+        return genreArray;
     }
 
     public void setStudio(String studio) {
@@ -70,11 +71,11 @@ public class Film extends Product {
         this.producer = producer;
     }
 
-    public static void setGenres(Map<Integer, String> genres) {
+    public static void setGenres(HashMap<Integer, String> genres) {
         Film.genres = genres;
     }
 
-    public static void setGenreMenuOptions(String[] genreMenuOptions) {
-        Film.genreMenuOptions = genreMenuOptions;
+    public static void setGenreArray(String[] genreArray) {
+        Film.genreArray = genreArray;
     }
 }
