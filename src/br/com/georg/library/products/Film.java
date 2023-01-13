@@ -32,6 +32,21 @@ public class Film extends Product {
         this.producer = producer;
     }
 
+    private Film(String name, BigDecimal price, Integer ID , Integer quantity,
+                 String studio, String directors, String genre, String producer){
+        super(name, price, ID, quantity);
+        this.studio = studio;
+        this.directors = directors;
+        this.genre = genre;
+        this.producer = producer;
+    }
+
+    @Override
+    public Film copy(Integer quantity) {
+        return new Film(this.getName(), this.getPrice(), this.getID(), quantity,
+                this.getStudio(), this.getDirectors(), this.getGenre(), this.getProducer());
+    }
+
     public String getStudio() {
         return studio;
     }
