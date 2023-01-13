@@ -1,7 +1,6 @@
 package br.com.georg.library;
 
 import br.com.georg.library.utilities.Bookstore;
-import br.com.georg.library.utilities.InventoryItem;
 
 import java.util.HashMap;
 import java.util.Map;

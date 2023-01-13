@@ -24,7 +24,7 @@ public class Bookstore {
                                          .toArray(String[]::new)
             );
 
-    private static HashMap<String, HashMap<String, HashMap<String, InventoryItem>>> inventory = initializeInventory();
+    private static HashMap<String, HashMap<String, HashMap<String, Product>>> inventory = initializeInventory();
 
     private Bookstore(){}
 
@@ -32,8 +32,8 @@ public class Bookstore {
         money.add(total);
     }
 
-    private static HashMap<String, HashMap<String, HashMap<String, InventoryItem>>> initializeInventory() {
-        var inventory = new HashMap<String, HashMap<String, HashMap<String, InventoryItem>>>();
+    private static HashMap<String, HashMap<String, HashMap<String, Product>>> initializeInventory() {
+        var inventory = new HashMap<String, HashMap<String, HashMap<String, Product>>>();
 
         categories.values().stream()
                 .forEach(category -> inventory.put(category, new HashMap<>()));
@@ -51,7 +51,7 @@ public class Bookstore {
         return categories;
     }
 
-    public static HashMap<String, HashMap<String, HashMap<String, InventoryItem>>> getInventory() {
+    public static HashMap<String, HashMap<String, HashMap<String, Product>>> getInventory() {
         return inventory;
     }
 }
