@@ -27,7 +27,6 @@ public class Main {
                         Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
                         break;
                 }
-
             }
 
             if (loggedAccount != null) {
@@ -91,7 +90,6 @@ public class Main {
                     }
                 }
             }
-
         }
     }
 }

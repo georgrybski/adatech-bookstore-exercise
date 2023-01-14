@@ -41,6 +41,9 @@ public class SearchEngine {
         return database.getOrdersHashMap().get(username);
     }
 
+    protected boolean isValidPassword(String username, String password) {
+        return database.getAccountsHashMap().get(username).getPassword().equals(password);
+    }
 
     private static class SearchEngineInitializer {
 
@@ -68,7 +71,5 @@ public class SearchEngine {
             return IDCategorySearchHashMap;
         }
     }
-
-
 
 }
