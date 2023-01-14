@@ -43,6 +43,10 @@ public class Database {
         return products3DHashMap;
     }
 
+    public ArrayList<Order> getOrderHistoryFrom(String username) {
+        return searchEngine.getOrderArrayListWithUsername(username);
+    }
+
     public Product getProductByID(String ID) {
         return searchEngine.getProductByID(ID);
     }

@@ -32,4 +32,16 @@ public class ShoppingCart {
     public void emptyCart() {
         items = new ArrayList<>();
     }
+
+    public String getUsername() {
+        return account.getUsername();
+    }
+
+    public ArrayList<Product> getItems() {
+        return items;
+    }
+
+    public Bookstore getBookstore() {
+        return bookstore;
+    }
 }

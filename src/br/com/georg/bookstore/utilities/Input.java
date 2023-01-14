@@ -57,7 +57,9 @@ public class Input {
     }
 
     public static String getProductField(String category, String field) {
-        return getString("Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s " + field);
+        return getString("Insert the " +
+                category.substring(0,category.length()-1).toLowerCase()
+                + "'s " + field);
     }
 
     public static String getProductName(String category) {

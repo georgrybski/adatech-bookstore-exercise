@@ -24,9 +24,12 @@ public class Album extends Product {
 
     private static String[] sortedGenreArray = Arrays.stream(genreArray).sorted().toArray(String[]::new);
 
-    private static HashMap<Integer,String> genres = HashMapTools.initializeCategoryGenresOrTypesHashMap(sortedGenreArray);
+    private static HashMap<Integer,String> genres =
+            HashMapTools.initializeCategoryGenresOrTypesHashMap(sortedGenreArray);
 
-    public Album(String category, String name, BigDecimal price, String genre, String author, String seal, Integer quantity) {
+    public Album(String category, String name, BigDecimal price, String genre,
+                 String author, String seal, Integer quantity) {
+
         super(name, price, quantity, category, genre);
         this.author = author;
         this.genre = genre;

@@ -4,6 +4,7 @@ import br.com.georg.bookstore.database.Database;
 import br.com.georg.bookstore.products.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Bookstore {
@@ -18,7 +19,7 @@ public class Bookstore {
     }
 
     public void completeSale(ShoppingCart shoppingCart) {
-        cashier.checkout(shoppingCart);
+        cashier.processTransaction(shoppingCart);
     }
 
     public void addProduct(String category, String genreType, Product product) {

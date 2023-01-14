@@ -1,7 +1,9 @@
 package br.com.georg.bookstore.database;
 
 import br.com.georg.bookstore.products.Product;
+import br.com.georg.bookstore.utilities.Order;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +36,11 @@ public class SearchEngine {
     protected boolean usernameExists(String username) {
         return database.getAccountsHashMap().containsKey(username);
     }
+
+    protected ArrayList<Order> getOrderArrayListWithUsername(String username) {
+        return database.getOrdersHashMap().get(username);
+    }
+
 
     private static class SearchEngineInitializer {
 

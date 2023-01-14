@@ -13,6 +13,10 @@ public class Account {
         shoppingCart = new ShoppingCart(this, bookstore);
     }
 
+    public void purchaseItemsInCart() {
+        shoppingCart.checkout();
+    }
+
     public String getUsername() {
         return username;
     }
