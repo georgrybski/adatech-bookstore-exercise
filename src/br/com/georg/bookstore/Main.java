@@ -1,7 +1,5 @@
 package br.com.georg.bookstore;
 
-
-import br.com.georg.bookstore.database.IDSearcher;
 import br.com.georg.bookstore.utilities.*;
 import br.com.georg.bookstore.utilities.Menu;
 
