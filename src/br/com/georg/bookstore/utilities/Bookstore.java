@@ -26,10 +26,8 @@ public class Bookstore {
         database.insertProduct(category, genreType, product);
     }
 
-
-
-    public static Product findById(String ID) {
-        return null;
+    public void registerAccount(String username, String password) {
+        database.insertAccount(new Account(username, password, this));
     }
 
 

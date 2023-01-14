@@ -14,7 +14,7 @@ public class Database {
     private SearchEngine searchEngine;
     private HashMap<String, HashMap<String, HashMap<String, Product>>> products3DHashMap;
     private HashMap<String, Account> stringAccountHashMap;
-    private HashMap<String, HashMap<String, ArrayList<Order>>> ordersHashMap;
+    private HashMap<String, ArrayList<Order>> ordersHashMap;
 
     public Database(Bookstore bookstore) {
         this.bookstore = bookstore;
@@ -22,6 +22,11 @@ public class Database {
         products3DHashMap = DatabaseTools.initializeInventory();
         stringAccountHashMap = new HashMap<>();
         ordersHashMap = new HashMap<>();
+    }
+
+    public void insertAccount(Account account) {
+        stringAccountHashMap.put(account.getUsername(), account);
+        ordersHashMap.put(account.getUsername(), new ArrayList<>());
     }
 
     public void insertProduct(String category, String genreType, Product product) {

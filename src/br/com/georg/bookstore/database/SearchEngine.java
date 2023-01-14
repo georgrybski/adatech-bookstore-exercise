@@ -19,7 +19,6 @@ public class SearchEngine {
         IDGenreTypeHashMap = SearchEngineInitializer.initializeIDGenreTypeSearchHashmap();
     }
 
-
     public HashMap<String, Product> getHashMapWhereIDIsLocated(String category, String genreType) {
         return database.getProducts3DHashMap().get(category).get(genreType);
     }
