@@ -48,27 +48,6 @@ public class Input {
         return getInteger(min, max, prompt, invalidValueMessage, false);
     }
 
-
-    public static void getAlbumInput() {
-
-    }
-
-    public static void getBookInput() {
-
-    }
-
-    public static void getFilmInput() {
-
-    }
-
-    public static void getGameInput() {
-
-    }
-
-    public static void getToyInput() {
-
-    }
-
     public static BigDecimal getProductPrice(String category) {
         return getBigDecimal(
                 "Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s price ($USD)",
