@@ -99,6 +99,20 @@ public class Input {
         }
     }
 
+    public static Account logIn(Bookstore bookstore) {
+        Account account = null;
+        String username = getString("Insert your username");
+        String password = getString("Insert your password");
+
+        if(bookstore.getDatabase().isLogInValid(username, password)) {
+            account = bookstore.getDatabase().getAccountsHashMap().get(username);
+        }
+
+        String message = (account != null)? "Successfully logged in as '" + account.getUsername() + "'": "Invalid credentials";
+        Printer.printFormattedMesage("message");
+        return account;
+    }
+
     public static Account createNewAccount(Bookstore bookstore){
         Account newAccount = bookstore.registerAccount(getUsername(bookstore),
                 getString("Insert your desired password"));

@@ -19,8 +19,9 @@ public class Main {
                     case (1):
                         loggedAccount = Input.createNewAccount(bookstore);
                         break;
-                    // TODO Log In
+                    // Log In
                     case (2):
+                        loggedAccount = Input.logIn(bookstore);
                         break;
                     // Exit
                     case 3:
@@ -33,6 +34,7 @@ public class Main {
             if (loggedAccount != null) {
                 boolean customerLoggedIn = !loggedAccount.getUsername().equalsIgnoreCase("admin");
                 if (customerLoggedIn) {
+                    Printer.printFormattedMesage("Logged in as '" + loggedAccount.getUsername() + "'");
                     switch (Menu.getCustomerInput()) {
                         // TODO Browse all products
                         case (1):
@@ -62,6 +64,7 @@ public class Main {
             if (loggedAccount != null) {
                 boolean adminLoggedIn = loggedAccount.getUsername().equalsIgnoreCase("admin");
                 if (adminLoggedIn) {
+                    Printer.printFormattedMesage("Logged in as '" + loggedAccount.getUsername() + "'");
                     switch (Menu.getAdminInput()) {
                         // TODO See products list
                         case (1):
