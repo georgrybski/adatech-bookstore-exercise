@@ -74,17 +74,22 @@ public class Printer {
                 boolean optionNumberDifferentThanSix = (optionsMatrix.length != 6);
 
                 // Checking if the number of options is a multiple of 5 avoids missing last option in these situations.
-                boolean multipleOf5 = !(optionsMatrix.length % 5 == 0);
+                boolean notMultipleOf5 = !(optionsMatrix.length % 5 == 0);
 
                 // Multiples of 10, 14 and 16 would have duplicity if not checked.
-                boolean notMultipleOf10or14or6 = (optionsMatrix.length % 10 != 0 &&
+                boolean notMultipleOf3Or10or13Or14or16 = (
+                        optionsMatrix.length % 3 != 0 &&
+                        optionsMatrix.length % 10 != 0 &&
+                        optionsMatrix.length % 11 != 0 &&
+                        optionsMatrix.length % 13 != 0 &&
                         optionsMatrix.length % 14 != 0 &&
-                        optionsMatrix.length % 16 != 0);
+                        optionsMatrix.length % 16 != 0
+                );
 
                 boolean moreThanOneLineNecessary = (lastIteration && moreThanTwoOptions && evenIterationNumber &&
                         aditionalOptionNumberDifferentThanIterationNumber &&
-                        optionNumberDifferentThanSix && notMultipleOf10or14or6)
-                        || (lastIteration && multipleOf5 && notMultipleOf10or14or6);
+                        optionNumberDifferentThanSix && notMultipleOf3Or10or13Or14or16)
+                        || (lastIteration && notMultipleOf5 && notMultipleOf3Or10or13Or14or16);
 
                 if(moreThanOneLineNecessary) {
                     oddOrEvenOffset =

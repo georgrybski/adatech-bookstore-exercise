@@ -18,7 +18,7 @@ public class Menu {
 
     private static final String[] LOGGED_BUYER_MENU_OPTIONS = {
             "1 - Browse all products", "2 - Browse products by category", "3 - Go to shopping cart",
-            "4 - See my purchases", "5 - Log out", "6 - Exit"
+            "4 - See my purchase history", "5 - Log out", "6 - Exit"
     };
 
 
@@ -96,6 +96,8 @@ public class Menu {
         bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
 
+
+
     private static String[] buyerProductsByCategoryOptions(String category){
         return new String[] {
                 "1 - See all " + category,
@@ -112,6 +114,22 @@ public class Menu {
 
     public static int getProductCategory() {
         return getIntFrom(PRODUCT_CATEGORY_MENU_OPTIONS);
+    }
+
+    public static int getLoggedOutInput(){
+        return getIntFrom(LOGGED_OUT_MENU_OPTIONS);
+    }
+
+    public static int getCustomerInput() {
+        return getIntFrom(LOGGED_BUYER_MENU_OPTIONS);
+    }
+
+    public static int getAdminInput() {
+        return getIntFrom(ADMIN_MENU_OPTIONS);
+    }
+
+    public static int getInputAdminProducts() {
+        return getIntFrom(ADMIN_SEE_PRODUCTS_LIST);
     }
 
     public static int getIntFrom(String[] opcoes) {

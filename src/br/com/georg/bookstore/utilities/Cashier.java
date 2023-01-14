@@ -1,10 +1,6 @@
 package br.com.georg.bookstore.utilities;
 
-
-import br.com.georg.bookstore.products.Product;
-
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class Cashier {
     private Bookstore bookstore;
