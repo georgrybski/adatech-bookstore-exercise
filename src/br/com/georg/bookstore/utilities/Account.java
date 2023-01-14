@@ -3,36 +3,17 @@ package br.com.georg.bookstore.utilities;
 import java.util.ArrayList;
 
 public class Account {
-
     private String username;
-
     private String password;
+    private Bookstore bookstore;
+    private ShoppingCart shoppingCart;
 
-    private Cart shoppingCart = new Cart();
+    // TODO figure out where to put the ORDERS data structure
 
-    private static ArrayList<Account> accountList = new ArrayList<>();
-
-    private Account(String username, String password) {
+    private Account(String username, String password, Bookstore bookstore) {
         this.username = username;
         this.password = password;
+        this.bookstore = bookstore;
+        shoppingCart = new ShoppingCart(this);
     }
-
-    public Account register(String username, String password) {
-        Account account = getAccount(username);
-        if (account != null) {
-            account = new Account(username, password);
-            accountList.add(account);
-        }
-        return account;
-    }
-
-    public static Account getAccount(String username) {
-        for (Account account: accountList) {
-            if (account.username.equalsIgnoreCase(username)){
-                return account;
-            }
-        }
-        return null;
-    }
-
 }

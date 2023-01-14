@@ -5,9 +5,15 @@ import br.com.georg.bookstore.products.Product;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class Cart {
+public class ShoppingCart {
 
     private ArrayList<Product> items = new ArrayList<>();
+    private Account account;
+    private Bookstore bookstore;
+
+    public ShoppingCart(Account account) {
+
+    }
 
     public BigDecimal getTotal() {
         BigDecimal total = BigDecimal.valueOf(0);
@@ -18,7 +24,7 @@ public class Cart {
     }
 
     public void checkout() {
-        Cashier.completeSale(this);
+        bookstore.completeSale(this);
     }
 
     public void emptyCart() {

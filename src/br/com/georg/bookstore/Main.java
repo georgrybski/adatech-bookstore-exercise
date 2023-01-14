@@ -8,18 +8,19 @@ import br.com.georg.bookstore.utilities.Menu;
 public class Main {
     public static void main(String[] args) {
 
+        Bookstore bookstore = new Bookstore();
 
         for (int i = 0; i < 5; i++) {
-            Menu.addProduct();
+            Menu.addProduct(bookstore);
 
             if(i == 3 || i == 4) {
-                System.out.println(IDSearcher.getProductByID(Input.getString("Insert a product id")).toString());
+                System.out.println(bookstore.getDatabase().getProductByID(Input.getString("Insert a product id")).toString());
             }
 
 
 //            var hashMap = Bookstore.getInventory();
 
-            Printer.printAllProducts();
+            Printer.printAllProducts(bookstore);
 
 //            for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> outerEntry : hashMap.entrySet()) {
 //                System.out.println("Outer key: " + outerEntry.getKey() + " | Outer value: " + outerEntry.getValue());

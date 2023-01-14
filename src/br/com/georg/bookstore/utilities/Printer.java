@@ -161,8 +161,8 @@ public class Printer {
         System.out.println(formattedLine);
     }
 
-    public static void printAllProducts() {
-        for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : Database.getProducts3DHashMap().entrySet()) {
+    public static void printAllProducts(Bookstore bookstore) {
+        for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : bookstore.getInventory().entrySet()) {
             for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : categoryLayer.getValue().entrySet()) {
                 for (Map.Entry<String, Product> productLayer: genreTypeLayer.getValue().entrySet()) {
                 printFormattedMesage(genreTypeLayer.getKey() + " " + categoryLayer.getKey().substring(0, categoryLayer.getKey().length() - 1)

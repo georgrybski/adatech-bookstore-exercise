@@ -37,7 +37,7 @@ public class Menu {
             "Toys", Toy.getTypesArray()
     ));
 
-    public static void addProduct() {
+    public static void addProduct(Bookstore bookstore) {
 
         Integer categoryNumber = getProductCategory() -1;
 
@@ -93,7 +93,7 @@ public class Menu {
                 break;
         }
 
-        Bookstore.addProduct(categoryString, genreTypeString, newProduct);
+        bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
 
     private static String[] buyerProductsByCategoryOptions(String category){

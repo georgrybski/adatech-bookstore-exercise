@@ -1,11 +1,22 @@
 package br.com.georg.bookstore.utilities;
 
+
+import java.math.BigDecimal;
+
 public class Cashier {
 
-    private Cashier() {}
-    public static void completeSale(Cart shoppingCart) {
-        Bookstore.recieveMoney(shoppingCart.getTotal());
+    private Bookstore bookstore;
+
+    public Cashier(Bookstore bookstore) {
+        this.bookstore = bookstore;
+    }
+    public void checkout(ShoppingCart shoppingCart) {
+        recievePayment(shoppingCart.getTotal());
         shoppingCart.emptyCart();
+    }
+
+    public void recievePayment(BigDecimal addedMoney) {
+        bookstore.getMoney().add(addedMoney);
     }
 
 }
