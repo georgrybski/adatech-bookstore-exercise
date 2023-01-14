@@ -1,6 +1,6 @@
-package br.com.georg.library.utilities;
+package br.com.georg.bookstore.utilities;
 
-import br.com.georg.library.products.*;
+import br.com.georg.bookstore.products.*;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -11,6 +11,25 @@ public class Menu {
 
     private static final String[] PRODUCT_CATEGORY_MENU_OPTIONS =
             createCategoryGenreAndTypeMenuOptions(Product.getCategories());
+
+    private static final String[] LOGGED_OUT_MENU_OPTIONS = {
+            "1 - Create an account", " 2 - Log in", "3 - Exit"
+    };
+
+    private static final String[] LOGGED_BUYER_MENU_OPTIONS = {
+            "1 - Browse all products", "2 - Browse products by category", "3 - Go to shopping cart",
+            "4 - See my purchases", "5 - Log out", "6 - Exit"
+    };
+
+
+    private static final String[] ADMIN_MENU_OPTIONS = {
+            "1 - See products list", "2 - Add new product", "3 - Modify an existing product",
+            "4 - Remove a product", "5 - See sales history", "6 - Log out", "7 - Exit"
+    };
+
+    private static final String[] ADMIN_SEE_PRODUCTS_LIST = {
+            "1 - See all products", "2 - See products by category"
+    };
 
     public static HashMap<String, String[]> GENRE_TYPE_ARRAYS = new HashMap<>(Map.of(
             "Albums", Album.getGenreArray(), "Books", Book.getGenreArray(),
@@ -25,7 +44,7 @@ public class Menu {
         String categoryString = Product.getCategoriesArray()[categoryNumber];
 
         int[] i = {1};
-        Integer genreTypeNumber = Menu.getInt(
+        Integer genreTypeNumber = Menu.getIntFrom(
                 Arrays.stream(GENRE_TYPE_ARRAYS.get(categoryString))
                         .map(s -> i[0]++ + " - " + s).toArray(String[]::new)
         );
@@ -74,18 +93,14 @@ public class Menu {
                 break;
         }
 
-        Bookstore.insertProduct(categoryString, genreTypeString, newProduct);
+        Bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
 
-    public static int getProductCategory() {
-        return getInt(PRODUCT_CATEGORY_MENU_OPTIONS);
-    }
-
-    public static int getInt(String[] opcoes) {
-        String prompt = "Insert a value between " + 1 + " and " + opcoes.length;
-        String msgValorInvalido = "Invalid value! " + prompt;
-        return  Input.getIntegerFromMenu(opcoes, 1, opcoes.length, prompt,
-                msgValorInvalido, true);
+    private static String[] buyerProductsByCategoryOptions(String category){
+        return new String[] {
+                "1 - See all " + category,
+                "2 - See " + category + " by " + (category.equals("Toys")? "type" : "genre")
+        };
     }
 
     public static String[] createCategoryGenreAndTypeMenuOptions(HashMap<Integer, String> genres) {
@@ -94,6 +109,19 @@ public class Menu {
                 .map(entry -> entry.getKey() + " - " + entry.getValue())
                 .toArray(String[]::new);
     }
+
+    public static int getProductCategory() {
+        return getIntFrom(PRODUCT_CATEGORY_MENU_OPTIONS);
+    }
+
+    public static int getIntFrom(String[] opcoes) {
+        String prompt = "Insert a value between " + 1 + " and " + opcoes.length;
+        String msgValorInvalido = "Invalid value! " + prompt;
+        return  Input.getIntegerFromMenu(opcoes, 1, opcoes.length, prompt,
+                msgValorInvalido, true);
+    }
+
 }
+
 
 

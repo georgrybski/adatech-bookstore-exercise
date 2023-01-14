@@ -1,14 +1,13 @@
-package br.com.georg.library;
+package br.com.georg.bookstore;
 
 
-import br.com.georg.library.products.Product;
-import br.com.georg.library.utilities.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import br.com.georg.bookstore.database.IDSearcher;
+import br.com.georg.bookstore.utilities.*;
+import br.com.georg.bookstore.utilities.Menu;
 
 public class Main {
     public static void main(String[] args) {
+
 
         for (int i = 0; i < 5; i++) {
             Menu.addProduct();
@@ -17,7 +16,8 @@ public class Main {
                 System.out.println(IDSearcher.getProductByID(Input.getString("Insert a product id")).toString());
             }
 
-            var hashMap = Bookstore.getInventory();
+
+//            var hashMap = Bookstore.getInventory();
 
             Printer.printAllProducts();
 

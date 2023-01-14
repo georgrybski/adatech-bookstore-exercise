@@ -1,6 +1,7 @@
-package br.com.georg.library.utilities;
+package br.com.georg.bookstore.utilities;
 
-import br.com.georg.library.products.Product;
+import br.com.georg.bookstore.database.Database;
+import br.com.georg.bookstore.products.Product;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -161,7 +162,7 @@ public class Printer {
     }
 
     public static void printAllProducts() {
-        for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : Bookstore.getInventory().entrySet()) {
+        for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : Database.getProducts3DHashMap().entrySet()) {
             for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : categoryLayer.getValue().entrySet()) {
                 for (Map.Entry<String, Product> productLayer: genreTypeLayer.getValue().entrySet()) {
                 printFormattedMesage(genreTypeLayer.getKey() + " " + categoryLayer.getKey().substring(0, categoryLayer.getKey().length() - 1)

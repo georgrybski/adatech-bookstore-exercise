@@ -1,6 +1,6 @@
-package br.com.georg.library.products;
+package br.com.georg.bookstore.products;
 
-import br.com.georg.library.utilities.HashMapTools;
+import br.com.georg.bookstore.utilities.HashMapTools;
 import java.math.BigDecimal;
 import java.util.HashMap;
 

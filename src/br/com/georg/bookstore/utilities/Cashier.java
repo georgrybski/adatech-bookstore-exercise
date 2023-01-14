@@ -1,4 +1,4 @@
-package br.com.georg.library.utilities;
+package br.com.georg.bookstore.utilities;
 
 public class Cashier {
 

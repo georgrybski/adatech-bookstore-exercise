@@ -1,4 +1,4 @@
-package br.com.georg.library.utilities;
+package br.com.georg.bookstore.utilities;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
@@ -21,8 +21,8 @@ public class Input {
         return getString(prompt, false);
     }
 
-    protected static Integer getIntegerFromMenu(String[] options, int min, int max, String prompt,
-                                            String invalidValueMessage, boolean firstTry) {
+    public static Integer getIntegerFromMenu(String[] options, int min, int max, String prompt,
+                                             String invalidValueMessage, boolean firstTry) {
 
         Printer.printMenuWithOptions(options);
         Integer input = (Integer) input("int", invalidValueMessage, prompt, firstTry);

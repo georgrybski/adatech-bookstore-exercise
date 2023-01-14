@@ -1,6 +1,6 @@
-package br.com.georg.library.utilities;
+package br.com.georg.bookstore.database;
 
-import br.com.georg.library.products.Product;
+import br.com.georg.bookstore.products.Product;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +44,7 @@ public class IDSearcher {
     }
 
     public static HashMap<String, Product> getHashMapWhereIDIsLocated(String category, String genreType) {
-        return Bookstore.getInventory().get(category).get(genreType);
+        return Database.getProducts3DHashMap().get(category).get(genreType);
     }
 
     public static Product getProductByID(String ID) {

@@ -1,17 +1,18 @@
-package br.com.georg.library.products;
+package br.com.georg.bookstore.products;
 
-import br.com.georg.library.utilities.HashMapTools;
+import br.com.georg.bookstore.utilities.HashMapTools;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Product {
-    private String name;
-    private String ID;
-    private BigDecimal price;
-    private Integer quantity;
-    private static Integer IDCounter = 1;
+
+    private static String[] categoriesArray =
+            new String[]{"Albums", "Books", "Films", "Games", "Toys"};
+
+    private static HashMap<Integer, String> categories =
+            HashMapTools.initializeCategoryGenresOrTypesHashMap(categoriesArray);
 
     private static HashMap<String, HashMap<Integer, String>> genresAndTypesHashMap =
             new HashMap<>(Map.of(
@@ -20,10 +21,15 @@ public class Product {
                     "Toys", Toy.getTypes()
             ));
 
-    private static String[] categoriesArray =
-            new String[]{"Albums", "Books", "Films", "Games", "Toys"};
+    private static Integer IDCounter = 1;
 
-    private static HashMap<Integer, String> categories = HashMapTools.initializeCategoryGenresOrTypesHashMap(categoriesArray);
+    private String name;
+
+    private String ID;
+
+    private BigDecimal price;
+
+    private Integer quantity;
 
     protected Product(String name, BigDecimal price, Integer quantity, String category, String genreType) {
         this.name = name;
@@ -46,6 +52,13 @@ public class Product {
         return new Product(this.name, this.price, this.ID, quantity);
     }
 
+    public static HashMap<String, HashMap<Integer, String>> getGenresAndTypesHashMap() {
+        return genresAndTypesHashMap;
+    }
+
+    public static HashMap<Integer, String> getCategories() {
+        return categories;
+    }
 
     public String getName() {
         return name;
@@ -79,16 +92,8 @@ public class Product {
         this.ID = ID;
     }
 
-    public static HashMap<String, HashMap<Integer, String>> getGenresAndTypesHashMap() {
-        return genresAndTypesHashMap;
-    }
-
     public static String[] getCategoriesArray() {
         return categoriesArray;
-    }
-
-    public static HashMap<Integer, String> getCategories() {
-        return categories;
     }
 
     @Override
