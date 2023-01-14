@@ -31,6 +31,9 @@ public class SearchEngine {
         return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey).get(ID);
     }
 
+    protected boolean usernameExists(String username) {
+        return database.getStringAccountHashMap().containsKey(username);
+    }
 
     private static class SearchEngineInitializer {
 

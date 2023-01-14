@@ -27,6 +27,7 @@ public class Bookstore {
     }
 
     public void registerAccount(String username, String password) {
+
         database.insertAccount(new Account(username, password, this));
     }
 

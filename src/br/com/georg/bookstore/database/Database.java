@@ -43,6 +43,14 @@ public class Database {
         return searchEngine.getProductByID(ID);
     }
 
+    public HashMap<String, Account> getStringAccountHashMap() {
+        return stringAccountHashMap;
+    }
+
+    public HashMap<String, ArrayList<Order>> getOrdersHashMap() {
+        return ordersHashMap;
+    }
+
     protected static class DatabaseTools {
 
         protected static HashMap<String, HashMap<String, HashMap<String, Product>>> initializeInventory() {
