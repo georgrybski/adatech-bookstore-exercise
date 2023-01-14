@@ -4,6 +4,7 @@ import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.utilities.Account;
 import br.com.georg.bookstore.utilities.Bookstore;
 import br.com.georg.bookstore.utilities.Order;
+import br.com.georg.bookstore.utilities.ShoppingCart;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,20 +14,23 @@ public class Database {
     private Bookstore bookstore;
     private SearchEngine searchEngine;
     private HashMap<String, HashMap<String, HashMap<String, Product>>> products3DHashMap;
-    private HashMap<String, Account> stringAccountHashMap;
+    private HashMap<String, Account> accountsHashMap;
     private HashMap<String, ArrayList<Order>> ordersHashMap;
+    private HashMap<String, ShoppingCart> shoppingCartsHashMap;
 
     public Database(Bookstore bookstore) {
         this.bookstore = bookstore;
         searchEngine = new SearchEngine(this);
         products3DHashMap = DatabaseTools.initializeInventory();
-        stringAccountHashMap = new HashMap<>();
+        accountsHashMap = new HashMap<>();
         ordersHashMap = new HashMap<>();
+        shoppingCartsHashMap = new HashMap<>();
     }
 
     public void insertAccount(Account account) {
-        stringAccountHashMap.put(account.getUsername(), account);
+        accountsHashMap.put(account.getUsername(), account);
         ordersHashMap.put(account.getUsername(), new ArrayList<>());
+        shoppingCartsHashMap.put(account.getUsername(), account.getShoppingCart());
     }
 
     public void insertProduct(String category, String genreType, Product product) {
@@ -43,8 +47,12 @@ public class Database {
         return searchEngine.getProductByID(ID);
     }
 
-    public HashMap<String, Account> getStringAccountHashMap() {
-        return stringAccountHashMap;
+    public boolean usernameFree(String username) {
+        return !searchEngine.usernameExists(username);
+    }
+
+    public HashMap<String, Account> getAccountsHashMap() {
+        return accountsHashMap;
     }
 
     public HashMap<String, ArrayList<Order>> getOrdersHashMap() {

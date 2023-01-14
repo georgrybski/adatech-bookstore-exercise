@@ -32,7 +32,7 @@ public class SearchEngine {
     }
 
     protected boolean usernameExists(String username) {
-        return database.getStringAccountHashMap().containsKey(username);
+        return database.getAccountsHashMap().containsKey(username);
     }
 
     private static class SearchEngineInitializer {

@@ -7,13 +7,12 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 
 public class Bookstore {
-    private BigDecimal money;
+    private BigDecimal moneySum;
     private Database database;
-
     private Cashier cashier;
 
     public Bookstore(){
-        money = BigDecimal.valueOf(0);
+        moneySum = BigDecimal.valueOf(0);
         database = new Database(this);
         cashier = new Cashier(this);
     }
@@ -26,14 +25,17 @@ public class Bookstore {
         database.insertProduct(category, genreType, product);
     }
 
-    public void registerAccount(String username, String password) {
-
-        database.insertAccount(new Account(username, password, this));
+    public boolean registerAccount(String username, String password) {
+        if (database.usernameFree(username)){
+            database.insertAccount(new Account(username, password, this));
+            return true;
+        }
+        return false;
     }
 
 
-    public BigDecimal getMoney() {
-        return money;
+    public BigDecimal getMoneySum() {
+        return moneySum;
     }
 
     public Database getDatabase() {

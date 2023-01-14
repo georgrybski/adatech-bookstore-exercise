@@ -10,7 +10,7 @@ public class Account {
         this.username = username;
         this.password = password;
         this.bookstore = bookstore;
-        shoppingCart = new ShoppingCart(this);
+        shoppingCart = new ShoppingCart(this, bookstore);
     }
 
     public String getUsername() {

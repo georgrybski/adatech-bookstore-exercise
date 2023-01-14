@@ -7,12 +7,14 @@ import java.util.ArrayList;
 
 public class ShoppingCart {
 
-    private ArrayList<Product> items = new ArrayList<>();
+    private ArrayList<Product> items;
     private Account account;
     private Bookstore bookstore;
 
-    public ShoppingCart(Account account) {
-
+    public ShoppingCart(Account account, Bookstore bookstore) {
+        this.account = account;
+        this.bookstore = bookstore;
+        items = new ArrayList<>();
     }
 
     public BigDecimal getTotal() {
