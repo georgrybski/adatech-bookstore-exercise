@@ -21,7 +21,7 @@ public class Database {
     public Database(Bookstore bookstore) {
         this.bookstore = bookstore;
         searchEngine = new SearchEngine(this);
-        products3DHashMap = DatabaseTools.initializeInventory();
+        products3DHashMap = DatabaseTools.initialize3DProductsHashMap();
         accountsHashMap = new HashMap<>();
         ordersHashMap = new HashMap<>();
         shoppingCartsHashMap = new HashMap<>();
@@ -51,8 +51,16 @@ public class Database {
         return searchEngine.getProductByID(ID);
     }
 
-    public boolean usernameFree(String username) {
+    public boolean isUsernameFree(String username) {
         return !searchEngine.usernameExists(username);
+    }
+
+    public boolean isLogInValid(String username, String password) {
+        if (searchEngine.usernameExists(username)) {
+            return searchEngine.isValidPassword(username, password);
+        } else {
+            return false;
+        }
     }
 
     public HashMap<String, Account> getAccountsHashMap() {
@@ -63,9 +71,10 @@ public class Database {
         return ordersHashMap;
     }
 
+
     protected static class DatabaseTools {
 
-        protected static HashMap<String, HashMap<String, HashMap<String, Product>>> initializeInventory() {
+        protected static HashMap<String, HashMap<String, HashMap<String, Product>>> initialize3DProductsHashMap() {
             var inventory = new HashMap<String, HashMap<String, HashMap<String, Product>>>();
 
             Product.getCategories().values().stream()

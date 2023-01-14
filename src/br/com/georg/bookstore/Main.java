@@ -15,8 +15,9 @@ public class Main {
             boolean notLoggedIn = loggedAccount == null;
             if (notLoggedIn) {
                 switch (Menu.getLoggedOutInput()) {
-                    // TODO Create Account
+                    // Create Account
                     case (1):
+                        loggedAccount = Input.createNewAccount(bookstore);
                         break;
                     // TODO Log In
                     case (2):
@@ -64,8 +65,11 @@ public class Main {
                     switch (Menu.getAdminInput()) {
                         // TODO See products list
                         case (1):
+
+
+
                             break;
-                        // TODO Add new product
+                        // Add new product
                         case (2):
                             Menu.addProduct(bookstore);
                             break;

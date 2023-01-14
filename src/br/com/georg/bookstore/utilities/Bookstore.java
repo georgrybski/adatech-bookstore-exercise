@@ -4,7 +4,6 @@ import br.com.georg.bookstore.database.Database;
 import br.com.georg.bookstore.products.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Bookstore {
@@ -26,12 +25,13 @@ public class Bookstore {
         database.insertProduct(category, genreType, product);
     }
 
-    public boolean registerAccount(String username, String password) {
-        if (database.usernameFree(username)){
-            database.insertAccount(new Account(username, password, this));
-            return true;
+    public Account registerAccount(String username, String password) {
+        if (database.isUsernameFree(username)){
+            Account account = new Account(username, password, this);
+            database.insertAccount(account);
+            return account;
         }
-        return false;
+        return null;
     }
 
 

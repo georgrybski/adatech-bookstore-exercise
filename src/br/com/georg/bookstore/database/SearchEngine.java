@@ -37,12 +37,12 @@ public class SearchEngine {
         return database.getAccountsHashMap().containsKey(username);
     }
 
-    protected ArrayList<Order> getOrderArrayListWithUsername(String username) {
-        return database.getOrdersHashMap().get(username);
-    }
-
     protected boolean isValidPassword(String username, String password) {
         return database.getAccountsHashMap().get(username).getPassword().equals(password);
+    }
+
+    protected ArrayList<Order> getOrderArrayListWithUsername(String username) {
+        return database.getOrdersHashMap().get(username);
     }
 
     private static class SearchEngineInitializer {

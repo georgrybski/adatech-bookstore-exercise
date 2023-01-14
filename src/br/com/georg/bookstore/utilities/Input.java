@@ -1,5 +1,7 @@
 package br.com.georg.bookstore.utilities;
 
+import br.com.georg.bookstore.products.Book;
+
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -54,6 +56,57 @@ public class Input {
                 "Invalid input! Please insert a positive value, separeted by a dot(.) if necessary.",
                 true
                 );
+    }
+
+//    public static String getUsername(Bookstore bookstore) {
+//        var username = (String) getString("Insert your desired username");
+//        if (!isUsernameValid(username)) {
+//            Twitter.printFramedMessage("Usernames must have between 4 and 15 characters and " +
+//                    "contain only letters A-Z, numbers 0-9 or underscores");
+//            return getUsername();
+//        }
+//        AccountChecker usernameFree = AccountChecker.accountExists(username, Account.getAccountList());
+//        if (usernameFree.exists()) {
+//            Twitter.printFramedMessage("That username is already taken");
+//            return getUsername();
+//        } else {
+//            return username;
+//        }
+//    }
+
+    public static boolean isUsernameValid(String username) {
+        boolean usernameLengthValid = (username.length() >= 4 && username.length() <= 15);
+        boolean usernameCharactersValid = (username.matches("^[a-zA-Z0-9_]+$"));
+        if (usernameLengthValid && usernameCharactersValid) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static String getUsername(Bookstore bookstore) {
+        var username = getString("Insert your desired username");
+        if (!isUsernameValid(username)) {
+            Printer.printFormattedMesage("Usernames must have between 4 and 15 characters and " +
+                    "contain only letters A-Z, numbers 0-9 or underscores");
+            return getUsername(bookstore);
+
+        } else if (!bookstore.getDatabase().isUsernameFree(username)) {
+            Printer.printFormattedMesage("That username is already taken");
+            return getUsername(bookstore);
+        } else {
+            return username;
+        }
+    }
+
+    public static Account createNewAccount(Bookstore bookstore){
+        Account newAccount = bookstore.registerAccount(getUsername(bookstore),
+                getString("Insert your desired password"));
+        if (newAccount == null){
+            return createNewAccount(bookstore);
+        } else {
+            return newAccount;
+        }
     }
 
     public static String getProductField(String category, String field) {

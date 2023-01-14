@@ -97,7 +97,6 @@ public class Menu {
     }
 
 
-
     private static String[] buyerProductsByCategoryOptions(String category){
         return new String[] {
                 "1 - See all " + category,
