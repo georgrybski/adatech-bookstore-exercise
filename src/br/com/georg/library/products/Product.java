@@ -90,4 +90,11 @@ public class Product {
     public static HashMap<Integer, String> getCategories() {
         return categories;
     }
+
+    @Override
+    public String toString() {
+        return  name + " | " + "ID - " + ID   + " | " +
+                price + " USD " + " | " +
+                (quantity > 0 ? "In Stock - Only " + quantity + " Left" : "Out of Stock");
+    }
 }

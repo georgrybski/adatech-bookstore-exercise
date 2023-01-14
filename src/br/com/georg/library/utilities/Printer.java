@@ -1,5 +1,10 @@
 package br.com.georg.library.utilities;
 
+import br.com.georg.library.products.Product;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Printer {
 
     private static final int LINE_LENGTH =  102;
@@ -153,6 +158,17 @@ public class Printer {
                 " ".repeat(spacesEachSide + oddOrEvenOffset) +"|";
 
         System.out.println(formattedLine);
+    }
+
+    public static void printAllProducts() {
+        for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : Bookstore.getInventory().entrySet()) {
+            for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : categoryLayer.getValue().entrySet()) {
+                for (Map.Entry<String, Product> productLayer: genreTypeLayer.getValue().entrySet()) {
+                printFormattedMesage(genreTypeLayer.getKey() + " " + categoryLayer.getKey().substring(0, categoryLayer.getKey().length() - 1)
+                        + " | " + productLayer.getValue().toString());
+                }
+            }
+        }
     }
     
 }
