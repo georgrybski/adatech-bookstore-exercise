@@ -119,7 +119,7 @@ public class Input {
 
     public static BigDecimal getBigDecimal(String prompt, String invalidValueMsg, boolean firstTry) {
         BigDecimal input = (BigDecimal) input("BigDecimal", invalidValueMsg, prompt, firstTry);
-        if (input != null && input.compareTo(BigDecimal.valueOf(1)) > 0) {
+        if (input != null && input.compareTo(BigDecimal.valueOf(0)) > 0) {
             return input;
         }
         return getBigDecimal(prompt, invalidValueMsg, false);

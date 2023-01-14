@@ -61,7 +61,7 @@ public class Menu {
             case "Games":
                 newProduct = new Game(
                         categoryString, productName, productPrice, genreTypeString,
-                        Input.getDirector(),
+                        Input.getDistribuitor(),
                         Input.getStudio(categoryString),
                         Input.getProductQuantity()
                 );
@@ -74,10 +74,7 @@ public class Menu {
                 break;
         }
 
-        Bookstore.getInventory()
-                .get(categoryString)
-                .get(genreTypeString)
-                .put(newProduct.getID(), newProduct);
+        Bookstore.insertProduct(categoryString, genreTypeString, newProduct);
     }
 
     public static int getProductCategory() {
