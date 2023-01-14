@@ -11,14 +11,14 @@ import java.util.Map;
 
 public class Database {
     private Bookstore bookstore;
-    private IDSearcher searchEngine;
+    private SearchEngine searchEngine;
     private HashMap<String, HashMap<String, HashMap<String, Product>>> products3DHashMap;
     private HashMap<String, Account> stringAccountHashMap;
     private HashMap<String, HashMap<String, ArrayList<Order>>> ordersHashMap;
 
     public Database(Bookstore bookstore) {
         this.bookstore = bookstore;
-        searchEngine = new IDSearcher(this);
+        searchEngine = new SearchEngine(this);
         products3DHashMap = DatabaseTools.initializeInventory();
         stringAccountHashMap = new HashMap<>();
         ordersHashMap = new HashMap<>();
