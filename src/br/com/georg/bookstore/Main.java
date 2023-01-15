@@ -60,8 +60,8 @@ public class Main {
                         case (1) -> Menu.seeProductList(bookstore);
                         // Add new product
                         case (2) -> Menu.addProduct(bookstore);
-                        //// TODO Modify an existing product
-//                        case (3) ->
+                        // TODO Modify an existing product
+                        case (3) -> Input.modyfyExistingProduct(bookstore);
                         // Remove a product
                         case (4) -> Input.removeProductUsingID(bookstore);
 //                        // TODO See sales history

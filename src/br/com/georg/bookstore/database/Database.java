@@ -76,6 +76,11 @@ public class Database {
         return ordersHashMap;
     }
 
+    public String[] getCategoryAndGenreTypeByID(String ID) {
+        String category = searchEngine.getCategoryOfID(ID);
+        String genreType = searchEngine.getGenreTypeOfID(ID, category);
+        return new String[]{category, genreType};
+    }
 
     protected static class DatabaseTools {
 

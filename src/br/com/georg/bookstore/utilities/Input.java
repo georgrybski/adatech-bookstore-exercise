@@ -1,10 +1,8 @@
 package br.com.georg.bookstore.utilities;
 
-import br.com.georg.bookstore.products.Book;
-import br.com.georg.bookstore.products.Product;
+import br.com.georg.bookstore.products.*;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -60,22 +58,6 @@ public class Input {
                 );
     }
 
-//    public static String getUsername(Bookstore bookstore) {
-//        var username = (String) getString("Insert your desired username");
-//        if (!isUsernameValid(username)) {
-//            Twitter.printFramedMessage("Usernames must have between 4 and 15 characters and " +
-//                    "contain only letters A-Z, numbers 0-9 or underscores");
-//            return getUsername();
-//        }
-//        AccountChecker usernameFree = AccountChecker.accountExists(username, Account.getAccountList());
-//        if (usernameFree.exists()) {
-//            Twitter.printFramedMessage("That username is already taken");
-//            return getUsername();
-//        } else {
-//            return username;
-//        }
-//    }
-
     public static boolean isUsernameValid(String username) {
         boolean usernameLengthValid = (username.length() >= 4 && username.length() <= 15);
         boolean usernameCharactersValid = (username.matches("^[a-zA-Z0-9_]+$"));
@@ -114,10 +96,6 @@ public class Input {
         Printer.printFormattedMesage(message);
         return account;
     }
-
-//    public static Product getProductID(Bookstore bookstore) {
-
-//    }
 
     public static Account createNewAccount(Bookstore bookstore){
         Account newAccount = bookstore.registerAccount(getUsername(bookstore),
@@ -218,20 +196,41 @@ public class Input {
         Printer.printFormattedMesage("The ID inserted is invalid");
     }
 
-//    public static void modyfyExistingProduct(Bookstore bookstore) {
-//        String ID = Input.getString("Insert the ID of the product you want to modify");
-//        if (Input.isIDValid(ID)) {
-//            Product product = bookstore.getDatabase().getProductByID(ID);
-//            if (product != null) {
-//
-//
-//                Printer.printProduct(product, genre, category);
-//
-//                return;
-//            }
-//        }
-//        Printer.printFormattedMesage("The ID inserted is invalid");
-//    }
+    public static void modyfyExistingProduct(Bookstore bookstore) {
+        String ID = Input.getString("Insert the ID of the product you want to modify");
+        if (Input.isIDValid(ID)) {
+            Product rawProduct = bookstore.getDatabase().getProductByID(ID);
+            if (rawProduct != null) {
+                String[] categoryAndGenreType = bookstore.getDatabase().getCategoryAndGenreTypeByID(ID);
+                Printer.printProduct(rawProduct, categoryAndGenreType[1], categoryAndGenreType[0]);
+                switch (categoryAndGenreType[0]) {
+                    case "Albums" -> {
+                        Album product = (Album) rawProduct;
+
+                    }
+
+                    case "Books" -> {
+                        Book product = (Book) rawProduct;
+                    }
+
+                    case "Films" -> {
+                        Film product = (Film) rawProduct;;
+                    }
+
+                    case "Games" -> {
+                        Game product = (Game) rawProduct;
+                    }
+
+                    case "Toys" -> {
+                        Toy product = (Toy) rawProduct;
+                    }
+                }
+            }
+        }
+        Printer.printFormattedMesage("The ID inserted is invalid");
+    }
+
+
 
     private static Object input(String type, String invalidValueMessage, String prompt, boolean firstTry) {
         Scanner scn = new Scanner(System.in);

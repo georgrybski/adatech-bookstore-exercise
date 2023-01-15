@@ -93,4 +93,5 @@ public class Album extends Product {
     public static void setGenreArray(String[] genreArray) {
         Album.genreArray = genreArray;
     }
+
 }

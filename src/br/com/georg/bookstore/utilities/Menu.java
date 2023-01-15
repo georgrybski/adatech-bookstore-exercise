@@ -150,6 +150,10 @@ public class Menu {
         bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
 
+    public static void editAlbum(Album album) {
+
+    }
+
     public static String[] createCategoryGenreAndTypeMenuOptions(HashMap<Integer, String> genres) {
         return genres.entrySet()
                 .stream()
