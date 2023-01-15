@@ -8,9 +8,10 @@ import java.util.Map;
 
 public class Printer {
 
-    private static final int LINE_LENGTH =  102;
-    
-    private Printer() {}
+    private static final int LINE_LENGTH = 102;
+
+    private Printer() {
+    }
 
     public static void printFormattedMesage(String message) {
         printFrameLine();
@@ -23,7 +24,7 @@ public class Printer {
         }
         printFrameLine();
     }
-    
+
     protected static void printMenuWithOptions(String[] options) {
 
         String[][] optionsMatrix = getMenuComponentMatrix(options);
@@ -33,7 +34,7 @@ public class Printer {
         for (int i = 0, addedOptions = 0; i < optionsMatrix.length; i++) {
 
             boolean optionFitsLine =
-                    (optionsMatrix[i][1].length() +innerButtonLine.length() < LINE_LENGTH - 4);
+                    (optionsMatrix[i][1].length() + innerButtonLine.length() < LINE_LENGTH - 4);
 
             if (optionFitsLine) {
                 String optionText = optionsMatrix[i][0], optionDelimiter = optionsMatrix[i][1];
@@ -57,10 +58,10 @@ public class Printer {
                 innerButtonLine = "" + optionText + " ".repeat(2);
 
                 // Checking last iteration avoid value duplicity on the fourth line of buttons.
-                boolean lastIteration = (i == optionsMatrix.length -1);
+                boolean lastIteration = (i == optionsMatrix.length - 1);
 
                 // Checking if the number of options is bigger than 2 avoids possible value duplicity on the third line.
-                boolean moreThanTwoOptions = (optionsMatrix.length >2);
+                boolean moreThanTwoOptions = (optionsMatrix.length > 2);
 
                 // Checking if the number of options is odd helps avoid value duplicity in the last menu line when
                 // option number is odd and bigger than 3
@@ -68,7 +69,7 @@ public class Printer {
 
                 // Checking if the iteration number is different from the added options number avoids missing options
                 // and duplication in some cases.
-                boolean aditionalOptionNumberDifferentThanIterationNumber = (addedOptions != i+1);
+                boolean aditionalOptionNumberDifferentThanIterationNumber = (addedOptions != i + 1);
 
                 // Checking if the option number is different from 6 avoids option duplicity in non-existent line.
                 boolean optionNumberDifferentThanSix = (optionsMatrix.length != 6);
@@ -78,12 +79,14 @@ public class Printer {
 
                 // Multiples of 10, 14 and 16 would have duplicity if not checked.
                 boolean notMultipleOf3Or10or13Or14or16 = (
-                        optionsMatrix.length % 3 != 0 &&
-                        optionsMatrix.length % 10 != 0 &&
-                        optionsMatrix.length % 11 != 0 &&
-                        optionsMatrix.length % 13 != 0 &&
-                        optionsMatrix.length % 14 != 0 &&
-                        optionsMatrix.length % 16 != 0
+                                optionsMatrix.length != 2 &&
+                                optionsMatrix.length % 3 != 0 &&
+                                optionsMatrix.length % 7 != 0 &&
+                                optionsMatrix.length % 10 != 0 &&
+                                optionsMatrix.length % 11 != 0 &&
+                                optionsMatrix.length % 13 != 0 &&
+                                optionsMatrix.length % 14 != 0 &&
+                                optionsMatrix.length % 16 != 0
                 );
 
                 boolean moreThanOneLineNecessary = (lastIteration && moreThanTwoOptions && evenIterationNumber &&
@@ -91,7 +94,7 @@ public class Printer {
                         optionNumberDifferentThanSix && notMultipleOf3Or10or13Or14or16)
                         || (lastIteration && notMultipleOf5 && notMultipleOf3Or10or13Or14or16);
 
-                if(moreThanOneLineNecessary) {
+                if (moreThanOneLineNecessary) {
                     oddOrEvenOffset =
                             " ".repeat((LINE_LENGTH - innerButtonLine.trim().length()) % 2);
                     spacesEachSide =
@@ -104,22 +107,22 @@ public class Printer {
         }
         printFrameLine();
     }
-    
+
     private static void printOptionsLines(String spacesEachSide, String buttonsInnerLine, String buttonsOuterLine, String oddOrEvenOffset) {
-        String outerLine = "|" + spacesEachSide + buttonsOuterLine.trim() + spacesEachSide +oddOrEvenOffset + "|";
-        String innerLine = "|" + spacesEachSide + buttonsInnerLine.trim() + spacesEachSide +oddOrEvenOffset + "|";
+        String outerLine = "|" + spacesEachSide + buttonsOuterLine.trim() + spacesEachSide + oddOrEvenOffset + "|";
+        String innerLine = "|" + spacesEachSide + buttonsInnerLine.trim() + spacesEachSide + oddOrEvenOffset + "|";
 
         System.out.println(outerLine);
         System.out.println(innerLine);
         System.out.println(outerLine);
     }
-    
+
     private static String[][] getMenuComponentMatrix(String[] options) {
         String[][] matrix = new String[options.length][2];
         for (int i = 0; i < options.length; i++) {
             String option = options[i];
             matrix[i][0] = "| " + option + " |";
-            matrix[i][1] = "+" + "-".repeat(option.length() +2) + "+";
+            matrix[i][1] = "+" + "-".repeat(option.length() + 2) + "+";
         }
         return matrix;
     }
@@ -127,17 +130,17 @@ public class Printer {
     private static void printFrameLine() {
         System.out.println("+" + "-".repeat(LINE_LENGTH) + "+");
     }
-    
+
     private static void printFormattedMultiLineString(String string) {
         String[] stringArray = string.trim().split(" ");
         String currentLine = "";
 
-        for (int index = 0; index < stringArray.length; index ++) {
+        for (int index = 0; index < stringArray.length; index++) {
 
             String word = stringArray[index];
 
             boolean wordFitsInLine =
-                    (word.length() + currentLine.length() + 1 < LINE_LENGTH -6);
+                    (word.length() + currentLine.length() + 1 < LINE_LENGTH - 6);
 
             if (wordFitsInLine) {
                 currentLine += word + " ";
@@ -146,14 +149,14 @@ public class Printer {
                 currentLine = word + " ";
             }
 
-            boolean lastLine = (index == stringArray.length -1);
+            boolean lastLine = (index == stringArray.length - 1);
             if (lastLine) {
                 printIndentedFormattedLine(currentLine);
                 return;
             }
         }
     }
-    
+
     private static void printIndentedFormattedLine(String line) {
         int spaceNumber = (LINE_LENGTH - line.length());
         int spacesEachSide = spaceNumber / 2;
@@ -161,7 +164,7 @@ public class Printer {
 
         String formattedLine = "|" + " ".repeat(spacesEachSide) +
                 line +
-                " ".repeat(spacesEachSide + oddOrEvenOffset) +"|";
+                " ".repeat(spacesEachSide + oddOrEvenOffset) + "|";
 
         System.out.println(formattedLine);
     }
@@ -169,12 +172,35 @@ public class Printer {
     public static void printAllProducts(Bookstore bookstore) {
         for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : bookstore.getInventory().entrySet()) {
             for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : categoryLayer.getValue().entrySet()) {
-                for (Map.Entry<String, Product> productLayer: genreTypeLayer.getValue().entrySet()) {
-                printFormattedMesage(genreTypeLayer.getKey() + " " + categoryLayer.getKey().substring(0, categoryLayer.getKey().length() - 1)
-                        + " | " + productLayer.getValue().toString());
+                for (Map.Entry<String, Product> productLayer : genreTypeLayer.getValue().entrySet()) {
+                    printFormattedMesage(genreTypeLayer.getKey() + " " + categoryLayer.getKey().substring(0, categoryLayer.getKey().length() - 1)
+                            + " | " + productLayer.getValue().toString());
                 }
             }
         }
     }
-    
+
+//    public static void printProductsOfACategory(Bookstore bookstore, String category) {
+//        for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : bookstore.getInventory().get(category).entrySet()) {
+//            for (Map.Entry<String, Product> productLayer : genreTypeLayer.getValue().entrySet()) {
+//                printFormattedMesage(genreTypeLayer.getKey() + " " + category.substring(0, category.length() - 1)
+//                        + " | " + productLayer.getValue().toString());
+//            }
+//        }
+//    }
+
+    public static void printProductsOfACategory(Bookstore bookstore, String category) {
+        for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : bookstore.getInventory().get(category).entrySet()) {
+            printProductsOfAGenreType(bookstore, category, genreTypeLayer.getKey());
+        }
+    }
+
+    public static void printProductsOfAGenreType(Bookstore bookstore, String category, String genreType) {
+        for (Map.Entry<String, Product> productLayer : bookstore.getInventory().get(category).get(genreType).entrySet()) {
+            printFormattedMesage(genreType + " " + category.substring(0, category.length() - 1)
+                    + " | " + productLayer.getValue().toString());
+        }
+    }
 }
+
+

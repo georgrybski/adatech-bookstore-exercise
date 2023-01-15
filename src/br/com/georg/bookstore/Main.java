@@ -68,9 +68,7 @@ public class Main {
                     switch (Menu.getAdminInput()) {
                         // TODO See products list
                         case (1):
-
-
-
+                            Menu.seeProductList(bookstore);
                             break;
                         // Add new product
                         case (2):

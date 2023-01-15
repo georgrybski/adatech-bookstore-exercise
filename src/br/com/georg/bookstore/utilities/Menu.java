@@ -27,9 +27,9 @@ public class Menu {
             "4 - Remove a product", "5 - See sales history", "6 - Log out", "7 - Exit"
     };
 
-    private static final String[] ADMIN_SEE_PRODUCTS_LIST = {
-            "1 - See all products", "2 - See products by category"
-    };
+//    private static final String[] SEE_PRODUCTS_OF_A_CERTAIN_CATEGORY = {
+//            "1 - All products", "2 -  Products of a certain category"
+//    };
 
     public static HashMap<String, String[]> GENRE_TYPE_ARRAYS = new HashMap<>(Map.of(
             "Albums", Album.getGenreArray(), "Books", Book.getGenreArray(),
@@ -37,17 +37,59 @@ public class Menu {
             "Toys", Toy.getTypesArray()
     ));
 
+    private static String[] getGenreTypeArray(String category) {
+        int[] i = {1};
+        return Arrays.stream(GENRE_TYPE_ARRAYS.get(category))
+                        .map(option -> i[0]++ + " - " + option).toArray(String[]::new);
+    }
+
+    public static void seeProductList(Bookstore bookstore) {
+        switch (Menu.getIntFrom(new String[] {"1 - All products", "2 -  Products of a certain category"})) {
+            case 1:
+                Printer.printAllProducts(bookstore);
+                break;
+            case 2:
+                seeProductListByCategory(bookstore);
+                break;
+        }
+    }
+
+    public static void seeProductListByCategory(Bookstore bookstore) {
+        Integer categoryNumber = getProductCategory() -1;
+        String categoryString = Product.getCategoriesArray()[categoryNumber];
+
+        int input = Menu.getIntFrom(
+                new String[]{
+                        "1 - See all " + categoryString,
+                        "2 - See " + categoryString + " of a specific "
+                                + (categoryString.equals("Toys")? "type" : "genre")
+                }
+        );
+
+        switch (input) {
+            case 1:
+                Printer.printProductsOfACategory(bookstore, categoryString);
+                Printer.printFormattedMesage("^ List of " + categoryString + " ^");
+                break;
+            case 2:
+                seeProductByGenreType(bookstore, categoryString, categoryNumber);
+                break;
+        }
+    }
+
+    public static void seeProductByGenreType(Bookstore bookstore, String category, int categoryNumber) {
+        Integer genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(category));
+        String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber -1];
+        Printer.printProductsOfAGenreType(bookstore, category, genreTypeString);
+        Printer.printFormattedMesage("^ List of " + genreTypeString  + " " + category + " ^");
+    }
+
+
     public static void addProduct(Bookstore bookstore) {
 
         Integer categoryNumber = getProductCategory() -1;
-
         String categoryString = Product.getCategoriesArray()[categoryNumber];
-
-        int[] i = {1};
-        Integer genreTypeNumber = Menu.getIntFrom(
-                Arrays.stream(GENRE_TYPE_ARRAYS.get(categoryString))
-                        .map(s -> i[0]++ + " - " + s).toArray(String[]::new)
-        );
+        Integer genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(categoryString));
         String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber -1];
         String productName = Input.getProductName(categoryString);
         BigDecimal productPrice = Input.getProductPrice(categoryString);
@@ -97,6 +139,13 @@ public class Menu {
     }
 
 
+
+
+    public static void seeProductListByGenreType(Bookstore bookstore){
+
+    }
+
+
     private static String[] buyerProductsByCategoryOptions(String category){
         return new String[] {
                 "1 - See all " + category,
@@ -127,9 +176,9 @@ public class Menu {
         return getIntFrom(ADMIN_MENU_OPTIONS);
     }
 
-    public static int getInputAdminProducts() {
-        return getIntFrom(ADMIN_SEE_PRODUCTS_LIST);
-    }
+//    public static int getInputAdminProducts() {
+//        return getIntFrom(ADMIN_SEE_PRODUCTS_LIST);
+//    }
 
     public static int getIntFrom(String[] opcoes) {
         String prompt = "Insert a value between " + 1 + " and " + opcoes.length;

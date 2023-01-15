@@ -3,6 +3,7 @@ package br.com.georg.bookstore.utilities;
 import br.com.georg.bookstore.products.Book;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class Input {
     private Input(){}
 
     public static String getString(String prompt) {
-        return getString(prompt, true);
+        return getString(prompt, true).trim();
     }
 
 
@@ -109,9 +110,10 @@ public class Input {
         }
 
         String message = (account != null)? "Successfully logged in as '" + account.getUsername() + "'": "Invalid credentials";
-        Printer.printFormattedMesage("message");
+        Printer.printFormattedMesage(message);
         return account;
     }
+
 
     public static Account createNewAccount(Bookstore bookstore){
         Account newAccount = bookstore.registerAccount(getUsername(bookstore),
