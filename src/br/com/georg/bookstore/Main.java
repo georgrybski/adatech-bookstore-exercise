@@ -34,8 +34,8 @@ public class Main {
                     switch (Menu.getCustomerInput()) {
                         // Browse all products
                         case (1) -> Menu.seeProductList(bookstore);
-//                        // TODO Add a product to shopping cart
-//                        case (2) ->
+                        // Add a product to shopping cart
+                        case (2) -> Input.addProductToCartUsingID(bookstore, loggedAccount);
 //                        // TODO Go to shopping cart
 //                        case (3) ->
 //                        // TODO See my purchase history
@@ -62,8 +62,8 @@ public class Main {
                         case (2) -> Menu.addProduct(bookstore);
 //                        // TODO Modify an existing product
 //                        case (3) ->
-//                        // TODO Remove a product
-//                        case (4) ->
+                        // Remove a product
+                        case (4) -> Input.removeProductUsingID(bookstore);
 //                        // TODO See sales history
 //                        case (5) ->
                         // Log out

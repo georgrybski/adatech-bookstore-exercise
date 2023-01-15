@@ -82,4 +82,11 @@ public class Game extends Product {
         Game.genresArray = genresArray;
     }
 
+    public String toString() {
+        return  getName() + " | Studio: " + getStudio() + " | Distribuitor: " + getDistribuitor()  + " | " +
+                "ID - " + getID()   + " | Price: " +
+                getPrice() + " USD " + " | " +
+                (getQuantity() > 0 ? "In Stock - Only " + getQuantity() + " Left" : "Out of Stock");
+    }
+
 }

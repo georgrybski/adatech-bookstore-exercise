@@ -55,4 +55,10 @@ public class Toy extends Product {
         Toy.typesArray = typesArray;
     }
 
+    @Override
+    public String toString() {
+        return  getName() + " | " + "ID - " + getID()   + " | " +
+                getPrice() + " USD " + " | " +
+                (getQuantity() > 0 ? "In Stock - Only " + getQuantity() + " Left" : "Out of Stock");
+    }
 }

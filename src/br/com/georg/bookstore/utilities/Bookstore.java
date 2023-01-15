@@ -25,6 +25,15 @@ public class Bookstore {
         database.insertProduct(category, genreType, product);
     }
 
+    public boolean removeProduct(String ID) {
+        if (database.getInventoryLocationByID(ID).containsKey(ID)) {
+            database.getInventoryLocationByID(ID).remove(ID);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Account registerAccount(String username, String password) {
         if (database.isUsernameFree(username)){
             Account account = new Account(username, password, this);

@@ -1,6 +1,7 @@
 package br.com.georg.bookstore.utilities;
 
 import br.com.georg.bookstore.products.Book;
+import br.com.georg.bookstore.products.Product;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -114,6 +115,9 @@ public class Input {
         return account;
     }
 
+//    public static Product getProductID(Bookstore bookstore) {
+
+//    }
 
     public static Account createNewAccount(Bookstore bookstore){
         Account newAccount = bookstore.registerAccount(getUsername(bookstore),
@@ -186,6 +190,33 @@ public class Input {
         return getString("Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s " + field);
     }
 
+    private static boolean isIDValid(String ID) {
+        return ID.matches("^[a-zA-Z]{6}.*[a-zA-Z0-9]{4,}$");
+    }
+
+    public static void removeProductUsingID(Bookstore bookstore) {
+        String ID = getString("Insert the ID of the product you wanto to remove");
+        if (isIDValid(ID)) {
+            if (bookstore.removeProduct(ID)) {
+                Printer.printFormattedMesage("The product has been removed");
+            }
+        } else {
+            Printer.printFormattedMesage("The ID inserted is invalid");
+        }
+    }
+
+    public static void addProductToCartUsingID(Bookstore bookstore, Account loggedAccount) {
+        String ID = getString("Insert the ID of the product you want to add to your cart");
+        if (isIDValid(ID)) {
+            Product product = bookstore.getDatabase().getProductByID(ID);
+            if (product != null) {
+                loggedAccount.addToCart(product);
+                Printer.printFormattedMesage("'" + product.getName() + "' has been added to your cart");
+                return;
+            }
+        }
+        Printer.printFormattedMesage("The ID inserted is invalid");
+    }
 
     private static Object input(String type, String invalidValueMessage, String prompt, boolean firstTry) {
         Scanner scn = new Scanner(System.in);

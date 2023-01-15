@@ -52,6 +52,10 @@ public class Database {
         return searchEngine.getProductByID(ID);
     }
 
+    public HashMap<String, Product> getInventoryLocationByID(String ID) {
+        return searchEngine.getHashMapByID(ID);
+    }
+
     public boolean isUsernameFree(String username) {
         return !searchEngine.usernameExists(username);
     }

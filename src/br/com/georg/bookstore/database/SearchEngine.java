@@ -30,7 +30,15 @@ public class SearchEngine {
         String genreTypeCode = ID.substring(3,6);
         String categoryKey = IDCategorySearchHashMap.get(categoryCode);
         String genreTypeKey = IDGenreTypeHashMap.get(categoryKey).get(genreTypeCode);
-        return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey).get(ID);
+        return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey).getOrDefault(ID, null);
+    }
+
+    protected HashMap<String, Product> getHashMapByID(String ID) {
+        String categoryCode = ID.substring(0, 3);
+        String genreTypeCode = ID.substring(3,6);
+        String categoryKey = IDCategorySearchHashMap.get(categoryCode);
+        String genreTypeKey = IDGenreTypeHashMap.get(categoryKey).get(genreTypeCode);
+        return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey);
     }
 
     protected boolean usernameExists(String username) {

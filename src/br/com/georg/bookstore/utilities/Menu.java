@@ -43,6 +43,7 @@ public class Menu {
         switch (Menu.getIntFrom(new String[] {"1 - All products", "2 -  Products of a certain category"})) {
             case 1:
                 Printer.printAllProducts(bookstore);
+                Printer.printFormattedMesage("^ List of all products ^");
                 break;
             case 2:
                 seeProductListByCategory(bookstore);
@@ -79,6 +80,7 @@ public class Menu {
         Printer.printProductsOfAGenreType(bookstore, category, genreTypeString);
         Printer.printFormattedMesage("^ List of " + genreTypeString  + " " + category + " ^");
     }
+
 
 
     public static void addProduct(Bookstore bookstore) {

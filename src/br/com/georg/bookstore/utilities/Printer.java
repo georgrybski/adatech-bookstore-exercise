@@ -191,6 +191,14 @@ public class Printer {
         printFrameLine();
     }
 
+    public static void printProduct(Product product, String genre, String category) {
+        printFrameLine();
+        printIndentedFormattedLine(genre + " " + category.substring(0, category.length() - 1)+ " | ID: " + product.getID());
+        printIndentedFormattedLine(product.getName() + " | Price: " + product.getPrice() + " USD");
+        printIndentedFormattedLine(product.getQuantity() > 0 ? "In Stock - Only " + product.getQuantity() + " Left" : "Out of Stock");
+        printFrameLine();
+    }
+
     public static void printProductsOfACategory(Bookstore bookstore, String category) {
         for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : bookstore.getInventory().get(category).entrySet()) {
             printProductsOfAGenreType(bookstore, category, genreTypeLayer.getKey());
@@ -199,8 +207,10 @@ public class Printer {
 
     public static void printProductsOfAGenreType(Bookstore bookstore, String category, String genreType) {
         for (Map.Entry<String, Product> productLayer : bookstore.getInventory().get(category).get(genreType).entrySet()) {
-            printFormattedMesage(genreType + " " + category.substring(0, category.length() - 1)
-                    + " | " + productLayer.getValue().toString());
+//            printFormattedMesage(genreType + " " + category.substring(0, category.length() - 1)
+//                    + " | " + productLayer.getValue().toString());
+            printProduct(productLayer.getValue(), genreType, category);
+
         }
     }
 }

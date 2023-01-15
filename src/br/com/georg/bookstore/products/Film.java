@@ -94,4 +94,5 @@ public class Film extends Product {
     public static void setGenreArray(String[] genreArray) {
         Film.genreArray = genreArray;
     }
+
 }

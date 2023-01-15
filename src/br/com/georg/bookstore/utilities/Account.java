@@ -1,5 +1,7 @@
 package br.com.georg.bookstore.utilities;
 
+import br.com.georg.bookstore.products.Product;
+
 public class Account {
     private String username;
     private String password;
@@ -14,6 +16,10 @@ public class Account {
     }
     public void purchaseItemsInCart() {
         shoppingCart.checkout();
+    }
+
+    public void addToCart(Product product) {
+        shoppingCart.getItems().add(product);
     }
 
     public String getUsername() {
