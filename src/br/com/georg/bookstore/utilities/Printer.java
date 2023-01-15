@@ -3,6 +3,7 @@ package br.com.georg.bookstore.utilities;
 import br.com.georg.bookstore.database.Database;
 import br.com.georg.bookstore.products.Product;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -173,6 +174,21 @@ public class Printer {
         for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : bookstore.getInventory().entrySet()) {
             printProductsOfACategory(bookstore, categoryLayer.getKey());
         }
+    }
+
+    public static void printAllOrdersFromList(ArrayList<Order> orders) {
+        orders.stream().forEach(Printer::printOrder);
+    }
+
+    public static void printOrder(Order order) {
+        printFrameLine();
+        printIndentedFormattedLine("User: " + order.getUsername() + " | Date: " + order.getDate());
+        printIndentedFormattedLine("Total: " + order.getTotal() + " USD");
+        printIndentedFormattedLine(" ");
+        for (Product product: order.getItems()) {
+            printIndentedFormattedLine(product.toString());
+        }
+        printFrameLine();
     }
 
     public static void printProductsOfACategory(Bookstore bookstore, String category) {

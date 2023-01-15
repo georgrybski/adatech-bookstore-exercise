@@ -25,6 +25,7 @@ public class Database {
         accountsHashMap = new HashMap<>();
         ordersHashMap = new HashMap<>();
         shoppingCartsHashMap = new HashMap<>();
+        accountsHashMap.put("admin", Account.getAdmin(bookstore));
     }
 
     public void insertAccount(Account account) {

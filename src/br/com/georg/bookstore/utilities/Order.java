@@ -22,4 +22,23 @@ public class Order {
 
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
+    public ArrayList<Product> getItems() {
+        return items;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public static DateTimeFormatter getFormatter() {
+        return formatter;
+    }
 }

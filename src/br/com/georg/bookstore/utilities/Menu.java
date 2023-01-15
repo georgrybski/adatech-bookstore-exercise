@@ -27,10 +27,6 @@ public class Menu {
             "4 - Remove a product", "5 - See sales history", "6 - Log out", "7 - Exit"
     };
 
-//    private static final String[] SEE_PRODUCTS_OF_A_CERTAIN_CATEGORY = {
-//            "1 - All products", "2 -  Products of a certain category"
-//    };
-
     public static HashMap<String, String[]> GENRE_TYPE_ARRAYS = new HashMap<>(Map.of(
             "Albums", Album.getGenreArray(), "Books", Book.getGenreArray(),
             "Films", Film.getGenreArray(), "Games", Game.getGenresArray(),

@@ -12,7 +12,6 @@ public class Account {
         this.bookstore = bookstore;
         shoppingCart = new ShoppingCart(this, bookstore);
     }
-
     public void purchaseItemsInCart() {
         shoppingCart.checkout();
     }
@@ -47,5 +46,9 @@ public class Account {
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+    }
+
+    public static Account getAdmin(Bookstore bookstore) {
+        return new Account("admin", "admin", bookstore);
     }
 }
