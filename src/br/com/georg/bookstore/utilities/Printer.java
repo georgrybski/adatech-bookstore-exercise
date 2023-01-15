@@ -171,23 +171,9 @@ public class Printer {
 
     public static void printAllProducts(Bookstore bookstore) {
         for (Map.Entry<String, HashMap<String, HashMap<String, Product>>> categoryLayer : bookstore.getInventory().entrySet()) {
-            for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : categoryLayer.getValue().entrySet()) {
-                for (Map.Entry<String, Product> productLayer : genreTypeLayer.getValue().entrySet()) {
-                    printFormattedMesage(genreTypeLayer.getKey() + " " + categoryLayer.getKey().substring(0, categoryLayer.getKey().length() - 1)
-                            + " | " + productLayer.getValue().toString());
-                }
-            }
+            printProductsOfACategory(bookstore, categoryLayer.getKey());
         }
     }
-
-//    public static void printProductsOfACategory(Bookstore bookstore, String category) {
-//        for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : bookstore.getInventory().get(category).entrySet()) {
-//            for (Map.Entry<String, Product> productLayer : genreTypeLayer.getValue().entrySet()) {
-//                printFormattedMesage(genreTypeLayer.getKey() + " " + category.substring(0, category.length() - 1)
-//                        + " | " + productLayer.getValue().toString());
-//            }
-//        }
-//    }
 
     public static void printProductsOfACategory(Bookstore bookstore, String category) {
         for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : bookstore.getInventory().get(category).entrySet()) {
