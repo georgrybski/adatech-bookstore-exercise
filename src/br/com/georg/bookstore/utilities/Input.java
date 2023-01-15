@@ -211,18 +211,22 @@ public class Input {
 
                     case "Books" -> {
                         Book product = (Book) rawProduct;
+                        Menu.ProductEditor.editBook(product, bookstore);
                     }
 
                     case "Films" -> {
                         Film product = (Film) rawProduct;;
+//                        Menu.ProductEditor.editAlbum(product, bookstore);
                     }
 
                     case "Games" -> {
                         Game product = (Game) rawProduct;
+//                        Menu.ProductEditor.editAlbum(product, bookstore);
                     }
 
                     case "Toys" -> {
                         Toy product = (Toy) rawProduct;
+//                        Menu.ProductEditor.editAlbum(product, bookstore);
                     }
                 }
             }

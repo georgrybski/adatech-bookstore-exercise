@@ -224,6 +224,49 @@ public class Menu {
                 }
             }
         }
+//
+//        categoryString, productName, productPrice, genreTypeString,
+//                Input.getProductAuthor(categoryString),
+//                Input.getPublisher(), Input.getProductQuantity()
+
+        public static void editBook(Book book, Bookstore bookstore) {
+            Boolean changesInProgress = true;
+            while (changesInProgress) {
+                Printer.printProduct(book, book.getGenre(), "Books");
+                switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
+                        "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change publisher", "7 - Finish changes"})) {
+                    case 1 -> {
+                        book.setName(Input.getProductName("Books"));
+                    }
+                    case 2 -> {
+                        book.setPrice(Input.getProductPrice("Books"));
+                    }
+                    case 3 -> {
+                        book.setQuantity(Input.getProductQuantity());
+                    }
+                    case 4 -> {
+                        book.setAuthor(Input.getProductAuthor("Books"));
+                    }
+                    case 5 -> {
+                        String oldGenre = book.getGenre();
+                        int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Books"));
+                        String newGenre = GENRE_TYPE_ARRAYS.get("Books")[genreTypeNumber - 1];
+                        if (newGenre.equals(oldGenre)) {
+                            Printer.printFormattedMesage(book.getName() + " is already registered as a " + newGenre + " book");
+                        } else {
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, book);
+                            Printer.printFormattedMesage("This product's ID has been changed to: " + book.getID());
+                        }
+                    }
+                    case 6 -> {
+                        book.setPublisher(Input.getPublisher());
+                    }
+                    case 7 -> {
+                        changesInProgress = false;
+                    }
+                }
+            }
+        }
     }
 }
 
