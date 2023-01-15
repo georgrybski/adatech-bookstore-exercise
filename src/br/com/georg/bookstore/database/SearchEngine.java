@@ -3,6 +3,7 @@ package br.com.georg.bookstore.database;
 import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.utilities.Order;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,11 +27,7 @@ public class SearchEngine {
     }
 
     protected Product getProductByID(String ID) {
-        String categoryCode = ID.substring(0, 3);
-        String genreTypeCode = ID.substring(3,6);
-        String categoryKey = IDCategorySearchHashMap.get(categoryCode);
-        String genreTypeKey = IDGenreTypeHashMap.get(categoryKey).get(genreTypeCode);
-        return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey).getOrDefault(ID, null);
+        return getHashMapByID(ID).getOrDefault(ID, null);
     }
 
     protected HashMap<String, Product> getHashMapByID(String ID) {
@@ -39,6 +36,33 @@ public class SearchEngine {
         String categoryKey = IDCategorySearchHashMap.get(categoryCode);
         String genreTypeKey = IDGenreTypeHashMap.get(categoryKey).get(genreTypeCode);
         return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey);
+    }
+//
+//    protected Product getProductByID(String ID) {
+//        String categoryCode = ID.substring(0, 3);
+//        String genreTypeCode = ID.substring(3,6);
+//        String categoryKey = IDCategorySearchHashMap.get(categoryCode);
+//        String genreTypeKey = IDGenreTypeHashMap.get(categoryKey).get(genreTypeCode);
+//        return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey).getOrDefault(ID, null);
+//    }
+//
+//    protected HashMap<String, Product> getHashMapByID(String ID) {
+//        String categoryCode = ID.substring(0, 3);
+//        String genreTypeCode = ID.substring(3,6);
+//        String categoryKey = IDCategorySearchHashMap.get(categoryCode);
+//        String genreTypeKey = IDGenreTypeHashMap.get(categoryKey).get(genreTypeCode);
+//        return getHashMapWhereIDIsLocated(categoryKey, genreTypeKey);
+//    }
+//
+    protected String getCategoryOfID(String ID) {
+        String categoryCode = ID.substring(0, 3);
+        String categoryString = IDCategorySearchHashMap.get(categoryCode);
+        return categoryString;
+    }
+    protected String getGenreTypeOfID(String ID, String category) {
+        String genreTypeKey = ID.substring(3, 6);
+        String genreTypeString = IDGenreTypeHashMap.get(category).get(genreTypeKey);
+        return genreTypeString;
     }
 
     protected boolean usernameExists(String username) {

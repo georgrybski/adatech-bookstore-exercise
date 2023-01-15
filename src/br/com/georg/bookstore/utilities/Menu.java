@@ -74,14 +74,28 @@ public class Menu {
         }
     }
 
+    public static void goToCart(Bookstore bookstore, Account loggedAccount) {
+        //TODO print cart
+
+        switch (Menu.getIntFrom(new String[]{"1 - Checkout", "2 - Remove or add items", "3 - Continue Shopping"})) {
+//            TODO print cart
+            case(1) -> {
+                bookstore.completeSale(loggedAccount.getShoppingCart());
+                Printer.printFormattedMesage("Payment successful");
+            }
+//            TODO print cart
+            case(2) -> {}
+
+            case(3) -> {}
+        }
+    }
+
     public static void seeProductByGenreType(Bookstore bookstore, String category, int categoryNumber) {
         Integer genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(category));
         String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber -1];
         Printer.printProductsOfAGenreType(bookstore, category, genreTypeString);
         Printer.printFormattedMesage("^ List of " + genreTypeString  + " " + category + " ^");
     }
-
-
 
     public static void addProduct(Bookstore bookstore) {
 
@@ -136,21 +150,6 @@ public class Menu {
         bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
 
-
-
-
-    public static void seeProductListByGenreType(Bookstore bookstore){
-
-    }
-
-
-    private static String[] buyerProductsByCategoryOptions(String category){
-        return new String[] {
-                "1 - See all " + category,
-                "2 - See " + category + " by " + (category.equals("Toys")? "type" : "genre")
-        };
-    }
-
     public static String[] createCategoryGenreAndTypeMenuOptions(HashMap<Integer, String> genres) {
         return genres.entrySet()
                 .stream()
@@ -174,9 +173,6 @@ public class Menu {
         return getIntFrom(ADMIN_MENU_OPTIONS);
     }
 
-//    public static int getInputAdminProducts() {
-//        return getIntFrom(ADMIN_SEE_PRODUCTS_LIST);
-//    }
 
     public static int getIntFrom(String[] opcoes) {
         String prompt = "Insert a value between " + 1 + " and " + opcoes.length;

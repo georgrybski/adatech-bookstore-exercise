@@ -176,10 +176,12 @@ public class Printer {
         }
     }
 
+    // TODO
     public static void printAllOrdersFromList(ArrayList<Order> orders) {
         orders.stream().forEach(Printer::printOrder);
     }
 
+    // TODO
     public static void printOrder(Order order) {
         printFrameLine();
         printIndentedFormattedLine("User: " + order.getUsername() + " | Date: " + order.getDate());
@@ -207,8 +209,6 @@ public class Printer {
 
     public static void printProductsOfAGenreType(Bookstore bookstore, String category, String genreType) {
         for (Map.Entry<String, Product> productLayer : bookstore.getInventory().get(category).get(genreType).entrySet()) {
-//            printFormattedMesage(genreType + " " + category.substring(0, category.length() - 1)
-//                    + " | " + productLayer.getValue().toString());
             printProduct(productLayer.getValue(), genreType, category);
 
         }

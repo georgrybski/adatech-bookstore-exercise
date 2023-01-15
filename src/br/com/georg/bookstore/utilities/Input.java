@@ -218,6 +218,21 @@ public class Input {
         Printer.printFormattedMesage("The ID inserted is invalid");
     }
 
+//    public static void modyfyExistingProduct(Bookstore bookstore) {
+//        String ID = Input.getString("Insert the ID of the product you want to modify");
+//        if (Input.isIDValid(ID)) {
+//            Product product = bookstore.getDatabase().getProductByID(ID);
+//            if (product != null) {
+//
+//
+//                Printer.printProduct(product, genre, category);
+//
+//                return;
+//            }
+//        }
+//        Printer.printFormattedMesage("The ID inserted is invalid");
+//    }
+
     private static Object input(String type, String invalidValueMessage, String prompt, boolean firstTry) {
         Scanner scn = new Scanner(System.in);
         String message;
