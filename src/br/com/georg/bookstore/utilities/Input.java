@@ -202,11 +202,11 @@ public class Input {
             Product rawProduct = bookstore.getDatabase().getProductByID(ID);
             if (rawProduct != null) {
                 String[] categoryAndGenreType = bookstore.getDatabase().getCategoryAndGenreTypeByID(ID);
-                Printer.printProduct(rawProduct, categoryAndGenreType[1], categoryAndGenreType[0]);
+//                Printer.printProduct(rawProduct, categoryAndGenreType[1], categoryAndGenreType[0]);
                 switch (categoryAndGenreType[0]) {
                     case "Albums" -> {
                         Album product = (Album) rawProduct;
-
+                        Menu.ProductEditor.editAlbum(product, bookstore);
                     }
 
                     case "Books" -> {
@@ -229,8 +229,6 @@ public class Input {
         }
         Printer.printFormattedMesage("The ID inserted is invalid");
     }
-
-
 
     private static Object input(String type, String invalidValueMessage, String prompt, boolean firstTry) {
         Scanner scn = new Scanner(System.in);

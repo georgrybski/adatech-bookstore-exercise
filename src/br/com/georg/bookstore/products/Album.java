@@ -12,7 +12,7 @@ public class Album extends Product {
 
     private String genre;
 
-    private String seal;
+    private String recordLabel;
 
     private static String[] genreArray = new String[] {
             "Pop", "Hip hop", "Rock", "Rhythm and blues", "Soul", "Reggae",
@@ -28,26 +28,26 @@ public class Album extends Product {
             HashMapTools.initializeCategoryGenresOrTypesHashMap(sortedGenreArray);
 
     public Album(String category, String name, BigDecimal price, String genre,
-                 String author, String seal, Integer quantity) {
+                 String author, String recordLabel, Integer quantity) {
 
         super(name, price, quantity, category, genre);
         this.author = author;
         this.genre = genre;
-        this.seal = seal;
+        this.recordLabel = recordLabel;
     }
 
     private Album(String name, BigDecimal price, String ID, Integer quantity,
-                  String author, String genre, String seal) {
+                  String author, String genre, String recordLabel) {
         super(name, price, ID, quantity);
         this.author = author;
         this.genre =  genre;
-        this.seal = seal;
+        this.recordLabel = recordLabel;
     }
 
     @Override
     public Album copy(Integer quantity) {
         return new Album(this.getName(), this.getPrice(), this.getID(),
-                quantity, this.getAuthor(), this.getGenre(), this.getSeal());
+                quantity, this.getAuthor(), this.getGenre(), this.getRecordLabel());
     }
 
     public String getAuthor() {
@@ -58,8 +58,8 @@ public class Album extends Product {
         return genre;
     }
 
-    public String getSeal() {
-        return seal;
+    public String getRecordLabel() {
+        return recordLabel;
     }
 
     public static HashMap<Integer, String> getGenres() {
@@ -82,8 +82,8 @@ public class Album extends Product {
         this.genre = genre;
     }
 
-    public void setSeal(String seal) {
-        this.seal = seal;
+    public void setRecordLabel(String recordLabel) {
+        this.recordLabel = recordLabel;
     }
 
     public static void setGenres(HashMap<Integer, String> genres) {

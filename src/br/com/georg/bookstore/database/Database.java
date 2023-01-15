@@ -1,10 +1,7 @@
 package br.com.georg.bookstore.database;
 
 import br.com.georg.bookstore.products.Product;
-import br.com.georg.bookstore.utilities.Account;
-import br.com.georg.bookstore.utilities.Bookstore;
-import br.com.georg.bookstore.utilities.Order;
-import br.com.georg.bookstore.utilities.ShoppingCart;
+import br.com.georg.bookstore.utilities.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -81,6 +78,18 @@ public class Database {
         String genreType = searchEngine.getGenreTypeOfID(ID, category);
         return new String[]{category, genreType};
     }
+
+    public void transferProduct(String oldGenreType, String newGenreType, Product product) {
+
+        String oldID = product.getID();
+
+        String newID = oldID.substring(0,3) + newGenreType.substring(0,3).toUpperCase() + oldID.substring(6);
+
+        product.setID(newID);
+        getInventoryLocationByID(oldID).remove(oldID);
+        getInventoryLocationByID(newID).put(newID, product);
+    }
+
 
     protected static class DatabaseTools {
 

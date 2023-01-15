@@ -36,11 +36,11 @@ public class Menu {
     private static String[] getGenreTypeArray(String category) {
         int[] i = {1};
         return Arrays.stream(GENRE_TYPE_ARRAYS.get(category))
-                        .map(option -> i[0]++ + " - " + option).toArray(String[]::new);
+                .map(option -> i[0]++ + " - " + option).toArray(String[]::new);
     }
 
     public static void seeProductList(Bookstore bookstore) {
-        switch (Menu.getIntFrom(new String[] {"1 - All products", "2 -  Products of a certain category"})) {
+        switch (Menu.getIntFrom(new String[]{"1 - All products", "2 -  Products of a certain category"})) {
             case 1:
                 Printer.printAllProducts(bookstore);
                 Printer.printFormattedMesage("^ List of all products ^");
@@ -52,14 +52,14 @@ public class Menu {
     }
 
     public static void seeProductListByCategory(Bookstore bookstore) {
-        Integer categoryNumber = getProductCategory() -1;
+        Integer categoryNumber = getProductCategory() - 1;
         String categoryString = Product.getCategoriesArray()[categoryNumber];
 
         int input = Menu.getIntFrom(
                 new String[]{
                         "1 - See all " + categoryString,
                         "2 - See " + categoryString + " of a specific "
-                                + (categoryString.equals("Toys")? "type" : "genre")
+                                + (categoryString.equals("Toys") ? "type" : "genre")
                 }
         );
 
@@ -79,30 +79,32 @@ public class Menu {
 
         switch (Menu.getIntFrom(new String[]{"1 - Checkout", "2 - Remove or add items", "3 - Continue Shopping"})) {
 //            TODO print cart
-            case(1) -> {
+            case (1) -> {
                 bookstore.completeSale(loggedAccount.getShoppingCart());
                 Printer.printFormattedMesage("Payment successful");
             }
 //            TODO print cart
-            case(2) -> {}
+            case (2) -> {
+            }
 
-            case(3) -> {}
+            case (3) -> {
+            }
         }
     }
 
     public static void seeProductByGenreType(Bookstore bookstore, String category, int categoryNumber) {
         Integer genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(category));
-        String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber -1];
+        String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
         Printer.printProductsOfAGenreType(bookstore, category, genreTypeString);
-        Printer.printFormattedMesage("^ List of " + genreTypeString  + " " + category + " ^");
+        Printer.printFormattedMesage("^ List of " + genreTypeString + " " + category + " ^");
     }
 
     public static void addProduct(Bookstore bookstore) {
 
-        Integer categoryNumber = getProductCategory() -1;
+        Integer categoryNumber = getProductCategory() - 1;
         String categoryString = Product.getCategoriesArray()[categoryNumber];
         Integer genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(categoryString));
-        String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber -1];
+        String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
         String productName = Input.getProductName(categoryString);
         BigDecimal productPrice = Input.getProductPrice(categoryString);
 
@@ -150,9 +152,6 @@ public class Menu {
         bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
 
-    public static void editAlbum(Album album) {
-
-    }
 
     public static String[] createCategoryGenreAndTypeMenuOptions(HashMap<Integer, String> genres) {
         return genres.entrySet()
@@ -165,7 +164,7 @@ public class Menu {
         return getIntFrom(PRODUCT_CATEGORY_MENU_OPTIONS);
     }
 
-    public static int getLoggedOutInput(){
+    public static int getLoggedOutInput() {
         return getIntFrom(LOGGED_OUT_MENU_OPTIONS);
     }
 
@@ -181,10 +180,51 @@ public class Menu {
     public static int getIntFrom(String[] opcoes) {
         String prompt = "Insert a value between " + 1 + " and " + opcoes.length;
         String msgValorInvalido = "Invalid value! " + prompt;
-        return  Input.getIntegerFromMenu(opcoes, 1, opcoes.length, prompt,
+        return Input.getIntegerFromMenu(opcoes, 1, opcoes.length, prompt,
                 msgValorInvalido, true);
     }
 
+    public static class ProductEditor {
+
+        public static void editAlbum(Album album, Bookstore bookstore) {
+            Boolean changesInProgress = true;
+            while (changesInProgress) {
+                Printer.printProduct(album, album.getGenre(), "Albums");
+                switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
+                        "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change record label", "7 - Finish changes"})) {
+                    case 1 -> {
+                        album.setName(Input.getProductName("Albums"));
+                    }
+                    case 2 -> {
+                        album.setPrice(Input.getProductPrice("Albums"));
+                    }
+                    case 3 -> {
+                        album.setQuantity(Input.getProductQuantity());
+                    }
+                    case 4 -> {
+                        album.setAuthor(Input.getProductAuthor("Albums"));
+                    }
+                    case 5 -> {
+                        String oldGenre = album.getGenre();
+                        int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Albums"));
+                        String newGenre = GENRE_TYPE_ARRAYS.get("Albums")[genreTypeNumber - 1];
+                        if (newGenre.equals(oldGenre)) {
+                            Printer.printFormattedMesage(album.getName() + " is already registered as a " + newGenre + " album");
+                        } else {
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, album);
+                            Printer.printFormattedMesage("This product's ID has been changed to: " + album.getID());
+                        }
+                    }
+                    case 6 -> {
+                        album.setRecordLabel(Input.getRecordLabel());
+                    }
+                    case 7 -> {
+                        changesInProgress = false;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
