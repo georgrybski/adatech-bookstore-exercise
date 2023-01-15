@@ -17,7 +17,7 @@ public class Menu {
     };
 
     private static final String[] LOGGED_BUYER_MENU_OPTIONS = {
-            "1 - Browse all products", "2 - Browse products by category", "3 - Go to shopping cart",
+            "1 - Browse all products", "2 -  Add a product to shopping cart", "3 - Go to shopping cart",
             "4 - See my purchase history", "5 - Log out", "6 - Exit"
     };
 

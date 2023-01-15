@@ -16,18 +16,14 @@ public class Main {
             if (notLoggedIn) {
                 switch (Menu.getLoggedOutInput()) {
                     // Create Account
-                    case (1):
-                        loggedAccount = Input.createNewAccount(bookstore);
-                        break;
+                    case (1) -> loggedAccount = Input.createNewAccount(bookstore);
                     // Log In
-                    case (2):
-                        loggedAccount = Input.logIn(bookstore);
-                        break;
+                    case (2) -> loggedAccount = Input.logIn(bookstore);
                     // Exit
-                    case 3:
+                    case 3 -> {
                         run = false;
                         Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
-                        break;
+                    }
                 }
             }
 
@@ -36,27 +32,21 @@ public class Main {
                 if (customerLoggedIn) {
                     Printer.printFormattedMesage("Logged in as '" + loggedAccount.getUsername() + "'");
                     switch (Menu.getCustomerInput()) {
-                        // TODO Browse all products
-                        case (1):
-                            break;
-                        // TODO Browse products by category
-                        case (2):
-                            break;
-                        // TODO Go to shopping cart
-                        case (3):
-                            break;
-                        // TODO See my purchase history
-                        case (4):
-                            break;
+                        // Browse all products
+                        case (1) -> Menu.seeProductList(bookstore);
+//                        // TODO Add a product to shopping cart
+//                        case (2) ->
+//                        // TODO Go to shopping cart
+//                        case (3) ->
+//                        // TODO See my purchase history
+//                        case (4) ->
                         // Log out
-                        case (5):
-                            loggedAccount = null;
-                            break;
+                        case (5) -> loggedAccount = null;
                         // Exit
-                        case (6):
+                        case (6) -> {
                             run = false;
                             Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
-                            break;
+                        }
                     }
                 }
             }
@@ -66,32 +56,23 @@ public class Main {
                 if (adminLoggedIn) {
                     Printer.printFormattedMesage("Logged in as '" + loggedAccount.getUsername() + "'");
                     switch (Menu.getAdminInput()) {
-                        // TODO See products list
-                        case (1):
-                            Menu.seeProductList(bookstore);
-                            break;
+                        // See products list
+                        case (1) -> Menu.seeProductList(bookstore);
                         // Add new product
-                        case (2):
-                            Menu.addProduct(bookstore);
-                            break;
-                        // TODO Modify an existing product
-                        case (3):
-                            break;
-                        // TODO Remove a product
-                        case (4):
-                            break;
-                        // TODO See sales history
-                        case (5):
-                            break;
+                        case (2) -> Menu.addProduct(bookstore);
+//                        // TODO Modify an existing product
+//                        case (3) ->
+//                        // TODO Remove a product
+//                        case (4) ->
+//                        // TODO See sales history
+//                        case (5) ->
                         // Log out
-                        case (6):
-                            loggedAccount = null;
-                            break;
+                        case (6) -> loggedAccount = null;
                         // Exit
-                        case (7):
+                        case (7) -> {
                             run = false;
                             Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
-                            break;
+                        }
                     }
                 }
             }
