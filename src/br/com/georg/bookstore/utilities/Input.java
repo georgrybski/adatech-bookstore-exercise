@@ -216,7 +216,7 @@ public class Input {
 
                     case "Films" -> {
                         Film product = (Film) rawProduct;;
-//                        Menu.ProductEditor.editAlbum(product, bookstore);
+                        Menu.ProductEditor.editFilm(product, bookstore);
                     }
 
                     case "Games" -> {

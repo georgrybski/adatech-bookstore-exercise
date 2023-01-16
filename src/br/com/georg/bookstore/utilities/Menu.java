@@ -267,6 +267,48 @@ public class Menu {
                 }
             }
         }
+
+        public static void editFilm(Film film, Bookstore bookstore) {
+            Boolean changesInProgress = true;
+            while (changesInProgress) {
+                Printer.printProduct(film, film.getGenre(), "Films");
+                switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
+                        "3 - Change stock", "4 - Change studio", "5 - Change director", "6 - Change genre", "7 - Change producer", "8 - Finish changes"})) {
+                    case 1 -> {
+                        film.setName(Input.getProductName("Films"));
+                    }
+                    case 2 -> {
+                        film.setPrice(Input.getProductPrice("Films"));
+                    }
+                    case 3 -> {
+                        film.setQuantity(Input.getProductQuantity());
+                    }
+                    case 4 -> {
+                        film.setStudio(Input.getStudio("Films"));
+                    }
+                    case 5 -> {
+                        film.setDirectors(Input.getDirector());
+                    }
+                    case 6 -> {
+                        String oldGenre = film.getGenre();
+                        int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Films"));
+                        String newGenre = GENRE_TYPE_ARRAYS.get("Films")[genreTypeNumber - 1];
+                        if (newGenre.equals(oldGenre)) {
+                            Printer.printFormattedMesage(film.getName() + " is already registered as a " + newGenre + " film");
+                        } else {
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, film);
+                            Printer.printFormattedMesage("This product's ID has been changed to: " + film.getID());
+                        }
+                    }
+                    case 7 -> {
+                        film.setProducer(Input.getProducer());
+                    }
+                    case 8 -> {
+                        changesInProgress = false;
+                    }
+                }
+            }
+        }
     }
 }
 
