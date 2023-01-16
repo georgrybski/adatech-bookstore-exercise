@@ -48,14 +48,6 @@ public class Toy extends Product {
         this.type = type;
     }
 
-    public static void setTypes(HashMap<Integer, String> types) {
-        Toy.types = types;
-    }
-
-    public static void setTypesArray(String[] typesArray) {
-        Toy.typesArray = typesArray;
-    }
-
     @Override
     public String getCategory() {
         return "Toys";

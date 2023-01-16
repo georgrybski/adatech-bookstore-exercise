@@ -86,14 +86,6 @@ public class Book extends Product {
         this.publisher = publisher;
     }
 
-    public static void setGenres(HashMap<Integer, String> genres) {
-        Book.genres = genres;
-    }
-
-    public static void setGenreArray(String[] genreArray) {
-        Book.genreArray = genreArray;
-    }
-
     @Override
     public String getCategory() {
         return "Books";

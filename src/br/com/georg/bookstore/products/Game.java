@@ -1,7 +1,6 @@
 package br.com.georg.bookstore.products;
 
 import br.com.georg.bookstore.utilities.HashMapTools;
-import br.com.georg.bookstore.utilities.Printer;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -73,14 +72,6 @@ public class Game extends Product {
 
     public void setStudio(String studio) {
         this.studio = studio;
-    }
-
-    public static void setGenres(HashMap<Integer, String> genres) {
-        Game.genres = genres;
-    }
-
-    public static void setGenresArray(String[] genresArray) {
-        Game.genresArray = genresArray;
     }
 
     @Override

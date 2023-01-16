@@ -67,10 +67,6 @@ public class Album extends Product {
         return genres;
     }
 
-    public static String[] getSortedGenreArray() {
-        return sortedGenreArray;
-    }
-
     public static String[] getGenreArray() {
         return genreArray;
     }
@@ -87,13 +83,6 @@ public class Album extends Product {
         this.recordLabel = recordLabel;
     }
 
-    public static void setGenres(HashMap<Integer, String> genres) {
-        Album.genres = genres;
-    }
-
-    public static void setGenreArray(String[] genreArray) {
-        Album.genreArray = genreArray;
-    }
 
     @Override
     public String getCategory() {

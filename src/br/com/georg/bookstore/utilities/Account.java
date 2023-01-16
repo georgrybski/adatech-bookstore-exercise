@@ -26,16 +26,8 @@ public class Account {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Bookstore getBookstore() {
@@ -48,10 +40,6 @@ public class Account {
 
     public ShoppingCart getShoppingCart() {
         return shoppingCart;
-    }
-
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
     }
 
     public static Account getAdmin(Bookstore bookstore) {

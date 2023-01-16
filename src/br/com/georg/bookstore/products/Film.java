@@ -88,14 +88,6 @@ public class Film extends Product {
         this.producer = producer;
     }
 
-    public static void setGenres(HashMap<Integer, String> genres) {
-        Film.genres = genres;
-    }
-
-    public static void setGenreArray(String[] genreArray) {
-        Film.genreArray = genreArray;
-    }
-
     @Override
     public String getCategory() {
         return "Films";
