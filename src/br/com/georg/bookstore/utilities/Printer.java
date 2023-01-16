@@ -128,7 +128,7 @@ public class Printer {
         return matrix;
     }
 
-    private static void printFrameLine() {
+    public static void printFrameLine() {
         System.out.println("+" + "-".repeat(LINE_LENGTH) + "+");
     }
 
@@ -158,7 +158,7 @@ public class Printer {
         }
     }
 
-    private static void printIndentedFormattedLine(String line) {
+    public static void printIndentedFormattedLine(String line) {
         int spaceNumber = (LINE_LENGTH - line.length());
         int spacesEachSide = spaceNumber / 2;
         int oddOrEvenOffset = spaceNumber % 2;

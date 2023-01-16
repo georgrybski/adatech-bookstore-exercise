@@ -1,6 +1,7 @@
 package br.com.georg.bookstore.products;
 
 import br.com.georg.bookstore.utilities.HashMapTools;
+import br.com.georg.bookstore.utilities.Printer;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -95,4 +96,8 @@ public class Film extends Product {
         Film.genreArray = genreArray;
     }
 
+    @Override
+    public String getCategory() {
+        return "Films";
+    }
 }

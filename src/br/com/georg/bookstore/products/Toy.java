@@ -1,6 +1,7 @@
 package br.com.georg.bookstore.products;
 
 import br.com.georg.bookstore.utilities.HashMapTools;
+import br.com.georg.bookstore.utilities.Printer;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -56,9 +57,7 @@ public class Toy extends Product {
     }
 
     @Override
-    public String toString() {
-        return  getName() + " | " + "ID - " + getID()   + " | " +
-                getPrice() + " USD " + " | " +
-                (getQuantity() > 0 ? "In Stock - Only " + getQuantity() + " Left" : "Out of Stock");
+    public String getCategory() {
+        return "Toys";
     }
 }

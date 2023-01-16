@@ -1,6 +1,7 @@
 package br.com.georg.bookstore.products;
 
 import br.com.georg.bookstore.utilities.HashMapTools;
+import br.com.georg.bookstore.utilities.Printer;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -94,4 +95,8 @@ public class Album extends Product {
         Album.genreArray = genreArray;
     }
 
+    @Override
+    public String getCategory() {
+        return "Albums";
+    }
 }

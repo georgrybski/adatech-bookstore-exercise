@@ -60,6 +60,10 @@ public class Product {
         return categories;
     }
 
+    public String getCategory() {
+        return null;
+    }
+
     public String getName() {
         return name;
     }
@@ -94,12 +98,5 @@ public class Product {
 
     public static String[] getCategoriesArray() {
         return categoriesArray;
-    }
-
-    @Override
-    public String toString() {
-        return  name + " | " + "ID - " + ID   + " | " +
-                price + " USD " + " | " +
-                (quantity > 0 ? "In Stock - Only " + quantity + " Left" : "Out of Stock");
     }
 }
