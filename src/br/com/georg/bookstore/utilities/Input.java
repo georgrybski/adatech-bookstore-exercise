@@ -196,7 +196,7 @@ public class Input {
         Printer.printFormattedMesage("The ID inserted is invalid");
     }
 
-    public static void modyfyExistingProduct(Bookstore bookstore) {
+    public static void modifyExistingProduct(Bookstore bookstore) {
         String ID = Input.getString("Insert the ID of the product you want to modify");
         if (Input.isIDValid(ID)) {
             Product rawProduct = bookstore.getDatabase().getProductByID(ID);
@@ -221,12 +221,12 @@ public class Input {
 
                     case "Games" -> {
                         Game product = (Game) rawProduct;
-//                        Menu.ProductEditor.editAlbum(product, bookstore);
+                        Menu.ProductEditor.editGame(product, bookstore);
                     }
 
                     case "Toys" -> {
                         Toy product = (Toy) rawProduct;
-//                        Menu.ProductEditor.editAlbum(product, bookstore);
+                        Menu.ProductEditor.editToy(product, bookstore);
                     }
                 }
             }

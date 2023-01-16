@@ -61,7 +61,7 @@ public class Main {
                         // Add new product
                         case (2) -> Menu.addProduct(bookstore);
                         // Modify an existing product
-                        case (3) -> Input.modyfyExistingProduct(bookstore);
+                        case (3) -> Input.modifyExistingProduct(bookstore);
                         // Remove a product
                         case (4) -> Input.removeProductUsingID(bookstore);
 //                        // TODO See sales history

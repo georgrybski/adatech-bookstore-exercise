@@ -207,11 +207,12 @@ public class Menu {
                     case 5 -> {
                         String oldGenre = album.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Albums"));
-                        String newGenre = GENRE_TYPE_ARRAYS.get("Albums")[genreTypeNumber - 1];
-                        if (newGenre.equals(oldGenre)) {
-                            Printer.printFormattedMesage(album.getName() + " is already registered as a " + newGenre + " album");
+                        String newGenreType = GENRE_TYPE_ARRAYS.get("Albums")[genreTypeNumber - 1];
+                        if (newGenreType.equals(oldGenre)) {
+                            Printer.printFormattedMesage(album.getName() + " is already registered as a " + newGenreType + " album");
                         } else {
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, album);
+                            album.setGenre(newGenreType);
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, album);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + album.getID());
                         }
                     }
@@ -224,10 +225,6 @@ public class Menu {
                 }
             }
         }
-//
-//        categoryString, productName, productPrice, genreTypeString,
-//                Input.getProductAuthor(categoryString),
-//                Input.getPublisher(), Input.getProductQuantity()
 
         public static void editBook(Book book, Bookstore bookstore) {
             Boolean changesInProgress = true;
@@ -250,11 +247,12 @@ public class Menu {
                     case 5 -> {
                         String oldGenre = book.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Books"));
-                        String newGenre = GENRE_TYPE_ARRAYS.get("Books")[genreTypeNumber - 1];
-                        if (newGenre.equals(oldGenre)) {
-                            Printer.printFormattedMesage(book.getName() + " is already registered as a " + newGenre + " book");
+                        String newGenreType = GENRE_TYPE_ARRAYS.get("Books")[genreTypeNumber - 1];
+                        if (newGenreType.equals(oldGenre)) {
+                            Printer.printFormattedMesage(book.getName() + " is already registered as a " + newGenreType + " book");
                         } else {
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, book);
+                            book.setGenre(newGenreType);
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, book);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + book.getID());
                         }
                     }
@@ -292,11 +290,12 @@ public class Menu {
                     case 6 -> {
                         String oldGenre = film.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Films"));
-                        String newGenre = GENRE_TYPE_ARRAYS.get("Films")[genreTypeNumber - 1];
-                        if (newGenre.equals(oldGenre)) {
-                            Printer.printFormattedMesage(film.getName() + " is already registered as a " + newGenre + " film");
+                        String newGenreType = GENRE_TYPE_ARRAYS.get("Films")[genreTypeNumber - 1];
+                        if (newGenreType.equals(oldGenre)) {
+                            Printer.printFormattedMesage(film.getName() + " is already registered as a " + newGenreType + " film");
                         } else {
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, film);
+                            film.setGenre(newGenreType);
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, film);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + film.getID());
                         }
                     }
@@ -331,11 +330,12 @@ public class Menu {
                     case 5 -> {
                         String oldGenre = game.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Games"));
-                        String newGenre = GENRE_TYPE_ARRAYS.get("Games")[genreTypeNumber - 1];
-                        if (newGenre.equals(oldGenre)) {
-                            Printer.printFormattedMesage(game.getName() + " is already registered as a " + newGenre + " game");
+                        String newGenreType = GENRE_TYPE_ARRAYS.get("Games")[genreTypeNumber - 1];
+                        if (newGenreType.equals(oldGenre)) {
+                            Printer.printFormattedMesage(game.getName() + " is already registered as a " + newGenreType + " game");
                         } else {
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, game);
+                            game.setGenre(newGenreType);
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, game);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + game.getID());
                         }
                     }
@@ -348,6 +348,43 @@ public class Menu {
                 }
             }
         }
+
+        public static void editToy(Toy toy, Bookstore bookstore) {
+            Boolean changesInProgress = true;
+            while (changesInProgress) {
+                Printer.printProduct(toy, toy.getType(), "Toys");
+                switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
+                        "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
+                    case 1 -> {
+                        toy.setName(Input.getProductName("Toys"));
+                    }
+                    case 2 -> {
+                        toy.setPrice(Input.getProductPrice("Toys"));
+                    }
+                    case 3 -> {
+                        toy.setQuantity(Input.getProductQuantity());
+                    }
+                    case 5 -> {
+                        String oldGenre = toy.getType();
+                        int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Toys"));
+                        String newGenreType = GENRE_TYPE_ARRAYS.get("Toys")[genreTypeNumber - 1];
+                        if (newGenreType.equals(oldGenre)) {
+                            Printer.printFormattedMesage(toy.getName() + " is already registered as a " + newGenreType + " toy");
+                        } else {
+                            toy.setType(newGenreType);
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, toy);
+                            Printer.printFormattedMesage("This product's ID has been changed to: " + toy.getID());
+                        }
+                    }
+                    case 7 -> {
+                        changesInProgress = false;
+                    }
+                }
+            }
+        }
+
+
+
     }
 }
 
