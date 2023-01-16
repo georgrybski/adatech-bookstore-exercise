@@ -30,6 +30,11 @@ public class ShoppingCart {
     }
 
     public void emptyCart() {
+        for (Product product: items) {
+            Product stock = bookstore.getDatabase().getProductByID(product.getID());
+            Integer remainigStock = stock.getQuantity() - product.getQuantity();
+            stock.setQuantity(remainigStock);
+        }
         items = new ArrayList<>();
     }
 
