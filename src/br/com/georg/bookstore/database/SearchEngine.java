@@ -3,7 +3,6 @@ package br.com.georg.bookstore.database;
 import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.utilities.Order;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

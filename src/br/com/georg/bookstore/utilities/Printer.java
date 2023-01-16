@@ -1,6 +1,5 @@
 package br.com.georg.bookstore.utilities;
 
-import br.com.georg.bookstore.database.Database;
 import br.com.georg.bookstore.products.Product;
 
 import java.util.ArrayList;
@@ -200,6 +199,8 @@ public class Printer {
         printIndentedFormattedLine(product.getQuantity() > 0 ? "In Stock - Only " + product.getQuantity() + " Left" : "Out of Stock");
         printFrameLine();
     }
+
+
 
     public static void printProductsOfACategory(Bookstore bookstore, String category) {
         for (Map.Entry<String, HashMap<String, Product>> genreTypeLayer : bookstore.getInventory().get(category).entrySet()) {
