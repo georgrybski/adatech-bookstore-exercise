@@ -195,7 +195,6 @@ public class Input {
             Product rawProduct = bookstore.getDatabase().getProductByID(ID);
             if (rawProduct != null) {
                 String[] categoryAndGenreType = bookstore.getDatabase().getCategoryAndGenreTypeByID(ID);
-//                Printer.printProduct(rawProduct, categoryAndGenreType[1], categoryAndGenreType[0]);
                 switch (categoryAndGenreType[0]) {
                     case "Albums" -> {
                         Album product = (Album) rawProduct;

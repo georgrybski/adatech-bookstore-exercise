@@ -9,15 +9,16 @@ public class Toy extends Product {
     private String type;
 
     private static String[] typesArray = new String[]{
-        "Action figures", "Animals", "Cars and radio controlled", "Construction toys",
-        "Creative toys", "Dolls", "Educational toys", "Electronic toys", "Executive toys",
-        "Food-related toys", "Puzzle", "Science and optical", "Sound toys"
+        "Action figure", "Animal", "Car and radio controlled", "Construction",
+        "Creative", "Doll", "Educational", "Electronic", "Executive",
+        "Food-related", "Puzzle", "Science and optical", "Sound and music"
     };
     private static HashMap<Integer,String> types =
             HashMapTools.initializeCategoryGenresOrTypesHashMap(typesArray);
 
-    public Toy(String category, String name, BigDecimal price, String type, Integer quantity){
-        super(name, price, quantity, category, type);
+    public Toy(String name, BigDecimal price, String type, Integer quantity){
+//        super(name, price, quantity, category, type);
+        super(name, price, quantity, "Toys", type);
         this.type = type;
     }
 

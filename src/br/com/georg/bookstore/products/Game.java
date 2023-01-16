@@ -15,15 +15,15 @@ public class Game extends Product {
 
     private static String[] genresArray = new String[] {
             "First Person Shooter", "Action-Adventure",
-            "Survival", "Puzzle", "Role-Playing Games",
+            "Survival", "Puzzle", "Role-Playing",
             "MMO", "Sports", "Sandbox", "Educational"
     };
     private static HashMap<Integer,String> genres =
             HashMapTools.initializeCategoryGenresOrTypesHashMap(genresArray);
 
 
-    public Game(String category, String name, BigDecimal price, String genre, String distribuitor, String studio, Integer quantity) {
-        super(name, price, quantity, category, genre);
+    public Game(String name, BigDecimal price, String genre, String distribuitor, String studio, Integer quantity) {
+        super(name, price, quantity, "Games", genre);
         this.distribuitor = distribuitor;
         this.genre = genre;
         this.studio = studio;

@@ -27,10 +27,10 @@ public class Album extends Product {
     private static HashMap<Integer,String> genres =
             HashMapTools.initializeCategoryGenresOrTypesHashMap(sortedGenreArray);
 
-    public Album(String category, String name, BigDecimal price, String genre,
+    public Album(String name, BigDecimal price, String genre,
                  String author, String recordLabel, Integer quantity) {
 
-        super(name, price, quantity, category, genre);
+        super(name, price, quantity, "Albums", genre);
         this.author = author;
         this.genre = genre;
         this.recordLabel = recordLabel;

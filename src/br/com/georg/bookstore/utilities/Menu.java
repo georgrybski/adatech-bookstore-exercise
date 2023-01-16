@@ -105,30 +105,30 @@ public class Menu {
 
         Product newProduct = switch (categoryString) {
             case "Albums" -> new Album(
-                    categoryString, productName, productPrice, genreTypeString,
+                    productName, productPrice, genreTypeString,
                     Input.getProductAuthor(categoryString),
                     Input.getRecordLabel(), Input.getProductQuantity()
             );
             case "Books" -> new Book(
-                    categoryString, productName, productPrice, genreTypeString,
+                    productName, productPrice, genreTypeString,
                     Input.getProductAuthor(categoryString),
                     Input.getPublisher(), Input.getProductQuantity()
             );
             case "Films" -> new Film(
-                    categoryString, productName, productPrice, genreTypeString,
+                    productName, productPrice, genreTypeString,
                     Input.getStudio(categoryString),
                     Input.getDirector(),
                     Input.getProducer(),
                     Input.getProductQuantity()
             );
             case "Games" -> new Game(
-                    categoryString, productName, productPrice, genreTypeString,
+                    productName, productPrice, genreTypeString,
                     Input.getDistribuitor(),
                     Input.getStudio(categoryString),
                     Input.getProductQuantity()
             );
             case "Toys" -> new Toy(
-                    categoryString, productName, productPrice, genreTypeString,
+                    productName, productPrice, genreTypeString,
                     Input.getProductQuantity()
             );
             default -> null;
