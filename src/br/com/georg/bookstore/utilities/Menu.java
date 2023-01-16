@@ -309,6 +309,45 @@ public class Menu {
                 }
             }
         }
+
+        public static void editGame(Game game, Bookstore bookstore) {
+            Boolean changesInProgress = true;
+            while (changesInProgress) {
+                Printer.printProduct(game, game.getGenre(), "Games");
+                switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
+                        "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
+                    case 1 -> {
+                        game.setName(Input.getProductName("Games"));
+                    }
+                    case 2 -> {
+                        game.setPrice(Input.getProductPrice("Games"));
+                    }
+                    case 3 -> {
+                        game.setQuantity(Input.getProductQuantity());
+                    }
+                    case 4 -> {
+                        game.setDistribuitor(Input.getDistribuitor());
+                    }
+                    case 5 -> {
+                        String oldGenre = game.getGenre();
+                        int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Games"));
+                        String newGenre = GENRE_TYPE_ARRAYS.get("Games")[genreTypeNumber - 1];
+                        if (newGenre.equals(oldGenre)) {
+                            Printer.printFormattedMesage(game.getName() + " is already registered as a " + newGenre + " game");
+                        } else {
+                            bookstore.getDatabase().transferProduct(oldGenre, newGenre, game);
+                            Printer.printFormattedMesage("This product's ID has been changed to: " + game.getID());
+                        }
+                    }
+                    case 6 -> {
+                        game.setStudio(Input.getStudio("Games"));
+                    }
+                    case 7 -> {
+                        changesInProgress = false;
+                    }
+                }
+            }
+        }
     }
 }
 
