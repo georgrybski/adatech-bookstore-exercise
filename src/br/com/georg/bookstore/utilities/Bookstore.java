@@ -59,4 +59,8 @@ public class Bookstore {
     public Cashier getCashier() {
         return cashier;
     }
+
+    public void setMoneySum(BigDecimal moneySum) {
+        this.moneySum = moneySum;
+    }
 }

@@ -39,13 +39,11 @@ public class SearchEngine {
 
     protected String getCategoryOfID(String ID) {
         String categoryCode = ID.substring(0, 3);
-        String categoryString = IDCategorySearchHashMap.get(categoryCode);
-        return categoryString;
+        return IDCategorySearchHashMap.get(categoryCode);
     }
     protected String getGenreTypeOfID(String ID, String category) {
         String genreTypeKey = ID.substring(3, 6);
-        String genreTypeString = IDGenreTypeHashMap.get(category).get(genreTypeKey);
-        return genreTypeString;
+        return IDGenreTypeHashMap.get(category).get(genreTypeKey);
     }
 
     protected boolean usernameExists(String username) {

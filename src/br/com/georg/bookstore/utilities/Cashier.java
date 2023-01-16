@@ -15,7 +15,8 @@ public class Cashier {
     }
 
     public void recievePayment(BigDecimal addedMoney) {
-        bookstore.getMoneySum().add(addedMoney);
+        BigDecimal newSum = bookstore.getMoneySum().add(addedMoney);
+        bookstore.setMoneySum(newSum);
     }
 
     private void registerOrder(ShoppingCart shoppingCart) {
