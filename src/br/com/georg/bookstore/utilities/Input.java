@@ -4,6 +4,7 @@ import br.com.georg.bookstore.products.*;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Input {
@@ -61,15 +62,11 @@ public class Input {
     public static boolean isUsernameValid(String username) {
         boolean usernameLengthValid = (username.length() >= 4 && username.length() <= 15);
         boolean usernameCharactersValid = (username.matches("^[a-zA-Z0-9_]+$"));
-        if (usernameLengthValid && usernameCharactersValid) {
-            return true;
-        } else {
-            return false;
-        }
+        return usernameLengthValid && usernameCharactersValid;
     }
 
     public static String getUsername(Bookstore bookstore) {
-        var username = getString("Insert your desired username");
+        var username = getString("Insert your desired username").toLowerCase();
         if (!isUsernameValid(username)) {
             Printer.printFormattedMesage("Usernames must have between 4 and 15 characters and " +
                     "contain only letters A-Z, numbers 0-9 or underscores");
@@ -100,11 +97,7 @@ public class Input {
     public static Account createNewAccount(Bookstore bookstore){
         Account newAccount = bookstore.registerAccount(getUsername(bookstore),
                 getString("Insert your desired password"));
-        if (newAccount == null){
-            return createNewAccount(bookstore);
-        } else {
-            return newAccount;
-        }
+        return Objects.requireNonNullElseGet(newAccount, () -> createNewAccount(bookstore));
     }
 
     public static String getProductField(String category, String field) {
@@ -215,7 +208,7 @@ public class Input {
                     }
 
                     case "Films" -> {
-                        Film product = (Film) rawProduct;;
+                        Film product = (Film) rawProduct;
                         Menu.ProductEditor.editFilm(product, bookstore);
                     }
 
@@ -245,16 +238,12 @@ public class Input {
         }
         Printer.printFormattedMesage(message);
         try {
-            switch(type) {
-                case "String":
-                    return scn.nextLine();
-                case "BigDecimal":
-                    return scn.nextBigDecimal();
-                case "int":
-                    return scn.nextInt();
-                default:
-                    return null;
-            }
+            return switch (type) {
+                case "String" -> scn.nextLine();
+                case "BigDecimal" -> scn.nextBigDecimal();
+                case "int" -> scn.nextInt();
+                default -> null;
+            };
         } catch (InputMismatchException e) {
             return null;
         }

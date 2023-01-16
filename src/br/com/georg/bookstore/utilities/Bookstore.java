@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 public class Bookstore {
     private BigDecimal moneySum;
-    private Database database;
-    private Cashier cashier;
+    private final Database database;
+    private final Cashier cashier;
 
     public Bookstore(){
         moneySum = BigDecimal.valueOf(0);
@@ -43,7 +43,6 @@ public class Bookstore {
         return null;
     }
 
-
     public BigDecimal getMoneySum() {
         return moneySum;
     }
@@ -54,10 +53,6 @@ public class Bookstore {
 
     public HashMap<String, HashMap<String, HashMap<String, Product>>> getInventory() {
         return database.getProducts3DHashMap();
-    }
-
-    public Cashier getCashier() {
-        return cashier;
     }
 
     public void setMoneySum(BigDecimal moneySum) {

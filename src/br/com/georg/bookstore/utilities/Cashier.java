@@ -3,7 +3,7 @@ package br.com.georg.bookstore.utilities;
 import java.math.BigDecimal;
 
 public class Cashier {
-    private Bookstore bookstore;
+    private final Bookstore bookstore;
 
     public Cashier(Bookstore bookstore) {
         this.bookstore = bookstore;
