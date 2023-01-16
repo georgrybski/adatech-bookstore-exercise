@@ -41,18 +41,16 @@ public class Menu {
 
     public static void seeProductList(Bookstore bookstore) {
         switch (Menu.getIntFrom(new String[]{"1 - All products", "2 -  Products of a certain category"})) {
-            case 1:
+            case 1 -> {
                 Printer.printAllProducts(bookstore);
                 Printer.printFormattedMesage("^ List of all products ^");
-                break;
-            case 2:
-                seeProductListByCategory(bookstore);
-                break;
+            }
+            case 2 -> seeProductListByCategory(bookstore);
         }
     }
 
     public static void seeProductListByCategory(Bookstore bookstore) {
-        Integer categoryNumber = getProductCategory() - 1;
+        int categoryNumber = getProductCategory() - 1;
         String categoryString = Product.getCategoriesArray()[categoryNumber];
 
         int input = Menu.getIntFrom(
@@ -64,36 +62,33 @@ public class Menu {
         );
 
         switch (input) {
-            case 1:
+            case 1 -> {
                 Printer.printProductsOfACategory(bookstore, categoryString);
                 Printer.printFormattedMesage("^ List of " + categoryString + " ^");
-                break;
-            case 2:
-                seeProductByGenreType(bookstore, categoryString, categoryNumber);
-                break;
+            }
+            case 2 -> seeProductByGenreType(bookstore, categoryString, categoryNumber);
         }
     }
 
     public static void goToCart(Bookstore bookstore, Account loggedAccount) {
-        //TODO print cart
-
+        boolean checkingCart = true;
+        while (checkingCart) {
         switch (Menu.getIntFrom(new String[]{"1 - Checkout", "2 - Remove or add items", "3 - Continue Shopping"})) {
-//            TODO print cart
-            case (1) -> {
-                bookstore.completeSale(loggedAccount.getShoppingCart());
-                Printer.printFormattedMesage("Payment successful");
-            }
-//            TODO print cart
-            case (2) -> {
-            }
-
-            case (3) -> {
+//              TODO print cart
+                case (1) -> {
+                    bookstore.completeSale(loggedAccount.getShoppingCart());
+                    Printer.printFormattedMesage("Payment successful");
+                    checkingCart = false;
+                }
+//              TODO print cart
+                case (2) -> {}
+                case (3) -> checkingCart = false;
             }
         }
     }
 
     public static void seeProductByGenreType(Bookstore bookstore, String category, int categoryNumber) {
-        Integer genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(category));
+        int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(category));
         String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
         Printer.printProductsOfAGenreType(bookstore, category, genreTypeString);
         Printer.printFormattedMesage("^ List of " + genreTypeString + " " + category + " ^");
@@ -101,53 +96,43 @@ public class Menu {
 
     public static void addProduct(Bookstore bookstore) {
 
-        Integer categoryNumber = getProductCategory() - 1;
+        int categoryNumber = getProductCategory() - 1;
         String categoryString = Product.getCategoriesArray()[categoryNumber];
-        Integer genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(categoryString));
+        int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(categoryString));
         String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
         String productName = Input.getProductName(categoryString);
         BigDecimal productPrice = Input.getProductPrice(categoryString);
 
-        Product newProduct = null;
-        switch (categoryString) {
-            case "Albums":
-                newProduct = new Album(
-                        categoryString, productName, productPrice, genreTypeString,
-                        Input.getProductAuthor(categoryString),
-                        Input.getRecordLabel(), Input.getProductQuantity()
-                );
-                break;
-            case "Books":
-                newProduct = new Book(
-                        categoryString, productName, productPrice, genreTypeString,
-                        Input.getProductAuthor(categoryString),
-                        Input.getPublisher(), Input.getProductQuantity()
-                );
-                break;
-            case "Films":
-                newProduct = new Film(
-                        categoryString, productName, productPrice, genreTypeString,
-                        Input.getStudio(categoryString),
-                        Input.getDirector(),
-                        Input.getProducer(),
-                        Input.getProductQuantity()
-                );
-                break;
-            case "Games":
-                newProduct = new Game(
-                        categoryString, productName, productPrice, genreTypeString,
-                        Input.getDistribuitor(),
-                        Input.getStudio(categoryString),
-                        Input.getProductQuantity()
-                );
-                break;
-            case "Toys":
-                newProduct = new Toy(
-                        categoryString, productName, productPrice, genreTypeString,
-                        Input.getProductQuantity()
-                );
-                break;
-        }
+        Product newProduct = switch (categoryString) {
+            case "Albums" -> new Album(
+                    categoryString, productName, productPrice, genreTypeString,
+                    Input.getProductAuthor(categoryString),
+                    Input.getRecordLabel(), Input.getProductQuantity()
+            );
+            case "Books" -> new Book(
+                    categoryString, productName, productPrice, genreTypeString,
+                    Input.getProductAuthor(categoryString),
+                    Input.getPublisher(), Input.getProductQuantity()
+            );
+            case "Films" -> new Film(
+                    categoryString, productName, productPrice, genreTypeString,
+                    Input.getStudio(categoryString),
+                    Input.getDirector(),
+                    Input.getProducer(),
+                    Input.getProductQuantity()
+            );
+            case "Games" -> new Game(
+                    categoryString, productName, productPrice, genreTypeString,
+                    Input.getDistribuitor(),
+                    Input.getStudio(categoryString),
+                    Input.getProductQuantity()
+            );
+            case "Toys" -> new Toy(
+                    categoryString, productName, productPrice, genreTypeString,
+                    Input.getProductQuantity()
+            );
+            default -> null;
+        };
 
         bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
@@ -187,23 +172,15 @@ public class Menu {
     public static class ProductEditor {
 
         public static void editAlbum(Album album, Bookstore bookstore) {
-            Boolean changesInProgress = true;
+            boolean changesInProgress = true;
             while (changesInProgress) {
                 Printer.printProduct(album, album.getGenre(), "Albums");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change record label", "7 - Finish changes"})) {
-                    case 1 -> {
-                        album.setName(Input.getProductName("Albums"));
-                    }
-                    case 2 -> {
-                        album.setPrice(Input.getProductPrice("Albums"));
-                    }
-                    case 3 -> {
-                        album.setQuantity(Input.getProductQuantity());
-                    }
-                    case 4 -> {
-                        album.setAuthor(Input.getProductAuthor("Albums"));
-                    }
+                    case 1 -> album.setName(Input.getProductName("Albums"));
+                    case 2 -> album.setPrice(Input.getProductPrice("Albums"));
+                    case 3 -> album.setQuantity(Input.getProductQuantity());
+                    case 4 -> album.setAuthor(Input.getProductAuthor("Albums"));
                     case 5 -> {
                         String oldGenre = album.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Albums"));
@@ -216,34 +193,22 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + album.getID());
                         }
                     }
-                    case 6 -> {
-                        album.setRecordLabel(Input.getRecordLabel());
-                    }
-                    case 7 -> {
-                        changesInProgress = false;
-                    }
+                    case 6 -> album.setRecordLabel(Input.getRecordLabel());
+                    case 7 -> changesInProgress = false;
                 }
             }
         }
 
         public static void editBook(Book book, Bookstore bookstore) {
-            Boolean changesInProgress = true;
+            boolean changesInProgress = true;
             while (changesInProgress) {
                 Printer.printProduct(book, book.getGenre(), "Books");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change publisher", "7 - Finish changes"})) {
-                    case 1 -> {
-                        book.setName(Input.getProductName("Books"));
-                    }
-                    case 2 -> {
-                        book.setPrice(Input.getProductPrice("Books"));
-                    }
-                    case 3 -> {
-                        book.setQuantity(Input.getProductQuantity());
-                    }
-                    case 4 -> {
-                        book.setAuthor(Input.getProductAuthor("Books"));
-                    }
+                    case 1 -> book.setName(Input.getProductName("Books"));
+                    case 2 -> book.setPrice(Input.getProductPrice("Books"));
+                    case 3 -> book.setQuantity(Input.getProductQuantity());
+                    case 4 -> book.setAuthor(Input.getProductAuthor("Books"));
                     case 5 -> {
                         String oldGenre = book.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Books"));
@@ -256,37 +221,23 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + book.getID());
                         }
                     }
-                    case 6 -> {
-                        book.setPublisher(Input.getPublisher());
-                    }
-                    case 7 -> {
-                        changesInProgress = false;
-                    }
+                    case 6 -> book.setPublisher(Input.getPublisher());
+                    case 7 -> changesInProgress = false;
                 }
             }
         }
 
         public static void editFilm(Film film, Bookstore bookstore) {
-            Boolean changesInProgress = true;
+            boolean changesInProgress = true;
             while (changesInProgress) {
                 Printer.printProduct(film, film.getGenre(), "Films");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change studio", "5 - Change director", "6 - Change genre", "7 - Change producer", "8 - Finish changes"})) {
-                    case 1 -> {
-                        film.setName(Input.getProductName("Films"));
-                    }
-                    case 2 -> {
-                        film.setPrice(Input.getProductPrice("Films"));
-                    }
-                    case 3 -> {
-                        film.setQuantity(Input.getProductQuantity());
-                    }
-                    case 4 -> {
-                        film.setStudio(Input.getStudio("Films"));
-                    }
-                    case 5 -> {
-                        film.setDirectors(Input.getDirector());
-                    }
+                    case 1 -> film.setName(Input.getProductName("Films"));
+                    case 2 -> film.setPrice(Input.getProductPrice("Films"));
+                    case 3 -> film.setQuantity(Input.getProductQuantity());
+                    case 4 -> film.setStudio(Input.getStudio("Films"));
+                    case 5 -> film.setDirectors(Input.getDirector());
                     case 6 -> {
                         String oldGenre = film.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Films"));
@@ -299,34 +250,22 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + film.getID());
                         }
                     }
-                    case 7 -> {
-                        film.setProducer(Input.getProducer());
-                    }
-                    case 8 -> {
-                        changesInProgress = false;
-                    }
+                    case 7 -> film.setProducer(Input.getProducer());
+                    case 8 -> changesInProgress = false;
                 }
             }
         }
 
         public static void editGame(Game game, Bookstore bookstore) {
-            Boolean changesInProgress = true;
+            boolean changesInProgress = true;
             while (changesInProgress) {
                 Printer.printProduct(game, game.getGenre(), "Games");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
-                    case 1 -> {
-                        game.setName(Input.getProductName("Games"));
-                    }
-                    case 2 -> {
-                        game.setPrice(Input.getProductPrice("Games"));
-                    }
-                    case 3 -> {
-                        game.setQuantity(Input.getProductQuantity());
-                    }
-                    case 4 -> {
-                        game.setDistribuitor(Input.getDistribuitor());
-                    }
+                    case 1 -> game.setName(Input.getProductName("Games"));
+                    case 2 -> game.setPrice(Input.getProductPrice("Games"));
+                    case 3 -> game.setQuantity(Input.getProductQuantity());
+                    case 4 -> game.setDistribuitor(Input.getDistribuitor());
                     case 5 -> {
                         String oldGenre = game.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Games"));
@@ -339,31 +278,21 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + game.getID());
                         }
                     }
-                    case 6 -> {
-                        game.setStudio(Input.getStudio("Games"));
-                    }
-                    case 7 -> {
-                        changesInProgress = false;
-                    }
+                    case 6 -> game.setStudio(Input.getStudio("Games"));
+                    case 7 -> changesInProgress = false;
                 }
             }
         }
 
         public static void editToy(Toy toy, Bookstore bookstore) {
-            Boolean changesInProgress = true;
+            boolean changesInProgress = true;
             while (changesInProgress) {
                 Printer.printProduct(toy, toy.getType(), "Toys");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
-                    case 1 -> {
-                        toy.setName(Input.getProductName("Toys"));
-                    }
-                    case 2 -> {
-                        toy.setPrice(Input.getProductPrice("Toys"));
-                    }
-                    case 3 -> {
-                        toy.setQuantity(Input.getProductQuantity());
-                    }
+                    case 1 -> toy.setName(Input.getProductName("Toys"));
+                    case 2 -> toy.setPrice(Input.getProductPrice("Toys"));
+                    case 3 -> toy.setQuantity(Input.getProductQuantity());
                     case 5 -> {
                         String oldGenre = toy.getType();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Toys"));
@@ -376,9 +305,7 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + toy.getID());
                         }
                     }
-                    case 7 -> {
-                        changesInProgress = false;
-                    }
+                    case 7 -> changesInProgress = false;
                 }
             }
         }
