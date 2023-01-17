@@ -1,7 +1,10 @@
 package br.com.georg.bookstore.database;
 
 import br.com.georg.bookstore.products.Product;
-import br.com.georg.bookstore.utilities.*;
+import br.com.georg.bookstore.service.Account;
+import br.com.georg.bookstore.service.Bookstore;
+import br.com.georg.bookstore.service.Order;
+import br.com.georg.bookstore.service.ShoppingCart;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -88,6 +91,18 @@ public class Database {
         product.setID(newID);
         getInventoryLocationByID(oldID).remove(oldID);
         getInventoryLocationByID(newID).put(newID, product);
+    }
+
+    public boolean productExists(String ID) {
+        return getInventoryLocationByID(ID).containsKey(ID);
+    }
+
+    public void removeProduct(String ID) {
+        getInventoryLocationByID(ID).remove(ID);
+    }
+
+    public Account getAccountByUsername(String username) {
+        return getAccountsHashMap().get(username);
     }
 
 

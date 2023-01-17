@@ -1,4 +1,4 @@
-package br.com.georg.bookstore.utilities;
+package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
 
@@ -8,7 +8,7 @@ public class Account {
     private Bookstore bookstore;
     private ShoppingCart shoppingCart;
 
-    protected Account(String username, String password, Bookstore bookstore) {
+    public Account(String username, String password, Bookstore bookstore) {
         this.username = username;
         this.password = password;
         this.bookstore = bookstore;

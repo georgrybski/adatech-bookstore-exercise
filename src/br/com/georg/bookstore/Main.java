@@ -1,5 +1,7 @@
 package br.com.georg.bookstore;
 
+import br.com.georg.bookstore.service.Account;
+import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.utilities.*;
 
 public class Main {

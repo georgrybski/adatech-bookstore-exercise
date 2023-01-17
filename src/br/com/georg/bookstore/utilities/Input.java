@@ -1,6 +1,8 @@
 package br.com.georg.bookstore.utilities;
 
 import br.com.georg.bookstore.products.*;
+import br.com.georg.bookstore.service.Account;
+import br.com.georg.bookstore.service.Bookstore;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;

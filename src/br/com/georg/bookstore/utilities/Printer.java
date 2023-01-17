@@ -1,6 +1,8 @@
 package br.com.georg.bookstore.utilities;
 
 import br.com.georg.bookstore.products.*;
+import br.com.georg.bookstore.service.Bookstore;
+import br.com.georg.bookstore.service.Order;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,22 +1,19 @@
-package br.com.georg.bookstore.utilities;
+package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.database.Database;
 import br.com.georg.bookstore.products.*;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 
 public class Bookstore {
-    private BigDecimal moneySum;
     private final Database database;
     private final Cashier cashier;
-
     private final Treasury treasury;
 
     public Bookstore(){
-        moneySum = BigDecimal.valueOf(0);
         database = new Database(this);
         cashier = new Cashier(this);
+        treasury = new Treasury(this);
     }
 
     public void completeSale(ShoppingCart shoppingCart) {
@@ -28,8 +25,9 @@ public class Bookstore {
     }
 
     public boolean removeProduct(String ID) {
-        if (database.getInventoryLocationByID(ID).containsKey(ID)) {
-            database.getInventoryLocationByID(ID).remove(ID);
+        if (database.productExists(ID)) {
+            treasury.recalculateInventoryValueRemovingItem(ID);
+            database.removeProduct(ID);
             return true;
         } else {
             return false;
@@ -38,15 +36,14 @@ public class Bookstore {
 
     public Account registerAccount(String username, String password) {
         if (database.isUsernameFree(username)){
-            Account account = new Account(username, password, this);
-            database.insertAccount(account);
-            return account;
+            database.insertAccount(new Account(username, password, this));
+            return database.getAccountByUsername(username);
         }
         return null;
     }
 
-    public BigDecimal getMoneySum() {
-        return moneySum;
+    public Treasury getTreasury() {
+        return treasury;
     }
 
     public Database getDatabase() {
@@ -55,9 +52,5 @@ public class Bookstore {
 
     public HashMap<String, HashMap<String, HashMap<String, Product>>> getInventory() {
         return database.getProducts3DHashMap();
-    }
-
-    public void setMoneySum(BigDecimal moneySum) {
-        this.moneySum = moneySum;
     }
 }

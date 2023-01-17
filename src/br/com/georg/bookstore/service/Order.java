@@ -1,6 +1,7 @@
-package br.com.georg.bookstore.utilities;
+package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
+import br.com.georg.bookstore.service.ShoppingCart;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

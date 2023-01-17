@@ -99,4 +99,8 @@ public class Product {
     public static String[] getCategoriesArray() {
         return categoriesArray;
     }
+
+    public BigDecimal getValueOfItemStack() {
+        return price.multiply(BigDecimal.valueOf(quantity));
+    }
 }
