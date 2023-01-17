@@ -1,13 +1,5 @@
 package br.com.georg.bookstore.utilities.printer;
 
-import br.com.georg.bookstore.products.*;
-import br.com.georg.bookstore.service.Bookstore;
-import br.com.georg.bookstore.service.Order;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Printer {
 
     static final int LINE_LENGTH = 102;

@@ -82,7 +82,7 @@ public class Database {
         return new String[]{category, genreType};
     }
 
-    public void transferProduct(String oldGenreType, String newGenreType, Product product) {
+    public void transferProduct(String newGenreType, Product product) {
 
         String oldID = product.getID();
 

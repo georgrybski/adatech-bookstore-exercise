@@ -57,8 +57,8 @@ public class MenuPrinter {
                 // Checking if the number of options is a multiple of 5 avoids missing last option in these situations.
                 boolean notMultipleOf5 = !(optionsMatrix.length % 5 == 0);
 
-                // Multiples of 10, 14 and 16 would have duplicity if not checked.
-                boolean notMultipleOf3Or10or13Or14or16 = (
+                // Multiples of these numbers would have duplicity if not checked.
+                boolean notMultipleOfProblematicNumbers = (
                         optionsMatrix.length != 2 &&
                                 optionsMatrix.length % 3 != 0 &&
                                 optionsMatrix.length % 7 != 0 &&
@@ -71,8 +71,8 @@ public class MenuPrinter {
 
                 boolean moreThanOneLineNecessary = (lastIteration && moreThanTwoOptions && evenIterationNumber &&
                         aditionalOptionNumberDifferentThanIterationNumber &&
-                        optionNumberDifferentThanSix && notMultipleOf3Or10or13Or14or16)
-                        || (lastIteration && notMultipleOf5 && notMultipleOf3Or10or13Or14or16);
+                        optionNumberDifferentThanSix && notMultipleOfProblematicNumbers)
+                        || (lastIteration && notMultipleOf5 && notMultipleOfProblematicNumbers);
 
                 if (moreThanOneLineNecessary) {
                     oddOrEvenOffset =

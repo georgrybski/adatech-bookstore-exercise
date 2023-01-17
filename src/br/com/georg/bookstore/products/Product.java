@@ -48,6 +48,9 @@ public class Product {
         this.ID = ID;
     }
 
+    /*
+    Evaluate making this class abstract and the copy method return this
+     */
     protected Product copy(Integer quantity) {
         return new Product(this.name, this.price, this.ID, quantity);
     }

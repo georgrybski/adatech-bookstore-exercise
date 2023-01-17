@@ -1,9 +1,9 @@
 package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
+
 
 public class ShoppingCart {
 
@@ -19,10 +19,24 @@ public class ShoppingCart {
 
     public BigDecimal getTotal() {
         BigDecimal total = BigDecimal.valueOf(0);
-        for (Product product: items) {
-            total.add(product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())));
-        }
+        items.stream().map(Product::getValueOfItemStack).forEach(stackValue -> total.add(stackValue)); ;
         return total;
+    }
+
+    public boolean productIsInCart(Product product) {
+        return items.contains(product);
+    }
+
+    public boolean addItemToCart(Product product) {
+        if (!productIsInCart(product)) {
+            items.add(product);
+            return true;
+        } else {
+            items.stream()
+                    .filter(productInList -> product.getID().equals(productInList.getID()))
+                    .forEach(product1 -> product1.setQuantity(product1.getQuantity() + 1));
+            return false;
+        }
     }
 
     public void checkout() {
@@ -30,11 +44,6 @@ public class ShoppingCart {
     }
 
     public void emptyCart() {
-        for (Product product: items) {
-            Product stock = bookstore.getDatabase().getProductByID(product.getID());
-            Integer remainigStock = stock.getQuantity() - product.getQuantity();
-            stock.setQuantity(remainigStock);
-        }
         items = new ArrayList<>();
     }
 

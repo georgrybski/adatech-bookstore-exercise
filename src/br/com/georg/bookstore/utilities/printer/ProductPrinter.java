@@ -16,9 +16,6 @@ public class ProductPrinter {
         }
     }
 
-    // TODO
-
-
     public static void printProduct(Product product, String genreType, String category) {
         printFrameLine();
         printIndentedFormattedLine(genreType + " " + category.substring(0, category.length() - 1)+ " | ID: " + product.getID());
@@ -42,7 +39,6 @@ public class ProductPrinter {
                 printFormattedMultiLineString("Studio: " + game.getStudio() + " | Distribuitor: " + game.getDistribuitor());
             }
         }
-
         printIndentedFormattedLine(product.getQuantity() > 0 ? "In Stock - Only " + product.getQuantity() + " Left" : "Out of Stock");
         printFrameLine();
     }

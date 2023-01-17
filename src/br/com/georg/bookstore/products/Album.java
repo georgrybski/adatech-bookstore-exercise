@@ -82,7 +82,6 @@ public class Album extends Product {
         this.recordLabel = recordLabel;
     }
 
-
     @Override
     public String getCategory() {
         return "Albums";

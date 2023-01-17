@@ -182,15 +182,19 @@ public class Input {
 
     public static void addProductToCartUsingID(Bookstore bookstore, Account loggedAccount) {
         String ID = getString("Insert the ID of the product you want to add to your cart");
+        String message = "The ID inserted is invalid";
         if (isIDValid(ID)) {
             Product product = bookstore.getDatabase().getProductByID(ID);
             if (product != null) {
-                loggedAccount.addToCart(product);
-                Printer.printFormattedMesage("'" + product.getName() + "' has been added to your cart");
-                return;
+                if (!loggedAccount.addToCart(product)){
+                    message = ("'" + product.getName() + "' has been added to your cart");
+                }
+                else {
+                    message = ("Another '" + product.getName() + "' has been added to your cart");
+                }
             }
         }
-        Printer.printFormattedMesage("The ID inserted is invalid");
+        Printer.printFormattedMesage(message);
     }
 
     public static void modifyExistingProduct(Bookstore bookstore) {

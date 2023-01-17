@@ -3,6 +3,7 @@ package br.com.georg.bookstore;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.utilities.*;
+import br.com.georg.bookstore.utilities.printer.CartPrinter;
 import br.com.georg.bookstore.utilities.printer.Printer;
 
 public class Main {
@@ -43,7 +44,7 @@ public class Main {
                         // Add a product to shopping cart
                         case (2) -> Input.addProductToCartUsingID(bookstore, loggedAccount);
 //                        // TODO Go to shopping cart
-//                        case (3) ->
+                        case (3) ->  Menu.goToCart(bookstore, loggedAccount);
 //                        // TODO See my purchase history
 //                        case (4) ->
                         // Log out

@@ -3,6 +3,7 @@ package br.com.georg.bookstore.utilities;
 import br.com.georg.bookstore.products.*;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
+import br.com.georg.bookstore.utilities.printer.CartPrinter;
 import br.com.georg.bookstore.utilities.printer.Printer;
 import br.com.georg.bookstore.utilities.printer.ProductPrinter;
 
@@ -77,8 +78,8 @@ public class Menu {
     public static void goToCart(Bookstore bookstore, Account loggedAccount) {
         boolean checkingCart = true;
         while (checkingCart) {
+            CartPrinter.printShoppingCart(loggedAccount);
         switch (Menu.getIntFrom(new String[]{"1 - Checkout", "2 - Remove or add items", "3 - Continue Shopping"})) {
-//              TODO print cart
                 case (1) -> {
                     bookstore.completeSale(loggedAccount.getShoppingCart());
                     Printer.printFormattedMesage("Payment successful");
@@ -198,7 +199,7 @@ public class Menu {
                             Printer.printFormattedMesage(album.getName() + " is already registered as a " + newGenreType + " album");
                         } else {
                             album.setGenre(newGenreType);
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, album);
+                            bookstore.getDatabase().transferProduct(newGenreType, album);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + album.getID());
                         }
                     }
@@ -233,7 +234,7 @@ public class Menu {
                             Printer.printFormattedMesage(book.getName() + " is already registered as a " + newGenreType + " book");
                         } else {
                             book.setGenre(newGenreType);
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, book);
+                            bookstore.getDatabase().transferProduct(newGenreType, book);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + book.getID());
                         }
                     }
@@ -270,7 +271,7 @@ public class Menu {
                             Printer.printFormattedMesage(film.getName() + " is already registered as a " + newGenreType + " film");
                         } else {
                             film.setGenre(newGenreType);
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, film);
+                            bookstore.getDatabase().transferProduct(newGenreType, film);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + film.getID());
                         }
                     }
@@ -305,7 +306,7 @@ public class Menu {
                             Printer.printFormattedMesage(game.getName() + " is already registered as a " + newGenreType + " game");
                         } else {
                             game.setGenre(newGenreType);
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, game);
+                            bookstore.getDatabase().transferProduct(newGenreType, game);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + game.getID());
                         }
                     }
@@ -338,7 +339,7 @@ public class Menu {
                             Printer.printFormattedMesage(toy.getName() + " is already registered as a " + newGenreType + " toy");
                         } else {
                             toy.setType(newGenreType);
-                            bookstore.getDatabase().transferProduct(oldGenre, newGenreType, toy);
+                            bookstore.getDatabase().transferProduct(newGenreType, toy);
                             Printer.printFormattedMesage("This product's ID has been changed to: " + toy.getID());
                         }
                     }
