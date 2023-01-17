@@ -104,6 +104,7 @@ public class Product {
     }
 
     public BigDecimal getValueOfItemStack() {
-        return price.multiply(BigDecimal.valueOf(quantity));
+        BigDecimal total = price.multiply(BigDecimal.valueOf(quantity));
+        return total;
     }
 }

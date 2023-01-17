@@ -18,8 +18,7 @@ public class ShoppingCart {
     }
 
     public BigDecimal getTotal() {
-        BigDecimal total = BigDecimal.valueOf(0);
-        items.stream().map(Product::getValueOfItemStack).forEach(stackValue -> total.add(stackValue)); ;
+        BigDecimal total = items.stream().map(Product::getValueOfItemStack).reduce(BigDecimal.ZERO, BigDecimal::add);
         return total;
     }
 
