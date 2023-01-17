@@ -3,6 +3,8 @@ package br.com.georg.bookstore.utilities;
 import br.com.georg.bookstore.products.*;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
+import br.com.georg.bookstore.utilities.printer.Printer;
+import br.com.georg.bookstore.utilities.printer.ProductPrinter;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -44,7 +46,7 @@ public class Menu {
     public static void seeProductList(Bookstore bookstore) {
         switch (Menu.getIntFrom(new String[]{"1 - All products", "2 -  Products of a certain category"})) {
             case 1 -> {
-                Printer.printAllProducts(bookstore);
+                ProductPrinter.printAllProducts(bookstore);
                 Printer.printFormattedMesage("^ List of all products ^");
             }
             case 2 -> seeProductListByCategory(bookstore);
@@ -65,7 +67,7 @@ public class Menu {
 
         switch (input) {
             case 1 -> {
-                Printer.printProductsOfACategory(bookstore, categoryString);
+                ProductPrinter.printProductsOfACategory(bookstore, categoryString);
                 Printer.printFormattedMesage("^ List of " + categoryString + " ^");
             }
             case 2 -> seeProductByGenreType(bookstore, categoryString, categoryNumber);
@@ -92,7 +94,7 @@ public class Menu {
     public static void seeProductByGenreType(Bookstore bookstore, String category, int categoryNumber) {
         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(category));
         String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
-        Printer.printProductsOfAGenreType(bookstore, category, genreTypeString);
+        ProductPrinter.printProductsOfAGenreType(bookstore, category, genreTypeString);
         Printer.printFormattedMesage("^ List of " + genreTypeString + " " + category + " ^");
     }
 
@@ -176,7 +178,7 @@ public class Menu {
         public static void editAlbum(Album album, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
-                Printer.printProduct(album, album.getGenre(), "Albums");
+                ProductPrinter.printProduct(album, album.getGenre(), "Albums");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change record label", "7 - Finish changes"})) {
 
@@ -211,7 +213,7 @@ public class Menu {
         public static void editBook(Book book, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
-                Printer.printProduct(book, book.getGenre(), "Books");
+                ProductPrinter.printProduct(book, book.getGenre(), "Books");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change publisher", "7 - Finish changes"})) {
 
@@ -246,7 +248,7 @@ public class Menu {
         public static void editFilm(Film film, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
-                Printer.printProduct(film, film.getGenre(), "Films");
+                ProductPrinter.printProduct(film, film.getGenre(), "Films");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change studio", "5 - Change director", "6 - Change genre", "7 - Change producer", "8 - Finish changes"})) {
 
@@ -283,7 +285,7 @@ public class Menu {
         public static void editGame(Game game, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
-                Printer.printProduct(game, game.getGenre(), "Games");
+                ProductPrinter.printProduct(game, game.getGenre(), "Games");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
 
@@ -318,7 +320,7 @@ public class Menu {
         public static void editToy(Toy toy, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
-                Printer.printProduct(toy, toy.getType(), "Toys");
+                ProductPrinter.printProduct(toy, toy.getType(), "Toys");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
 

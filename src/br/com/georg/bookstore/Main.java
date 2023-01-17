@@ -3,6 +3,7 @@ package br.com.georg.bookstore;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.utilities.*;
+import br.com.georg.bookstore.utilities.printer.Printer;
 
 public class Main {
     public static void main(String[] args) {

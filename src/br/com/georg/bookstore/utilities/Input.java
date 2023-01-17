@@ -3,6 +3,8 @@ package br.com.georg.bookstore.utilities;
 import br.com.georg.bookstore.products.*;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
+import br.com.georg.bookstore.utilities.printer.MenuPrinter;
+import br.com.georg.bookstore.utilities.printer.Printer;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;
@@ -29,7 +31,7 @@ public class Input {
     public static Integer getIntegerFromMenu(String[] options, int min, int max, String prompt,
                                              String invalidValueMessage, boolean firstTry) {
 
-        Printer.printMenuWithOptions(options);
+        MenuPrinter.printMenuWithOptions(options);
         Integer input = (Integer) input("int", invalidValueMessage, prompt, firstTry);
         if (input != null) {
             if (input >= min && input <= max) {
