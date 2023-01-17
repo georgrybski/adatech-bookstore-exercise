@@ -11,6 +11,8 @@ public class Bookstore {
     private final Database database;
     private final Cashier cashier;
 
+    private final Treasury treasury;
+
     public Bookstore(){
         moneySum = BigDecimal.valueOf(0);
         database = new Database(this);

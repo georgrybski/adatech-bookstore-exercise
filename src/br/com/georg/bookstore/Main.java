@@ -6,8 +6,11 @@ public class Main {
     public static void main(String[] args) {
 
         Bookstore bookstore = new Bookstore();
+        BookstoreTestScenario.populateBookstore(bookstore);
         Account loggedAccount = null;
         boolean run = true;
+
+
 
 
         while (run) {

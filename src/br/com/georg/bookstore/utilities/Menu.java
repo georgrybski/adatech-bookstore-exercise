@@ -177,10 +177,15 @@ public class Menu {
                 Printer.printProduct(album, album.getGenre(), "Albums");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change record label", "7 - Finish changes"})) {
+
                     case 1 -> album.setName(Input.getProductName("Albums"));
+
                     case 2 -> album.setPrice(Input.getProductPrice("Albums"));
+
                     case 3 -> album.setQuantity(Input.getProductQuantity());
+
                     case 4 -> album.setAuthor(Input.getProductAuthor("Albums"));
+
                     case 5 -> {
                         String oldGenre = album.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Albums"));
@@ -193,7 +198,9 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + album.getID());
                         }
                     }
+
                     case 6 -> album.setRecordLabel(Input.getRecordLabel());
+
                     case 7 -> changesInProgress = false;
                 }
             }
@@ -205,10 +212,15 @@ public class Menu {
                 Printer.printProduct(book, book.getGenre(), "Books");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change publisher", "7 - Finish changes"})) {
+
                     case 1 -> book.setName(Input.getProductName("Books"));
+
                     case 2 -> book.setPrice(Input.getProductPrice("Books"));
+
                     case 3 -> book.setQuantity(Input.getProductQuantity());
+
                     case 4 -> book.setAuthor(Input.getProductAuthor("Books"));
+
                     case 5 -> {
                         String oldGenre = book.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Books"));
@@ -221,7 +233,9 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + book.getID());
                         }
                     }
+
                     case 6 -> book.setPublisher(Input.getPublisher());
+
                     case 7 -> changesInProgress = false;
                 }
             }
@@ -233,11 +247,17 @@ public class Menu {
                 Printer.printProduct(film, film.getGenre(), "Films");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change studio", "5 - Change director", "6 - Change genre", "7 - Change producer", "8 - Finish changes"})) {
+
                     case 1 -> film.setName(Input.getProductName("Films"));
+
                     case 2 -> film.setPrice(Input.getProductPrice("Films"));
+
                     case 3 -> film.setQuantity(Input.getProductQuantity());
+
                     case 4 -> film.setStudio(Input.getStudio("Films"));
+
                     case 5 -> film.setDirectors(Input.getDirector());
+
                     case 6 -> {
                         String oldGenre = film.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Films"));
@@ -250,7 +270,9 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + film.getID());
                         }
                     }
+
                     case 7 -> film.setProducer(Input.getProducer());
+
                     case 8 -> changesInProgress = false;
                 }
             }
@@ -262,10 +284,15 @@ public class Menu {
                 Printer.printProduct(game, game.getGenre(), "Games");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
+
                     case 1 -> game.setName(Input.getProductName("Games"));
+
                     case 2 -> game.setPrice(Input.getProductPrice("Games"));
+
                     case 3 -> game.setQuantity(Input.getProductQuantity());
+
                     case 4 -> game.setDistribuitor(Input.getDistribuitor());
+
                     case 5 -> {
                         String oldGenre = game.getGenre();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Games"));
@@ -278,7 +305,9 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + game.getID());
                         }
                     }
+
                     case 6 -> game.setStudio(Input.getStudio("Games"));
+
                     case 7 -> changesInProgress = false;
                 }
             }
@@ -290,9 +319,13 @@ public class Menu {
                 Printer.printProduct(toy, toy.getType(), "Toys");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                         "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
+
                     case 1 -> toy.setName(Input.getProductName("Toys"));
+
                     case 2 -> toy.setPrice(Input.getProductPrice("Toys"));
+
                     case 3 -> toy.setQuantity(Input.getProductQuantity());
+
                     case 5 -> {
                         String oldGenre = toy.getType();
                         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray("Toys"));
@@ -305,6 +338,7 @@ public class Menu {
                             Printer.printFormattedMesage("This product's ID has been changed to: " + toy.getID());
                         }
                     }
+
                     case 7 -> changesInProgress = false;
                 }
             }

@@ -18,8 +18,8 @@ public class Album extends Product {
             "Pop", "Hip hop", "Rock", "Rhythm and blues", "Soul", "Reggae",
             "Country", "Funk", "Folk", "Middle Eastern", "Jazz", "Disco",
             "Classical", "Electronic", "Latin American Music", "Blues",
-            "New-age", "Vocal music", "African music", "Christian music",
-            "Asian music", "Ska", "Traditional music", "Independent music"
+            "New-age", "African music", "Christian music",
+            "Islamic music", "Asian music", "Ska"
     };
 
     private static String[] sortedGenreArray = Arrays.stream(genreArray).sorted().toArray(String[]::new);
