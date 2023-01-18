@@ -17,7 +17,6 @@ public class Toy extends Product {
             HashMapTools.initializeCategoryGenresOrTypesHashMap(typesArray);
 
     public Toy(String name, BigDecimal price, String type, Integer quantity){
-//        super(name, price, quantity, category, type);
         super(name, price, quantity, "Toys", type);
         this.type = type;
     }

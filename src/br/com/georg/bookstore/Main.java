@@ -3,7 +3,6 @@ package br.com.georg.bookstore;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.utilities.*;
-import br.com.georg.bookstore.utilities.printer.CartPrinter;
 import br.com.georg.bookstore.utilities.printer.Printer;
 
 public class Main {
@@ -13,9 +12,6 @@ public class Main {
         BookstoreTestScenario.populateBookstore(bookstore);
         Account loggedAccount = null;
         boolean run = true;
-
-
-
 
         while (run) {
 
@@ -71,12 +67,14 @@ public class Main {
                         case (3) -> Input.modifyExistingProduct(bookstore);
                         // Remove a product
                         case (4) -> Input.removeProductUsingID(bookstore);
-//                        // TODO See sales history
+//                        // TODO See Dashboard
 //                        case (5) ->
+//                        // TODO See sales history
+//                        case (6) ->
                         // Log out
-                        case (6) -> loggedAccount = null;
+                        case (7) -> loggedAccount = null;
                         // Exit
-                        case (7) -> {
+                        case (8) -> {
                             run = false;
                             Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
                         }

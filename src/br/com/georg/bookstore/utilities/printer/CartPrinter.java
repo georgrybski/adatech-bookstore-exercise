@@ -9,14 +9,18 @@ public class CartPrinter {
         ShoppingCart cart = account.getShoppingCart();
 
         Printer.printFrameLine();
-        Printer.printIndentedFormattedLine(account.getUsername() + "'s Shopping cart");
+        Printer.printIndentedFormattedLine("Shopping cart");
 
         Printer.printFormattedMultiLineString("");
         Printer.printFormattedMultiLineString("Items");
+        Printer.printFormattedMultiLineString(" ");
 
         cart.getItems().stream()
-                .map(product -> "ID: " + product.getID() + " | Name: " + product.getName() + " | Quantity: " + product.getQuantity() + " | " + product.getPrice() + " USD/Unit")
-                .forEach(Printer::printFormattedMultiLineString);
+                .forEach(product -> {
+                    Printer.printFormattedMultiLineString("ID: " + product.getID() + " | Name: " + product.getName());
+                    Printer.printFormattedMultiLineString( " | Quantity: " + product.getQuantity() + " | " + product.getPrice() + " USD/Unit");
+                    Printer.printFormattedMultiLineString("");
+                });
 
 
 

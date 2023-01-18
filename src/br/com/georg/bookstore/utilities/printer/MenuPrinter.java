@@ -98,7 +98,9 @@ public class MenuPrinter {
         return matrix;
     }
 
-    private static void printOptionsLines(String spacesEachSide, String buttonsInnerLine, String buttonsOuterLine, String oddOrEvenOffset) {
+    private static void printOptionsLines(String spacesEachSide, String buttonsInnerLine,
+                                          String buttonsOuterLine, String oddOrEvenOffset) {
+
         String outerLine = "|" + spacesEachSide + buttonsOuterLine.trim() + spacesEachSide + oddOrEvenOffset + "|";
         String innerLine = "|" + spacesEachSide + buttonsInnerLine.trim() + spacesEachSide + oddOrEvenOffset + "|";
 

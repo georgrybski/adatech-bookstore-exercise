@@ -15,19 +15,40 @@ public class BookstoreTestScenario {
                 Product newProduct = null;
                 switch (productCategory) {
                     case "Albums" -> {
-                        newProduct = new Album((String) productData[1], (BigDecimal) productData[2], (String) productData[3], (String) productData[4], (String) productData[5], (int) productData[6]);
+                        newProduct = new Album(
+                                (String) productData[1], (BigDecimal) productData[2],
+                                (String) productData[3], (String) productData[4],
+                                (String) productData[5], (int) productData[6]
+                        );
                     }
                     case "Books" -> {
-                        newProduct = new Book((String) productData[1], (BigDecimal) productData[2], (String) productData[3], (String) productData[4], (String) productData[5], (int) productData[6]);
+                        newProduct = new Book(
+                                        (String) productData[1], (BigDecimal) productData[2],
+                                        (String) productData[3], (String) productData[4],
+                                        (String) productData[5], (int) productData[6]
+                        );
                     }
                     case "Films" -> {
-                        newProduct = new Film((String) productData[1], (BigDecimal) productData[2], (String) productData[3], (String) productData[4], (String) productData[5], (String) productData[6], (int) productData[7]);
+                        newProduct =
+                                new Film(
+                                        (String) productData[1], (BigDecimal) productData[2],
+                                        (String) productData[3], (String) productData[4],
+                                        (String) productData[5], (String) productData[6],
+                                        (int) productData[7]
+                                );
                     }
                     case "Games" -> {
-                        newProduct = new Game((String) productData[1], (BigDecimal) productData[2], (String) productData[3], (String) productData[4], (String) productData[5], (int) productData[6]);
+                        newProduct = new Game(
+                                (String) productData[1], (BigDecimal) productData[2],
+                                (String) productData[3], (String) productData[4],
+                                (String) productData[5], (int) productData[6]
+                        );
                     }
                     case "Toys" -> {
-                        newProduct = new Toy((String) productData[1], (BigDecimal) productData[2], (String) productData[3], (int) productData[4]);
+                        newProduct = new Toy(
+                                (String) productData[1], (BigDecimal) productData[2],
+                                (String) productData[3], (int) productData[4]
+                        );
                     }
                 }
                 bookstore.addProduct(productCategory, productGenre, newProduct);
@@ -35,8 +56,6 @@ public class BookstoreTestScenario {
         }
     }
     public static class ProductList {
-
-
 
         public static Object[][] albumData = new Object[][] {
 //              {String name, BigDecimal price, String genre, String author, String recordLabel, int quantity}

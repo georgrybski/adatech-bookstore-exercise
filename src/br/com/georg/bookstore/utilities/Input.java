@@ -186,7 +186,7 @@ public class Input {
         if (isIDValid(ID)) {
             Product product = bookstore.getDatabase().getProductByID(ID);
             if (product != null) {
-                if (!loggedAccount.addToCart(product)){
+                if (loggedAccount.addToCart(product)){
                     message = ("'" + product.getName() + "' has been added to your cart");
                 }
                 else {

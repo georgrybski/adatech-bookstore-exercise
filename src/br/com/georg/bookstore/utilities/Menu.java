@@ -29,7 +29,7 @@ public class Menu {
 
     private static final String[] ADMIN_MENU_OPTIONS = {
             "1 - See products list", "2 - Add new product", "3 - Modify an existing product",
-            "4 - Remove a product", "5 - See sales history", "6 - Log out", "7 - Exit"
+            "4 - Remove a product", "5 - See sales dashboard", "6 - See sales history", "7 - Log out", "8 - Exit"
     };
 
     public static HashMap<String, String[]> GENRE_TYPE_ARRAYS = new HashMap<>(Map.of(
