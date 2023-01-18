@@ -5,7 +5,7 @@ import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.utilities.*;
 import br.com.georg.bookstore.utilities.printer.Printer;
 
-public class Main {
+public class BookstoreApplication {
     public static void main(String[] args) {
 
         Bookstore bookstore = new Bookstore();
