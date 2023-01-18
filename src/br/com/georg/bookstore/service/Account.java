@@ -18,8 +18,9 @@ public class Account {
         shoppingCart.checkout();
     }
 
-    public boolean addToCart(Product product) {
-        return shoppingCart.addItemToCart(product);
+    public String addToCart(Product product, int quantity) {
+
+        return shoppingCart.addItemToCart(product, quantity);
     }
 
     public String getUsername() {

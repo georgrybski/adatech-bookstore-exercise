@@ -2,6 +2,8 @@ package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
 
+import java.math.BigDecimal;
+
 public class ShoppingCartItem {
 
     private Product product;
@@ -26,6 +28,10 @@ public class ShoppingCartItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public BigDecimal getItemValue() {
+        return product.getPrice().multiply(BigDecimal.valueOf(quantity));
     }
 }
 

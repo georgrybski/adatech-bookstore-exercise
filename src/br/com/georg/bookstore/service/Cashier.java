@@ -3,6 +3,7 @@ package br.com.georg.bookstore.service;
 import br.com.georg.bookstore.products.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cashier {
     private final Bookstore bookstore;
@@ -18,13 +19,16 @@ public class Cashier {
     }
 
     private void registerOrder(ShoppingCart shoppingCart) {
-        bookstore.getDatabase().getOrderHistoryFrom(shoppingCart.getUsername()).add(new Order(shoppingCart));
+        List<Product> items = shoppingCart.getItems().stream()
+                .map(item -> item.getProduct().copy(item.getQuantity())).toList();
+
+        bookstore.getDatabase().getOrderHistoryFrom(shoppingCart.getUsername()).add(new Order(shoppingCart, items));
     }
 
-    private void takeProductsFormStock(ArrayList<Product> items) {
-        items.stream().forEach(product -> {
-            Product stock = bookstore.getDatabase().getProductByID(product.getID());
-            Integer remainigStock = stock.getQuantity() - product.getQuantity();
+    private void takeProductsFormStock(ArrayList<ShoppingCartItem> items) {
+        items.stream().forEach(shoppingCartItem -> {
+            Product stock = bookstore.getDatabase().getProductByID(shoppingCartItem.getProduct().getID());
+            Integer remainigStock = stock.getQuantity() - shoppingCartItem.getQuantity();
             stock.setQuantity(remainigStock);
         });
     }

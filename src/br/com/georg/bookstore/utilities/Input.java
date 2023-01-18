@@ -186,11 +186,14 @@ public class Input {
         if (isIDValid(ID)) {
             Product product = bookstore.getDatabase().getProductByID(ID);
             if (product != null) {
-                if (loggedAccount.addToCart(product)){
-                    message = ("'" + product.getName() + "' has been added to your cart");
-                }
-                else {
-                    message = ("Another '" + product.getName() + "' has been added to your cart");
+                if (product.getQuantity() > 0) {
+                    int quantity = Input.getInteger(
+                                    1,product.getQuantity(),
+                            "Insert how many " + product.getCategory()
+                                    + "you would like to add to your shopping cart",
+                            "Invalid value! Insert a number of " + product.getCategory()
+                                    + " between 1 and " + product.getQuantity() + " to add to your cart");
+                    message = loggedAccount.addToCart(product, quantity);
                 }
             }
         }

@@ -181,7 +181,8 @@ public class Menu {
             while (changesInProgress) {
                 ProductPrinter.printProduct(album, album.getGenre(), "Albums");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
-                        "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change record label", "7 - Finish changes"})) {
+                        "3 - Change stock", "4 - Change author", "5 - Change genre",
+                        "6 - Change record label", "7 - Finish changes"})) {
 
                     case 1 -> album.setName(Input.getProductName("Albums"));
 
@@ -216,7 +217,8 @@ public class Menu {
             while (changesInProgress) {
                 ProductPrinter.printProduct(book, book.getGenre(), "Books");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
-                        "3 - Change stock", "4 - Change author", "5 - Change genre", "6 - Change publisher", "7 - Finish changes"})) {
+                        "3 - Change stock", "4 - Change author", "5 - Change genre",
+                        "6 - Change publisher", "7 - Finish changes"})) {
 
                     case 1 -> book.setName(Input.getProductName("Books"));
 
@@ -251,7 +253,8 @@ public class Menu {
             while (changesInProgress) {
                 ProductPrinter.printProduct(film, film.getGenre(), "Films");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
-                        "3 - Change stock", "4 - Change studio", "5 - Change director", "6 - Change genre", "7 - Change producer", "8 - Finish changes"})) {
+                        "3 - Change stock", "4 - Change studio", "5 - Change director",
+                        "6 - Change genre", "7 - Change producer", "8 - Finish changes"})) {
 
                     case 1 -> film.setName(Input.getProductName("Films"));
 
@@ -288,7 +291,8 @@ public class Menu {
             while (changesInProgress) {
                 ProductPrinter.printProduct(game, game.getGenre(), "Games");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
-                        "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
+                        "3 - Change stock", "4 - Change distribuitor", "5 - Change genre",
+                        "6 - Change studio", "7 - Finish changes"})) {
 
                     case 1 -> game.setName(Input.getProductName("Games"));
 
@@ -323,7 +327,8 @@ public class Menu {
             while (changesInProgress) {
                 ProductPrinter.printProduct(toy, toy.getType(), "Toys");
                 switch (getIntFrom(new String[]{"1 - Change name", "2 - Change price",
-                        "3 - Change stock", "4 - Change distribuitor", "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
+                        "3 - Change stock", "4 - Change distribuitor",
+                        "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
 
                     case 1 -> toy.setName(Input.getProductName("Toys"));
 

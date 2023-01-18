@@ -1,21 +1,22 @@
 package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
-import br.com.georg.bookstore.service.ShoppingCart;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
-    private ArrayList<Product> items;
+    private List<Product> items;
     private BigDecimal total;
     private String username;
     private String date;
 
-    public Order(ShoppingCart shoppingCart) {
-        items = shoppingCart.getItems();
+    public Order(ShoppingCart shoppingCart, List<Product> items) {
+        items = items;
         total = shoppingCart.getTotal();
         username = shoppingCart.getUsername();
         date = LocalDateTime.now().format(formatter);
@@ -23,7 +24,7 @@ public class Order {
 
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-    public ArrayList<Product> getItems() {
+    public List<Product> getItems() {
         return items;
     }
 
