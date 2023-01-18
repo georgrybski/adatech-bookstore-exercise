@@ -9,62 +9,94 @@ import java.util.List;
 
 public class Dashboard {
 
-    private Bookstore bookstore;
-    private HashMap<String, Integer> productQuantityDashboard;
+    private final Bookstore bookstore;
+    private final HashMap<String, Integer> productInventoryQuantityDashboard;
 
-    private HashMap<String, BigDecimal> productValueDashboard;
+    private final HashMap<String, BigDecimal> productInventoryValueDashboard;
+    private final HashMap<String, Integer> productSalesQuantityDashboard;
+
+    private final HashMap<String, BigDecimal> productSalesValueDashboard;
 
     public Dashboard(Bookstore bookstore) {
         this.bookstore = bookstore;
-        productQuantityDashboard = DashboardTools.initializeProductQuantityDashboard();
-        productValueDashboard = DashboardTools.initializeProductValueDashboard();
+        productInventoryQuantityDashboard = DashboardTools.initializeProductQuantityDashboard();
+        productInventoryValueDashboard = DashboardTools.initializeProductValueDashboard();
+        productSalesQuantityDashboard = DashboardTools.initializeProductQuantityDashboard();
+        productSalesValueDashboard = DashboardTools.initializeProductValueDashboard();
     }
 
     public void recieveNewProductData(Product newProduct, String category) {
-        productQuantityDashboard.put(category, productQuantityDashboard.get(category) + newProduct.getQuantity());
-        productValueDashboard.put(category, productValueDashboard.get(category).add(newProduct.getValueOfItemStack()));
+        productInventoryQuantityDashboard.put(category, productInventoryQuantityDashboard.get(category) + newProduct.getQuantity());
+        productInventoryValueDashboard.put(category, productInventoryValueDashboard.get(category).add(newProduct.getValueOfItemStack()));
     }
 
     public void recieveSaleData(Order order) {
         List<Product> items = order.getItems();
         items.stream().forEach(product -> {
 
-            productQuantityDashboard.put(
+            productInventoryQuantityDashboard.put(
                     product.getCategory(),
-                    productQuantityDashboard.get(product.getCategory()) - product.getQuantity()
+                    productInventoryQuantityDashboard.get(product.getCategory()) - product.getQuantity()
             );
 
-            productValueDashboard.put(
+            productSalesQuantityDashboard.put(
                     product.getCategory(),
-                    productValueDashboard.get(product.getCategory()).subtract(product.getValueOfItemStack())
+                    productSalesQuantityDashboard.get(product.getCategory()) + product.getQuantity()
             );
+
+            productInventoryValueDashboard.put(
+                    product.getCategory(),
+                    productInventoryValueDashboard.get(product.getCategory()).subtract(product.getValueOfItemStack())
+            );
+
+            productSalesValueDashboard.put(
+                    product.getCategory(),
+                    productSalesValueDashboard.get(product.getCategory()).add(product.getValueOfItemStack())
+            );
+
         });
     }
     public void recieveProductUpdateData(Product oldProduct, Product newProduct) {
-        productQuantityDashboard.put(oldProduct.getCategory(), productQuantityDashboard.get(oldProduct.getCategory()) - oldProduct.getQuantity() + newProduct.getQuantity());
-        productValueDashboard.put(oldProduct.getCategory(), productValueDashboard.get(oldProduct.getCategory()).subtract(oldProduct.getValueOfItemStack()).add(newProduct.getValueOfItemStack()));
+        productInventoryQuantityDashboard.put(oldProduct.getCategory(), productInventoryQuantityDashboard.get(oldProduct.getCategory()) - oldProduct.getQuantity() + newProduct.getQuantity());
+        productInventoryValueDashboard.put(oldProduct.getCategory(), productInventoryValueDashboard.get(oldProduct.getCategory()).subtract(oldProduct.getValueOfItemStack()).add(newProduct.getValueOfItemStack()));
     }
 
     public void recieveProductRemovalData(String ID) {
         Product product = bookstore.getDatabase().getProductByID(ID);
-        productQuantityDashboard.put(product.getCategory(), productQuantityDashboard.get(product.getCategory()) - product.getQuantity());
-        productValueDashboard.put(product.getCategory(), productValueDashboard.get(product.getCategory()).subtract(product.getValueOfItemStack()));
+        productInventoryQuantityDashboard.put(product.getCategory(), productInventoryQuantityDashboard.get(product.getCategory()) - product.getQuantity());
+        productInventoryValueDashboard.put(product.getCategory(), productInventoryValueDashboard.get(product.getCategory()).subtract(product.getValueOfItemStack()));
     }
 
-    public BigDecimal getTotalProductValue() {
-        return productValueDashboard.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+    public BigDecimal getTotalProductInventoryValue() {
+        return productInventoryValueDashboard.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public Integer getTotalProductQuantity() {
-        return productQuantityDashboard.values().stream().mapToInt(Integer::intValue).sum();
+    public Integer getTotalProductInventoryQuantity() {
+        return productInventoryQuantityDashboard.values().stream().mapToInt(Integer::intValue).sum();
     }
 
-    public HashMap<String, Integer> getProductQuantityDashboard() {
-        return productQuantityDashboard;
+    public BigDecimal getTotalProductSalesValue() {
+        return productSalesValueDashboard.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public HashMap<String, BigDecimal> getProductValueDashboard() {
-        return productValueDashboard;
+    public Integer getTotalProductSalesQuantity() {
+        return productSalesQuantityDashboard.values().stream().mapToInt(Integer::intValue).sum();
+    }
+
+    public HashMap<String, Integer> getProductInventoryQuantityDashboard() {
+        return productInventoryQuantityDashboard;
+    }
+
+    public HashMap<String, BigDecimal> getProductInventoryValueDashboard() {
+        return productInventoryValueDashboard;
+    }
+
+    public HashMap<String, Integer> getProductSalesQuantityDashboard() {
+        return productSalesQuantityDashboard;
+    }
+
+    public HashMap<String, BigDecimal> getProductSalesValueDashboard() {
+        return productSalesValueDashboard;
     }
 
     private static class DashboardTools {
@@ -79,6 +111,7 @@ public class Dashboard {
             Arrays.stream(Product.getCategoriesArray()).forEach(category -> productDashboard.put(category, BigDecimal.valueOf(0)));
             return productDashboard;
         }
+
     }
 
 }
