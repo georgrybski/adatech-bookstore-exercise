@@ -2,7 +2,6 @@ package br.com.georg.bookstore;
 
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
-import br.com.georg.bookstore.service.Dashboard;
 import br.com.georg.bookstore.utilities.*;
 import br.com.georg.bookstore.utilities.printer.DashboardPrinter;
 import br.com.georg.bookstore.utilities.printer.Printer;
@@ -44,7 +43,7 @@ public class BookstoreApplication {
                         // Go to shopping cart
                         case (3) ->  Menu.goToCart(bookstore, loggedAccount);
 //                        // TODO See my purchase history
-//                        case (4) ->
+                        case (4) -> loggedAccount.viewOrders();
                         // Log out
                         case (5) -> loggedAccount = null;
                         // Exit
@@ -69,7 +68,7 @@ public class BookstoreApplication {
                         case (3) -> Input.modifyExistingProduct(bookstore);
                         // Remove a product
                         case (4) -> Input.removeProductUsingID(bookstore);
-//                        // TODO See Dashboard
+                        // See Dashboard
                         case (5) -> DashboardPrinter.printDashboard(bookstore);
 //                        // TODO See sales history
 //                        case (6) ->

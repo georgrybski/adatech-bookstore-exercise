@@ -1,6 +1,8 @@
 package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
+import br.com.georg.bookstore.utilities.printer.OrderPrinter;
+import br.com.georg.bookstore.utilities.printer.Printer;
 
 public class Account {
     private String username;
@@ -19,9 +21,16 @@ public class Account {
     }
 
     public String addToCart(Product product, int quantity) {
-
         return shoppingCart.addItemToCart(product, quantity);
     }
+
+    public void viewOrders() {
+        if(bookstore.getDatabase().getOrderHistoryFrom(username).isEmpty()) {
+            Printer.printFormattedMessage("You have not placed any orders yet");
+        }
+        OrderPrinter.printAllOrdersFromList(bookstore.getDatabase().getOrderHistoryFrom(username));
+    }
+
 
     public String getUsername() {
         return username;

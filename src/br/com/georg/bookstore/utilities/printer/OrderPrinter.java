@@ -1,6 +1,5 @@
 package br.com.georg.bookstore.utilities.printer;
 
-import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.service.Order;
 
 import java.util.ArrayList;
@@ -14,16 +13,24 @@ public class OrderPrinter {
         orders.stream().forEach(OrderPrinter::printOrder);
     }
 
-    // TODO
+
     public static void printOrder(Order order) {
         printFrameLine();
         printIndentedFormattedLine("User: " + order.getUsername() + " | Date: " + order.getDate());
         printIndentedFormattedLine("Total: " + order.getTotal() + " USD");
         printIndentedFormattedLine(" ");
-        for (Product product: order.getItems()) {
-            printIndentedFormattedLine(product.toString());
-        }
+        printIndentedFormattedLine("Items:");
+        printIndentedFormattedLine(" ");
+
+                order.getItems().forEach(product -> {
+                    Printer.printFormattedMultiLineString("ID: " + product.getID() + " | Name: " + product.getName());
+                    Printer.printFormattedMultiLineString( " Quantity: " + product.getQuantity() + " | " + product.getPrice() + " USD/Unit");
+                    Printer.printFormattedMultiLineString("");
+                });
+
         printFrameLine();
     }
+
+
 
 }

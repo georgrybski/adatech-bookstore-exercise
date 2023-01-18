@@ -2,11 +2,9 @@ package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
 
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
