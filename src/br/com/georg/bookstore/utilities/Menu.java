@@ -85,7 +85,6 @@ public class Menu {
                     Printer.printFormattedMessage("Payment successful, thank you for your purchse!");
                     checkingCart = false;
                 }
-//              TODO Remove or add items
                 case (2) -> alterCartItems(bookstore, loggedAccount);
                 case (3) -> checkingCart = false;
             }
@@ -94,13 +93,12 @@ public class Menu {
 
     public static void alterCartItems(Bookstore bookstore, Account loggedAccount) {
 
-        switch (Menu.getIntFrom(new String[]{"1 - Add item", "2 - Change item quantity", "3 - Remove item"})) {
+        switch (Menu.getIntFrom(new String[]{"1 - Add item", "2 - Remove item"})) {
             case 1 -> {
                 CartPrinter.printShoppingCart(loggedAccount);
                 Input.addProductToCartUsingID(bookstore, loggedAccount);
             }
-            case 2 -> {}
-            case 3 -> {
+            case 2 -> {
                 CartPrinter.printShoppingCart(loggedAccount);
                 Input.removeItemFromCartUsingID(loggedAccount);
             }

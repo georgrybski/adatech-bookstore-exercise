@@ -39,7 +39,7 @@ public class BookstoreApplication {
                         case (1) -> Menu.seeProductList(bookstore);
                         // Add a product to shopping cart
                         case (2) -> Input.addProductToCartUsingID(bookstore, loggedAccount);
-//                        // TODO Go to shopping cart
+                        // Go to shopping cart
                         case (3) ->  Menu.goToCart(bookstore, loggedAccount);
 //                        // TODO See my purchase history
 //                        case (4) ->

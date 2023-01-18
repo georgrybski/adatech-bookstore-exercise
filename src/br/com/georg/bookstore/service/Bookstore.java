@@ -10,10 +10,13 @@ public class Bookstore {
     private final Cashier cashier;
     private final Treasury treasury;
 
+    private final Dashboard dashboard;
+
     public Bookstore(){
         database = new Database(this);
         cashier = new Cashier(this);
         treasury = new Treasury(this);
+        dashboard = new Dashboard(this);
     }
 
     public void completeSale(ShoppingCart shoppingCart) {
