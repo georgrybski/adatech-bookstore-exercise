@@ -40,8 +40,9 @@ public class Dashboard {
             );
         });
     }
-    public void recieveProductUpdateData() {
-
+    public void recieveProductUpdateData(Product oldProduct, Product newProduct) {
+        productQuantityDashboard.put(oldProduct.getCategory(), productQuantityDashboard.get(oldProduct.getCategory()) - oldProduct.getQuantity() + newProduct.getQuantity());
+        productValueDashboard.put(oldProduct.getCategory(), productValueDashboard.get(oldProduct.getCategory()).subtract(oldProduct.getValueOfItemStack()).add(newProduct.getValueOfItemStack()));
     }
 
     public void recieveProductRemovalData(String ID) {

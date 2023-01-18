@@ -126,29 +126,29 @@ public class Menu {
             case "Albums" -> new Album(
                     productName, productPrice, genreTypeString,
                     Input.getProductAuthor(categoryString),
-                    Input.getRecordLabel(), Input.getProductQuantity()
+                    Input.getRecordLabel(), Input.getProductQuantity(0)
             );
             case "Books" -> new Book(
                     productName, productPrice, genreTypeString,
                     Input.getProductAuthor(categoryString),
-                    Input.getPublisher(), Input.getProductQuantity()
+                    Input.getPublisher(), Input.getProductQuantity(0)
             );
             case "Films" -> new Film(
                     productName, productPrice, genreTypeString,
                     Input.getStudio(categoryString),
                     Input.getDirector(),
                     Input.getProducer(),
-                    Input.getProductQuantity()
+                    Input.getProductQuantity(0)
             );
             case "Games" -> new Game(
                     productName, productPrice, genreTypeString,
                     Input.getDistribuitor(),
                     Input.getStudio(categoryString),
-                    Input.getProductQuantity()
+                    Input.getProductQuantity(0)
             );
             case "Toys" -> new Toy(
                     productName, productPrice, genreTypeString,
-                    Input.getProductQuantity()
+                    Input.getProductQuantity(0)
             );
             default -> null;
         };
@@ -190,7 +190,7 @@ public class Menu {
 
     public static class ProductEditor {
 
-        public static void editAlbum(Album album, Bookstore bookstore) {
+        public static Product editAlbum(Album album, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
                 ProductPrinter.printProduct(album, album.getGenre(), "Albums");
@@ -202,7 +202,7 @@ public class Menu {
 
                     case 2 -> album.setPrice(Input.getProductPrice("Albums"));
 
-                    case 3 -> album.setQuantity(Input.getProductQuantity());
+                    case 3 -> album.setQuantity(Input.getProductQuantity(album.getQuantity()));
 
                     case 4 -> album.setAuthor(Input.getProductAuthor("Albums"));
 
@@ -224,9 +224,10 @@ public class Menu {
                     case 7 -> changesInProgress = false;
                 }
             }
+            return album;
         }
 
-        public static void editBook(Book book, Bookstore bookstore) {
+        public static Product editBook(Book book, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
                 ProductPrinter.printProduct(book, book.getGenre(), "Books");
@@ -238,7 +239,7 @@ public class Menu {
 
                     case 2 -> book.setPrice(Input.getProductPrice("Books"));
 
-                    case 3 -> book.setQuantity(Input.getProductQuantity());
+                    case 3 -> book.setQuantity(Input.getProductQuantity(book.getQuantity()));
 
                     case 4 -> book.setAuthor(Input.getProductAuthor("Books"));
 
@@ -260,9 +261,10 @@ public class Menu {
                     case 7 -> changesInProgress = false;
                 }
             }
+            return book;
         }
 
-        public static void editFilm(Film film, Bookstore bookstore) {
+        public static Product editFilm(Film film, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
                 ProductPrinter.printProduct(film, film.getGenre(), "Films");
@@ -274,7 +276,7 @@ public class Menu {
 
                     case 2 -> film.setPrice(Input.getProductPrice("Films"));
 
-                    case 3 -> film.setQuantity(Input.getProductQuantity());
+                    case 3 -> film.setQuantity(Input.getProductQuantity(film.getQuantity()));
 
                     case 4 -> film.setStudio(Input.getStudio("Films"));
 
@@ -298,9 +300,10 @@ public class Menu {
                     case 8 -> changesInProgress = false;
                 }
             }
+            return film;
         }
 
-        public static void editGame(Game game, Bookstore bookstore) {
+        public static Product editGame(Game game, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
                 ProductPrinter.printProduct(game, game.getGenre(), "Games");
@@ -312,7 +315,7 @@ public class Menu {
 
                     case 2 -> game.setPrice(Input.getProductPrice("Games"));
 
-                    case 3 -> game.setQuantity(Input.getProductQuantity());
+                    case 3 -> game.setQuantity(Input.getProductQuantity(game.getQuantity()));
 
                     case 4 -> game.setDistribuitor(Input.getDistribuitor());
 
@@ -334,9 +337,10 @@ public class Menu {
                     case 7 -> changesInProgress = false;
                 }
             }
+            return game;
         }
 
-        public static void editToy(Toy toy, Bookstore bookstore) {
+        public static Product editToy(Toy toy, Bookstore bookstore) {
             boolean changesInProgress = true;
             while (changesInProgress) {
                 ProductPrinter.printProduct(toy, toy.getType(), "Toys");
@@ -348,7 +352,7 @@ public class Menu {
 
                     case 2 -> toy.setPrice(Input.getProductPrice("Toys"));
 
-                    case 3 -> toy.setQuantity(Input.getProductQuantity());
+                    case 3 -> toy.setQuantity(Input.getProductQuantity(toy.getQuantity()));
 
                     case 5 -> {
                         String oldGenre = toy.getType();
@@ -366,6 +370,7 @@ public class Menu {
                     case 7 -> changesInProgress = false;
                 }
             }
+        return toy;
         }
 
     }

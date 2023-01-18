@@ -155,10 +155,10 @@ public class Input {
     }
 
 
-    public static Integer getProductQuantity() {
+    public static Integer getProductQuantity(Integer currentQuantity) {
         return getInteger(1, Integer.MAX_VALUE,
                 "Insert the number of items to be added to stock",
-                "Invalid Input. Please insert a integer greater than 0");
+                "Invalid Input. Please insert a integer greater than 0") + currentQuantity;
     }
 
     public static String getProductStudio(String category, String field) {
@@ -213,33 +213,36 @@ public class Input {
         if (Input.isIDValid(ID)) {
             Product rawProduct = bookstore.getDatabase().getProductByID(ID);
             if (rawProduct != null) {
+                Product oldProduct = rawProduct.copy(rawProduct.getQuantity());
+                Product newProduct = null;
                 String[] categoryAndGenreType = bookstore.getDatabase().getCategoryAndGenreTypeByID(ID);
                 switch (categoryAndGenreType[0]) {
                     case "Albums" -> {
                         Album product = (Album) rawProduct;
-                        Menu.ProductEditor.editAlbum(product, bookstore);
+                        newProduct = Menu.ProductEditor.editAlbum(product, bookstore);
                     }
 
                     case "Books" -> {
                         Book product = (Book) rawProduct;
-                        Menu.ProductEditor.editBook(product, bookstore);
+                        newProduct = Menu.ProductEditor.editBook(product, bookstore);
                     }
 
                     case "Films" -> {
                         Film product = (Film) rawProduct;
-                        Menu.ProductEditor.editFilm(product, bookstore);
+                        newProduct = Menu.ProductEditor.editFilm(product, bookstore);
                     }
 
                     case "Games" -> {
                         Game product = (Game) rawProduct;
-                        Menu.ProductEditor.editGame(product, bookstore);
+                        newProduct = Menu.ProductEditor.editGame(product, bookstore);
                     }
 
                     case "Toys" -> {
                         Toy product = (Toy) rawProduct;
-                        Menu.ProductEditor.editToy(product, bookstore);
+                        newProduct = Menu.ProductEditor.editToy(product, bookstore);
                     }
                 }
+                bookstore.getDashboard().recieveProductUpdateData(oldProduct, newProduct);
             }
         }
         Printer.printFormattedMessage("The ID inserted is invalid");
