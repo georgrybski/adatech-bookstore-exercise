@@ -86,4 +86,8 @@ public class Album extends Product {
     public String getCategory() {
         return "Albums";
     }
+
+    @Override
+    public String getGenreType() {return genre;}
+
 }

@@ -18,7 +18,7 @@ public class CartPrinter {
         cart.getItems().stream()
                 .forEach(product -> {
                     Printer.printFormattedMultiLineString("ID: " + product.getProduct().getID() + " | Name: " + product.getProduct().getName());
-                    Printer.printFormattedMultiLineString( " | Quantity: " + product.getQuantity() + " | " + product.getProduct().getPrice() + " USD/Unit");
+                    Printer.printFormattedMultiLineString( " Quantity: " + product.getQuantity() + " | " + product.getProduct().getPrice() + " USD/Unit");
                     Printer.printFormattedMultiLineString("");
                 });
 

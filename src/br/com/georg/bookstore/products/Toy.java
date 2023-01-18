@@ -51,4 +51,7 @@ public class Toy extends Product {
     public String getCategory() {
         return "Toys";
     }
+
+    @Override
+    public String getGenreType() {return type;}
 }

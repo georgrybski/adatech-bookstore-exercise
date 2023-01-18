@@ -67,6 +67,8 @@ public class Product {
         return null;
     }
 
+    public String getGenreType() {return null;}
+
     public String getName() {
         return name;
     }

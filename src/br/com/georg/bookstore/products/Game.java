@@ -79,4 +79,6 @@ public class Game extends Product {
         return "Games";
     }
 
+    @Override
+    public String getGenreType() {return genre;}
 }

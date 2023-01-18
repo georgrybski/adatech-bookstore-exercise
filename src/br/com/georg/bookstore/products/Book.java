@@ -89,4 +89,7 @@ public class Book extends Product {
     public String getCategory() {
         return "Books";
     }
+
+    @Override
+    public String getGenreType() {return genre;}
 }

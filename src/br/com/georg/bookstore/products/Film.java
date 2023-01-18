@@ -28,7 +28,7 @@ public class Film extends Product {
         super(name, price, quantity, "Films", genre);
         this.studio = studio;
         this.directors = directors;
-        this.genre = genres.get(genre);
+        this.genre = genre;
         this.producer = producer;
     }
 
@@ -91,4 +91,7 @@ public class Film extends Product {
     public String getCategory() {
         return "Films";
     }
+
+    @Override
+    public String getGenreType() {return genre;}
 }

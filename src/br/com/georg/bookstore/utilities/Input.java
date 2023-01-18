@@ -189,8 +189,8 @@ public class Input {
                 if (product.getQuantity() > 0) {
                     int quantity = Input.getInteger(
                                     1,product.getQuantity(),
-                            "Insert how many " + product.getCategory()
-                                    + "you would like to add to your shopping cart",
+                            "Insert how many '" + product.getName() + " " + product.getGenreType() + " " + product.getCategory()
+                                    + "' you would like to add to your shopping cart",
                             "Invalid value! Insert a number of " + product.getCategory()
                                     + " between 1 and " + product.getQuantity() + " to add to your cart");
                     message = loggedAccount.addToCart(product, quantity);
