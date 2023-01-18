@@ -2,7 +2,9 @@ package br.com.georg.bookstore;
 
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
+import br.com.georg.bookstore.service.Dashboard;
 import br.com.georg.bookstore.utilities.*;
+import br.com.georg.bookstore.utilities.printer.DashboardPrinter;
 import br.com.georg.bookstore.utilities.printer.Printer;
 
 public class BookstoreApplication {
@@ -68,7 +70,7 @@ public class BookstoreApplication {
                         // Remove a product
                         case (4) -> Input.removeProductUsingID(bookstore);
 //                        // TODO See Dashboard
-//                        case (5) ->
+                        case (5) -> DashboardPrinter.printDashboard(bookstore);
 //                        // TODO See sales history
 //                        case (6) ->
                         // Log out

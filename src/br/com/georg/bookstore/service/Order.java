@@ -16,7 +16,7 @@ public class Order {
     private String date;
 
     public Order(ShoppingCart shoppingCart, List<Product> items) {
-        items = items;
+        this.items = items;
         total = shoppingCart.getTotal();
         username = shoppingCart.getUsername();
         date = LocalDateTime.now().format(formatter);

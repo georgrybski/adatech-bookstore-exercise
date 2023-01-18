@@ -6,6 +6,7 @@ import br.com.georg.bookstore.products.*;
 import java.util.HashMap;
 
 public class Bookstore {
+    private String name;
     private final Database database;
     private final Cashier cashier;
     private final Treasury treasury;
@@ -24,6 +25,7 @@ public class Bookstore {
     }
 
     public void addProduct(String category, String genreType, Product product) {
+        dashboard.recieveProductData(product, category);
         database.insertProduct(category, genreType, product);
     }
 
@@ -55,5 +57,13 @@ public class Bookstore {
 
     public HashMap<String, HashMap<String, HashMap<String, Product>>> getInventory() {
         return database.getProducts3DHashMap();
+    }
+
+    public Dashboard getDashboard() {
+        return dashboard;
+    }
+
+    public String getName() {
+        return name;
     }
 }

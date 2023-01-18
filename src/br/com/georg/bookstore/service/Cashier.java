@@ -22,7 +22,9 @@ public class Cashier {
         List<Product> items = shoppingCart.getItems().stream()
                 .map(item -> item.getProduct().copy(item.getQuantity())).toList();
 
-        bookstore.getDatabase().getOrderHistoryFrom(shoppingCart.getUsername()).add(new Order(shoppingCart, items));
+        Order newOrder = new Order(shoppingCart, items);
+        bookstore.getDatabase().getOrderHistoryFrom(shoppingCart.getUsername()).add(newOrder);
+        bookstore.getDashboard().recieveSaleData(newOrder);
     }
 
     private void takeProductsFormStock(ArrayList<ShoppingCartItem> items) {
