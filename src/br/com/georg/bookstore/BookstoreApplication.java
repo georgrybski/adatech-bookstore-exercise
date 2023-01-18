@@ -4,6 +4,7 @@ import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.utilities.*;
 import br.com.georg.bookstore.utilities.printer.DashboardPrinter;
+import br.com.georg.bookstore.utilities.printer.OrderPrinter;
 import br.com.georg.bookstore.utilities.printer.Printer;
 
 public class BookstoreApplication {
@@ -42,7 +43,7 @@ public class BookstoreApplication {
                         case (2) -> Input.addProductToCartUsingID(bookstore, loggedAccount);
                         // Go to shopping cart
                         case (3) ->  Menu.goToCart(bookstore, loggedAccount);
-//                        // TODO See my purchase history
+                        // See my purchase history
                         case (4) -> loggedAccount.viewOrders();
                         // Log out
                         case (5) -> loggedAccount = null;
@@ -71,7 +72,7 @@ public class BookstoreApplication {
                         // See Dashboard
                         case (5) -> DashboardPrinter.printDashboard(bookstore);
 //                        // TODO See sales history
-//                        case (6) ->
+                        case (6) -> OrderPrinter.printAllOrders(bookstore);
                         // Log out
                         case (7) -> loggedAccount = null;
                         // Exit

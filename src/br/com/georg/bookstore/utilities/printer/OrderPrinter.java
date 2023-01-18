@@ -1,5 +1,6 @@
 package br.com.georg.bookstore.utilities.printer;
 
+import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.service.Order;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import static br.com.georg.bookstore.utilities.printer.Printer.printIndentedForm
 
 public class OrderPrinter {
 
-    public static void printAllOrdersFromList(ArrayList<Order> orders) {
+    public static void printOrdersFromList(ArrayList<Order> orders) {
         orders.stream().forEach(OrderPrinter::printOrder);
     }
 
@@ -31,6 +32,8 @@ public class OrderPrinter {
         printFrameLine();
     }
 
-
+    public static void printAllOrders(Bookstore bookstore) {
+        bookstore.getDatabase().getOrdersHashMap().values().forEach(OrderPrinter::printOrdersFromList);
+    }
 
 }

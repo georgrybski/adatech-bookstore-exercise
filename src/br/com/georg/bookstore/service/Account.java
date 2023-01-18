@@ -28,7 +28,7 @@ public class Account {
         if(bookstore.getDatabase().getOrderHistoryFrom(username).isEmpty()) {
             Printer.printFormattedMessage("You have not placed any orders yet");
         }
-        OrderPrinter.printAllOrdersFromList(bookstore.getDatabase().getOrderHistoryFrom(username));
+        OrderPrinter.printOrdersFromList(bookstore.getDatabase().getOrderHistoryFrom(username));
     }
 
 
