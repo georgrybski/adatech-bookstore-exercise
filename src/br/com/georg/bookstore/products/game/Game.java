@@ -1,5 +1,6 @@
-package br.com.georg.bookstore.products;
+package br.com.georg.bookstore.products.game;
 
+import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.utilities.HashMapTools;
 
 import java.math.BigDecimal;
@@ -13,13 +14,6 @@ public class Game extends Product {
 
     private String studio;
 
-    private static String[] genresArray = new String[] {
-            "First Person Shooter", "Action-Adventure",
-            "Survival", "Puzzle", "Role-Playing",
-            "MMO", "Sports", "Sandbox", "Educational"
-    };
-    private static HashMap<Integer,String> genres =
-            HashMapTools.initializeCategoryGenresOrTypesHashMap(genresArray);
 
 
     public Game(String name, BigDecimal price, String genre, String distribuitor, String studio, Integer quantity) {
@@ -52,14 +46,6 @@ public class Game extends Product {
 
     public String getStudio() {
         return studio;
-    }
-
-    public static HashMap<Integer, String> getGenres() {
-        return genres;
-    }
-
-    public static String[] getGenresArray() {
-        return genresArray;
     }
 
     public void setDistribuitor(String distribuitor) {

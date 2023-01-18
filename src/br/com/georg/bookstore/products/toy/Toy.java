@@ -1,20 +1,11 @@
-package br.com.georg.bookstore.products;
+package br.com.georg.bookstore.products.toy;
 
-import br.com.georg.bookstore.utilities.HashMapTools;
+import br.com.georg.bookstore.products.Product;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 
 public class Toy extends Product {
     private String type;
-
-    private static String[] typesArray = new String[]{
-        "Action figure", "Animal", "Car and radio controlled", "Construction",
-        "Creative", "Doll", "Educational", "Electronic", "Executive",
-        "Food-related", "Puzzle", "Science and optical", "Sound and music"
-    };
-    private static HashMap<Integer,String> types =
-            HashMapTools.initializeCategoryGenresOrTypesHashMap(typesArray);
 
     public Toy(String name, BigDecimal price, String type, Integer quantity){
         super(name, price, quantity, "Toys", type);
@@ -33,14 +24,6 @@ public class Toy extends Product {
 
     public String getType() {
         return type;
-    }
-
-    public static HashMap<Integer, String> getTypes() {
-        return types;
-    }
-
-    public static String[] getTypesArray() {
-        return typesArray;
     }
 
     public void setType(String type) {

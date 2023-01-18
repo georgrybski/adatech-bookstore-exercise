@@ -1,5 +1,6 @@
-package br.com.georg.bookstore.products;
+package br.com.georg.bookstore.products.film;
 
+import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.utilities.HashMapTools;
 
 import java.math.BigDecimal;
@@ -14,14 +15,6 @@ public class Film extends Product {
     private String genre;
 
     private String producer;
-
-    private static String[] genreArray = new String[] {
-            "Action", "Adventure", "Comedy", "Drama",
-            "Horror", "Mystery", "Romance", "Sports",
-            "Thriller", "Western", "Science Fiction"
-    };
-    private static HashMap<Integer,String> genres =
-            HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
 
     public Film(String name, BigDecimal price, String genre, String studio, String directors, String producer, Integer quantity) {
@@ -61,14 +54,6 @@ public class Film extends Product {
 
     public String getProducer() {
         return producer;
-    }
-
-    public static HashMap<Integer, String> getGenres() {
-        return genres;
-    }
-
-    public static String[] getGenreArray() {
-        return genreArray;
     }
 
     public void setStudio(String studio) {

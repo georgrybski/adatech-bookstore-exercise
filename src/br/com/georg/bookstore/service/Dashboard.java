@@ -1,6 +1,7 @@
 package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
+import br.com.georg.bookstore.products.ProductCategories;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -102,13 +103,13 @@ public class Dashboard {
     private static class DashboardTools {
         private static HashMap<String, Integer> initializeProductQuantityDashboard() {
             var productDashboard = new HashMap<String, Integer>();
-            Arrays.stream(Product.getCategoriesArray()).forEach(category -> productDashboard.put(category, 0));
+            Arrays.stream(ProductCategories.getCategoriesArray()).forEach(category -> productDashboard.put(category, 0));
             return productDashboard;
         }
 
         private static HashMap<String, BigDecimal> initializeProductValueDashboard() {
             var productDashboard = new HashMap<String, BigDecimal>();
-            Arrays.stream(Product.getCategoriesArray()).forEach(category -> productDashboard.put(category, BigDecimal.valueOf(0)));
+            Arrays.stream(ProductCategories.getCategoriesArray()).forEach(category -> productDashboard.put(category, BigDecimal.valueOf(0)));
             return productDashboard;
         }
 

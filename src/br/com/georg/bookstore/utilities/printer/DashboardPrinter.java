@@ -1,6 +1,6 @@
 package br.com.georg.bookstore.utilities.printer;
 
-import br.com.georg.bookstore.products.Product;
+import br.com.georg.bookstore.products.ProductCategories;
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.service.Dashboard;
 
@@ -16,7 +16,7 @@ public class DashboardPrinter {
         Printer.printIndentedFormattedLine(" ");
         Printer.printIndentedFormattedLine("Current Inventory Data");
         Printer.printIndentedFormattedLine(" ");
-        for (String category : Product.getCategoriesArray()) {
+        for (String category : ProductCategories.getCategoriesArray()) {
             Printer.printIndentedFormattedLine(" ");
             Printer.printIndentedFormattedLine(
                     category + ": " + dashboard.getProductInventoryQuantityDashboard().get(category) +
@@ -30,7 +30,7 @@ public class DashboardPrinter {
 
         Printer.printIndentedFormattedLine("Current Sales Data");
         Printer.printIndentedFormattedLine(" ");
-        for (String category : Product.getCategoriesArray()) {
+        for (String category : ProductCategories.getCategoriesArray()) {
             Printer.printIndentedFormattedLine(" ");
             Printer.printIndentedFormattedLine(
                     category + ": " + dashboard.getProductSalesQuantityDashboard().get(category) +

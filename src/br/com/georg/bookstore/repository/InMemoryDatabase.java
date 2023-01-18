@@ -1,6 +1,7 @@
 package br.com.georg.bookstore.repository;
 
 import br.com.georg.bookstore.products.Product;
+import br.com.georg.bookstore.products.ProductCategories;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.service.Order;
@@ -111,10 +112,10 @@ public class InMemoryDatabase {
         protected static HashMap<String, HashMap<String, HashMap<String, Product>>> initialize3DProductsHashMap() {
             var inventory = new HashMap<String, HashMap<String, HashMap<String, Product>>>();
 
-            Product.getCategories().values().stream()
+            ProductCategories.getCategories().values().stream()
                     .forEach(category -> inventory.put(category, new HashMap<>()));
 
-            for (Map.Entry<String, HashMap<Integer, String>> outerEntry: Product.getGenresAndTypesHashMap().entrySet()) {
+            for (Map.Entry<String, HashMap<Integer, String>> outerEntry: ProductCategories.getGenresAndTypesHashMap().entrySet()) {
                 for (Map.Entry<Integer, String> innerEntry : outerEntry.getValue().entrySet() ) {
                     inventory.get(outerEntry.getKey()).put(innerEntry.getValue(), new HashMap<>());
                 }

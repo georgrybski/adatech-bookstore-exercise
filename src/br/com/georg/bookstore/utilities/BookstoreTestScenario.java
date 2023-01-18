@@ -1,6 +1,11 @@
 package br.com.georg.bookstore.utilities;
 
 import br.com.georg.bookstore.products.*;
+import br.com.georg.bookstore.products.album.Album;
+import br.com.georg.bookstore.products.game.Game;
+import br.com.georg.bookstore.products.book.Book;
+import br.com.georg.bookstore.products.film.Film;
+import br.com.georg.bookstore.products.toy.Toy;
 import br.com.georg.bookstore.service.Bookstore;
 
 import java.math.BigDecimal;

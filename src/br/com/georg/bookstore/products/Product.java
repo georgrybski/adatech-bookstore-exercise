@@ -1,5 +1,10 @@
 package br.com.georg.bookstore.products;
 
+import br.com.georg.bookstore.products.album.AlbumCategories;
+import br.com.georg.bookstore.products.book.BookCategories;
+import br.com.georg.bookstore.products.film.FilmCategories;
+import br.com.georg.bookstore.products.game.GameCategories;
+import br.com.georg.bookstore.products.toy.ToyCategories;
 import br.com.georg.bookstore.utilities.HashMapTools;
 
 import java.math.BigDecimal;
@@ -7,19 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Product {
-
-    private static String[] categoriesArray =
-            new String[]{"Albums", "Books", "Films", "Games", "Toys"};
-
-    private static HashMap<Integer, String> categories =
-            HashMapTools.initializeCategoryGenresOrTypesHashMap(categoriesArray);
-
-    private static HashMap<String, HashMap<Integer, String>> genresAndTypesHashMap =
-            new HashMap<>(Map.of(
-                    "Albums", Album.getGenres(), "Books", Book.getGenres(),
-                    "Films", Film.getGenres(), "Games", Game.getGenres(),
-                    "Toys", Toy.getTypes()
-            ));
 
     private static Integer IDCounter = 1;
 
@@ -53,14 +45,6 @@ public abstract class Product {
      */
     public Product copy(Integer quantity) {
         return this;
-    }
-
-    public static HashMap<String, HashMap<Integer, String>> getGenresAndTypesHashMap() {
-        return genresAndTypesHashMap;
-    }
-
-    public static HashMap<Integer, String> getCategories() {
-        return categories;
     }
 
     public String getCategory() {
@@ -101,12 +85,7 @@ public abstract class Product {
         this.ID = ID;
     }
 
-    public static String[] getCategoriesArray() {
-        return categoriesArray;
-    }
-
     public BigDecimal getValueOfItemStack() {
-        BigDecimal total = price.multiply(BigDecimal.valueOf(quantity));
-        return total;
+        return price.multiply(BigDecimal.valueOf(quantity));
     }
 }

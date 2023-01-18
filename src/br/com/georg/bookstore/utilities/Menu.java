@@ -1,6 +1,16 @@
 package br.com.georg.bookstore.utilities;
 
 import br.com.georg.bookstore.products.*;
+import br.com.georg.bookstore.products.album.Album;
+import br.com.georg.bookstore.products.album.AlbumCategories;
+import br.com.georg.bookstore.products.game.Game;
+import br.com.georg.bookstore.products.book.Book;
+import br.com.georg.bookstore.products.book.BookCategories;
+import br.com.georg.bookstore.products.film.Film;
+import br.com.georg.bookstore.products.film.FilmCategories;
+import br.com.georg.bookstore.products.game.GameCategories;
+import br.com.georg.bookstore.products.toy.Toy;
+import br.com.georg.bookstore.products.toy.ToyCategories;
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.utilities.printer.CartPrinter;
@@ -15,7 +25,7 @@ import java.util.Map;
 public class Menu {
 
     private static final String[] PRODUCT_CATEGORY_MENU_OPTIONS =
-            createCategoryGenreAndTypeMenuOptions(Product.getCategories());
+            createCategoryGenreAndTypeMenuOptions(ProductCategories.getCategories());
 
     private static final String[] LOGGED_OUT_MENU_OPTIONS = {
             "1 - Create an account", " 2 - Log in", "3 - Exit"
@@ -33,9 +43,9 @@ public class Menu {
     };
 
     public static HashMap<String, String[]> GENRE_TYPE_ARRAYS = new HashMap<>(Map.of(
-            "Albums", Album.getGenreArray(), "Books", Book.getGenreArray(),
-            "Films", Film.getGenreArray(), "Games", Game.getGenresArray(),
-            "Toys", Toy.getTypesArray()
+            "Albums", AlbumCategories.getGenreArray(), "Books", BookCategories.getGenreArray(),
+            "Films", FilmCategories.getGenreArray(), "Games", GameCategories.getGenreArray(),
+            "Toys", ToyCategories.getTypesArray()
     ));
 
     private static String[] getGenreTypeArray(String category) {
@@ -56,7 +66,7 @@ public class Menu {
 
     public static void seeProductListByCategory(Bookstore bookstore) {
         int categoryNumber = getProductCategory() - 1;
-        String categoryString = Product.getCategoriesArray()[categoryNumber];
+        String categoryString = ProductCategories.getCategoriesArray()[categoryNumber];
 
         int input = Menu.getIntFrom(
                 new String[]{
@@ -108,7 +118,7 @@ public class Menu {
 
     public static void seeProductByGenreType(Bookstore bookstore, String category, int categoryNumber) {
         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(category));
-        String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
+        String genreTypeString = GENRE_TYPE_ARRAYS.get(ProductCategories.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
         ProductPrinter.printProductsOfAGenreType(bookstore, category, genreTypeString);
         Printer.printFormattedMessage("^ List of " + genreTypeString + " " + category + " ^");
     }
@@ -116,9 +126,9 @@ public class Menu {
     public static void addProduct(Bookstore bookstore) {
 
         int categoryNumber = getProductCategory() - 1;
-        String categoryString = Product.getCategoriesArray()[categoryNumber];
+        String categoryString = ProductCategories.getCategoriesArray()[categoryNumber];
         int genreTypeNumber = Menu.getIntFrom(getGenreTypeArray(categoryString));
-        String genreTypeString = GENRE_TYPE_ARRAYS.get(Product.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
+        String genreTypeString = GENRE_TYPE_ARRAYS.get(ProductCategories.getCategoriesArray()[categoryNumber])[genreTypeNumber - 1];
         String productName = Input.getProductName(categoryString);
         BigDecimal productPrice = Input.getProductPrice(categoryString);
 
@@ -155,7 +165,6 @@ public class Menu {
 
         bookstore.addProduct(categoryString, genreTypeString, newProduct);
     }
-
 
     public static String[] createCategoryGenreAndTypeMenuOptions(HashMap<Integer, String> genres) {
         return genres.entrySet()

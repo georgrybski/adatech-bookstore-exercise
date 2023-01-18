@@ -1,5 +1,6 @@
-package br.com.georg.bookstore.products;
+package br.com.georg.bookstore.products.book;
 
+import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.utilities.HashMapTools;
 
 import java.math.BigDecimal;
@@ -12,24 +13,6 @@ public class Book extends Product {
     private String author;
 
     private String publisher;
-
-
-    private static String[] genreArray = new String[] {
-            "Adventure stories", "Classics", "Crime",
-            "Fairy tales, fables, and folk tales",
-            "Fantasy", "Historical fiction", "Horror",
-            "Humour and satire", "Literary fiction",
-            "Mystery", "Poetry", "Plays", "Romance",
-            "Science fiction", "Short stories",
-            "Thrillers", "War", "Women’s fiction",
-            "Young adult", "Autobiography and memoir",
-            "Biography", "Essays", "Non-fiction novel",
-            "Self-help", "Psychology", "Geology",
-            "Chemistry", "Astronomy", "Zoology",
-            "Mathematics and logic", "Programming", "Data Science"};
-
-    private static HashMap<Integer,String> genres =
-            HashMapTools.initializeCategoryGenresOrTypesHashMap(genreArray);
 
     public Book(String name, BigDecimal price,
                 String genre, String author, String publisher, Integer quantity) {
@@ -63,14 +46,6 @@ public class Book extends Product {
 
     public String getPublisher() {
         return publisher;
-    }
-
-    public static HashMap<Integer, String> getGenres() {
-        return genres;
-    }
-
-    public static String[] getGenreArray() {
-        return genreArray;
     }
 
     public void setGenre(String genre) {
