@@ -1,4 +1,4 @@
-package br.com.georg.bookstore.database;
+package br.com.georg.bookstore.repository;
 
 import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.service.Account;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Database {
+public class InMemoryDatabase {
     private Bookstore bookstore;
     private SearchEngine searchEngine;
     private HashMap<String, HashMap<String, HashMap<String, Product>>> products3DHashMap;
@@ -18,7 +18,7 @@ public class Database {
     private HashMap<String, ArrayList<Order>> ordersHashMap;
     private HashMap<String, ShoppingCart> shoppingCartsHashMap;
 
-    public Database(Bookstore bookstore) {
+    public InMemoryDatabase(Bookstore bookstore) {
         this.bookstore = bookstore;
         searchEngine = new SearchEngine(this);
         products3DHashMap = DatabaseTools.initialize3DProductsHashMap();

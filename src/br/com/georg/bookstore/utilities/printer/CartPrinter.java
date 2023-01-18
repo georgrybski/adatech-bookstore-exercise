@@ -22,9 +22,6 @@ public class CartPrinter {
                     Printer.printFormattedMultiLineString("");
                 });
 
-
-
-
         Printer.printIndentedFormattedLine("Total: " + cart.getTotal() + " USD");
         Printer.printFrameLine();
     }

@@ -1,4 +1,4 @@
-package br.com.georg.bookstore.database;
+package br.com.georg.bookstore.repository;
 
 import br.com.georg.bookstore.products.Product;
 import br.com.georg.bookstore.service.Order;
@@ -9,20 +9,20 @@ import java.util.Map;
 
 public class SearchEngine {
 
-    private Database database;
+    private InMemoryDatabase inMemoryDatabase;
 
     private static HashMap<String, String> IDCategorySearchHashMap;
 
     private static HashMap<String, HashMap<String, String>> IDGenreTypeHashMap;
 
-    protected SearchEngine(Database database) {
-        this.database = database;
+    protected SearchEngine(InMemoryDatabase inMemoryDatabase) {
+        this.inMemoryDatabase = inMemoryDatabase;
         IDCategorySearchHashMap = SearchEngineInitializer.initializeIDCategorySearchHashmap();
         IDGenreTypeHashMap = SearchEngineInitializer.initializeIDGenreTypeSearchHashmap();
     }
 
     public HashMap<String, Product> getHashMapWhereIDIsLocated(String category, String genreType) {
-        return database.getProducts3DHashMap().get(category).get(genreType);
+        return inMemoryDatabase.getProducts3DHashMap().get(category).get(genreType);
     }
 
     protected Product getProductByID(String ID) {
@@ -47,15 +47,15 @@ public class SearchEngine {
     }
 
     protected boolean usernameExists(String username) {
-        return database.getAccountsHashMap().containsKey(username);
+        return inMemoryDatabase.getAccountsHashMap().containsKey(username);
     }
 
     protected boolean isValidPassword(String username, String password) {
-        return database.getAccountsHashMap().get(username).getPassword().equals(password);
+        return inMemoryDatabase.getAccountsHashMap().get(username).getPassword().equals(password);
     }
 
     protected ArrayList<Order> getOrderArrayListWithUsername(String username) {
-        return database.getOrdersHashMap().get(username);
+        return inMemoryDatabase.getOrdersHashMap().get(username);
     }
 
     private static class SearchEngineInitializer {

@@ -71,7 +71,7 @@ public class BookstoreApplication {
                         case (4) -> Input.removeProductUsingID(bookstore);
                         // See Dashboard
                         case (5) -> DashboardPrinter.printDashboard(bookstore);
-//                        // TODO See sales history
+                        // See sales history
                         case (6) -> OrderPrinter.printAllOrders(bookstore);
                         // Log out
                         case (7) -> loggedAccount = null;

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Product {
+public abstract class Product {
 
     private static String[] categoriesArray =
             new String[]{"Albums", "Books", "Films", "Games", "Toys"};
@@ -52,7 +52,7 @@ public class Product {
     Evaluate making this class abstract and the copy method return this
      */
     public Product copy(Integer quantity) {
-        return new Product(this.name, this.price, this.ID, quantity);
+        return this;
     }
 
     public static HashMap<String, HashMap<Integer, String>> getGenresAndTypesHashMap() {
