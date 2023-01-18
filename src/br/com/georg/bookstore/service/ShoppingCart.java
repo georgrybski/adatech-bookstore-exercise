@@ -53,6 +53,29 @@ public class ShoppingCart {
         }
     }
 
+    public ShoppingCartItem getItemInCart(String ID) {
+        for (ShoppingCartItem item : items) {
+            if(item.getProduct().getID().equals(ID)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+
+    public String removeItemFromCart(String ID) {
+        ShoppingCartItem itemInCart = getItemInCart(ID);
+        String message = null;
+        if (itemInCart != null) {
+            items.remove(itemInCart);
+            message = "'" + itemInCart.getProduct().getName() + "' has been removed from your cart";
+        }
+        else {
+            message = "This ID doesn't match any item in your cart";
+        }
+        return message;
+    }
+
     public void checkout() {
         bookstore.completeSale(this);
     }

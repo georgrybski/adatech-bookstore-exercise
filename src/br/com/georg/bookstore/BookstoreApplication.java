@@ -25,7 +25,7 @@ public class BookstoreApplication {
                     // Exit
                     case 3 -> {
                         run = false;
-                        Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
+                        Printer.printFormattedMessage("Thanks for visiting my Bookstore!");
                     }
                 }
             }
@@ -33,7 +33,7 @@ public class BookstoreApplication {
             if (loggedAccount != null) {
                 boolean customerLoggedIn = !loggedAccount.getUsername().equalsIgnoreCase("admin");
                 if (customerLoggedIn) {
-                    Printer.printFormattedMesage("Logged in as '" + loggedAccount.getUsername() + "'");
+                    Printer.printFormattedMessage("Logged in as '" + loggedAccount.getUsername() + "'");
                     switch (Menu.getCustomerInput()) {
                         // Browse all products
                         case (1) -> Menu.seeProductList(bookstore);
@@ -48,7 +48,7 @@ public class BookstoreApplication {
                         // Exit
                         case (6) -> {
                             run = false;
-                            Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
+                            Printer.printFormattedMessage("Thanks for visiting my Bookstore!");
                         }
                     }
                 }
@@ -57,7 +57,7 @@ public class BookstoreApplication {
             if (loggedAccount != null) {
                 boolean adminLoggedIn = loggedAccount.getUsername().equalsIgnoreCase("admin");
                 if (adminLoggedIn) {
-                    Printer.printFormattedMesage("Logged in as '" + loggedAccount.getUsername() + "'");
+                    Printer.printFormattedMessage("Logged in as '" + loggedAccount.getUsername() + "'");
                     switch (Menu.getAdminInput()) {
                         // See products list
                         case (1) -> Menu.seeProductList(bookstore);
@@ -76,7 +76,7 @@ public class BookstoreApplication {
                         // Exit
                         case (8) -> {
                             run = false;
-                            Printer.printFormattedMesage("Thanks for visiting my Bookstore!");
+                            Printer.printFormattedMessage("Thanks for visiting my Bookstore!");
                         }
                     }
                 }

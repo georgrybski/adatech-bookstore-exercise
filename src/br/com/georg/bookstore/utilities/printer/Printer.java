@@ -7,7 +7,7 @@ public class Printer {
     private Printer() {
     }
 
-    public static void printFormattedMesage(String message) {
+    public static void printFormattedMessage(String message) {
         printFrameLine();
 
         boolean messageLargerThanLine = (message.length() > LINE_LENGTH - 6);

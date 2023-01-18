@@ -72,12 +72,12 @@ public class Input {
     public static String getUsername(Bookstore bookstore) {
         var username = getString("Insert your desired username").toLowerCase();
         if (!isUsernameValid(username)) {
-            Printer.printFormattedMesage("Usernames must have between 4 and 15 characters and " +
+            Printer.printFormattedMessage("Usernames must have between 4 and 15 characters and " +
                     "contain only letters A-Z, numbers 0-9 or underscores");
             return getUsername(bookstore);
 
         } else if (!bookstore.getDatabase().isUsernameFree(username)) {
-            Printer.printFormattedMesage("That username is already taken");
+            Printer.printFormattedMessage("That username is already taken");
             return getUsername(bookstore);
         } else {
             return username;
@@ -94,7 +94,7 @@ public class Input {
         }
 
         String message = (account != null)? "Successfully logged in as '" + account.getUsername() + "'": "Invalid credentials";
-        Printer.printFormattedMesage(message);
+        Printer.printFormattedMessage(message);
         return account;
     }
 
@@ -173,10 +173,10 @@ public class Input {
         String ID = getString("Insert the ID of the product you wanto to remove");
         if (isIDValid(ID)) {
             if (bookstore.removeProduct(ID)) {
-                Printer.printFormattedMesage("The product has been removed");
+                Printer.printFormattedMessage("The product has been removed");
             }
         } else {
-            Printer.printFormattedMesage("The ID inserted is invalid");
+            Printer.printFormattedMessage("The ID inserted is invalid");
         }
     }
 
@@ -197,7 +197,15 @@ public class Input {
                 }
             }
         }
-        Printer.printFormattedMesage(message);
+        Printer.printFormattedMessage(message);
+    }
+
+    public static void removeItemFromCartUsingID(Account loggedAccount) {
+        Printer.printFormattedMessage(
+                loggedAccount.getShoppingCart().removeItemFromCart(
+                getString("Insert the ID of the product you want to remove from your cart")
+                )
+        );
     }
 
     public static void modifyExistingProduct(Bookstore bookstore) {
@@ -234,7 +242,7 @@ public class Input {
                 }
             }
         }
-        Printer.printFormattedMesage("The ID inserted is invalid");
+        Printer.printFormattedMessage("The ID inserted is invalid");
     }
 
     private static Object input(String type, String invalidValueMessage, String prompt, boolean firstTry) {
@@ -246,7 +254,7 @@ public class Input {
         else {
             message = prompt;
         }
-        Printer.printFormattedMesage(message);
+        Printer.printFormattedMessage(message);
         try {
             return switch (type) {
                 case "String" -> scn.nextLine();
