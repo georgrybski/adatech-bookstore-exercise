@@ -25,13 +25,14 @@ public class Bookstore {
     }
 
     public void addProduct(String category, String genreType, Product product) {
-        dashboard.recieveProductData(product, category);
+        dashboard.recieveNewProductData(product, category);
         database.insertProduct(category, genreType, product);
     }
 
     public boolean removeProduct(String ID) {
         if (database.productExists(ID)) {
             treasury.recalculateInventoryValueRemovingItem(ID);
+            dashboard.recieveProductRemovalData(ID);
             database.removeProduct(ID);
             return true;
         } else {

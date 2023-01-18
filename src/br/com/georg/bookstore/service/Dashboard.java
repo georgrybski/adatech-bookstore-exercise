@@ -20,17 +20,42 @@ public class Dashboard {
         productValueDashboard = DashboardTools.initializeProductValueDashboard();
     }
 
-    public void recieveProductData(Product product, String category) {
-        productQuantityDashboard.put(category, productQuantityDashboard.get(category) + product.getQuantity());
-        productValueDashboard.put(category, productValueDashboard.get(category).add(product.getValueOfItemStack()));
+    public void recieveNewProductData(Product newProduct, String category) {
+        productQuantityDashboard.put(category, productQuantityDashboard.get(category) + newProduct.getQuantity());
+        productValueDashboard.put(category, productValueDashboard.get(category).add(newProduct.getValueOfItemStack()));
     }
 
     public void recieveSaleData(Order order) {
         List<Product> items = order.getItems();
         items.stream().forEach(product -> {
-            productQuantityDashboard.put(product.getCategory(), productQuantityDashboard.get(product.getCategory()) - product.getQuantity());
-            productValueDashboard.put(product.getCategory(), productValueDashboard.get(product.getCategory()).subtract(product.getValueOfItemStack()));
+
+            productQuantityDashboard.put(
+                    product.getCategory(),
+                    productQuantityDashboard.get(product.getCategory()) - product.getQuantity()
+            );
+
+            productValueDashboard.put(
+                    product.getCategory(),
+                    productValueDashboard.get(product.getCategory()).subtract(product.getValueOfItemStack())
+            );
         });
+    }
+    public void recieveProductUpdateData() {
+
+    }
+
+    public void recieveProductRemovalData(String ID) {
+        Product product = bookstore.getDatabase().getProductByID(ID);
+        productQuantityDashboard.put(product.getCategory(), productQuantityDashboard.get(product.getCategory()) - product.getQuantity());
+        productValueDashboard.put(product.getCategory(), productValueDashboard.get(product.getCategory()).subtract(product.getValueOfItemStack()));
+    }
+
+    public BigDecimal getTotalProductValue() {
+        return productValueDashboard.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public Integer getTotalProductQuantity() {
+        return productQuantityDashboard.values().stream().mapToInt(Integer::intValue).sum();
     }
 
     public HashMap<String, Integer> getProductQuantityDashboard() {

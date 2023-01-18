@@ -17,9 +17,12 @@ public class DashboardPrinter {
         for (String category : Product.getCategoriesArray()) {
             Printer.printIndentedFormattedLine(" ");
             Printer.printIndentedFormattedLine(
-                    category + " " + dashboard.getProductQuantityDashboard().get(category) +
-                    " units valued at " + dashboard.getProductValueDashboard().get(category));
+                    category + ": " + dashboard.getProductQuantityDashboard().get(category) +
+                    " items valued at " + dashboard.getProductValueDashboard().get(category) + " USD");
         }
+        Printer.printFrameLine();
+        Printer.printIndentedFormattedLine("Total: " + dashboard.getTotalProductQuantity() + " items valued at " + dashboard.getTotalProductValue() + " USD");
+        Printer.printFrameLine();
         Printer.printIndentedFormattedLine(" ");
         Printer.printFrameLine();
     }
