@@ -62,42 +62,6 @@ public class ProductDistribuitor {
     }
     public static class ProductList {
 
-        public static Object[][] filmData = new Object[][] {
-//              {String name, BigDecimal price, String genre, String studio, String director, String producer, int quantity}
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Action", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Action", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Adventure", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Adventure", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Comedy", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Comedy", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Drama", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Drama", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Horror", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Horror", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Mystery", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Mystery", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Romance", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Romance", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Sports", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Sports", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Thriller", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Thriller", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Western", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Western", "Studio", "Director", "Producer", 100},
-
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Science Fiction", "Studio", "Director", "Producer", 100},
-                {"Films", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Science Fiction", "Studio", "Director", "Producer", 100},
-        };
-
         public static Object[][] gameData = new Object[][] {
 //              {String name, BigDecimal price, String genre, String distribuitor, String studio, int quantity}
                 {"Games", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "First Person Shooter", "Distribuitor", "Studio", 100},
