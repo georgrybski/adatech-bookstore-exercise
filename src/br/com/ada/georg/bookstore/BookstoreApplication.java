@@ -1,6 +1,6 @@
 package br.com.ada.georg.bookstore;
 
-import br.com.ada.georg.bookstore.util.BookstoreTestScenario;
+import br.com.ada.georg.bookstore.service.distribuitor.ProductDistribuitor;
 import br.com.ada.georg.bookstore.util.input.AccountInput;
 import br.com.ada.georg.bookstore.util.input.ProductInput;
 import br.com.ada.georg.bookstore.util.menu.Menu;
@@ -17,7 +17,7 @@ public class BookstoreApplication {
 
         Scanner scanner = new Scanner(System.in);
         Bookstore bookstore = new Bookstore();
-        BookstoreTestScenario.populateBookstore(bookstore);
+        ProductDistribuitor.populateBookstore(bookstore);
         Account loggedAccount = null;
         boolean run = true;
 

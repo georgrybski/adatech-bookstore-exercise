@@ -1,4 +1,4 @@
-package br.com.ada.georg.bookstore.util;
+package br.com.ada.georg.bookstore.service.distribuitor;
 
 import br.com.ada.georg.bookstore.products.Product;
 import br.com.ada.georg.bookstore.products.album.Album;
@@ -10,7 +10,7 @@ import br.com.ada.georg.bookstore.service.Bookstore;
 
 import java.math.BigDecimal;
 
-public class BookstoreTestScenario {
+public class ProductDistribuitor {
 
     public static void populateBookstore(Bookstore bookstore) {
         for (Object[][] productDataMatrix: ProductList.productData) {
