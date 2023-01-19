@@ -12,57 +12,56 @@ import java.math.BigDecimal;
 
 public class ProductDistribuitor {
 
-    public static void populateBookstore(Bookstore bookstore) {
-        for (Object[][] productDataMatrix: ProductList.productData) {
-            for (Object[] productData : productDataMatrix) {
-                String productCategory = (String) productData[0];
-                String productGenre = (String) productData[3];
+    ProductData[] productData = new ProductData[] {
+            new AlbumData(), new BookData(), new FilmData(), new GameData() , new ToyData()
+    };
+
+    public void deliverProductShippment(Bookstore bookstore) {
+        for (ProductData data : productData) {
+            for (Object[] productEntry : data.getData()) {
+                String productCategory = (String) productEntry[0];
+                String productGenre = (String) productEntry[3];
                 Product newProduct = null;
                 switch (productCategory) {
                     case "Albums" -> {
                         newProduct = new Album(
-                                (String) productData[1], (BigDecimal) productData[2],
-                                (String) productData[3], (String) productData[4],
-                                (String) productData[5], (int) productData[6]
+                                (String) productEntry[1], (BigDecimal) productEntry[2],
+                                (String) productEntry[3], (String) productEntry[4],
+                                (String) productEntry[5], (int) productEntry[6]
                         );
                     }
                     case "Books" -> {
                         newProduct = new Book(
-                                        (String) productData[1], (BigDecimal) productData[2],
-                                        (String) productData[3], (String) productData[4],
-                                        (String) productData[5], (int) productData[6]
+                                        (String) productEntry[1], (BigDecimal) productEntry[2],
+                                        (String) productEntry[3], (String) productEntry[4],
+                                        (String) productEntry[5], (int) productEntry[6]
                         );
                     }
                     case "Films" -> {
                         newProduct =
                                 new Film(
-                                        (String) productData[1], (BigDecimal) productData[2],
-                                        (String) productData[3], (String) productData[4],
-                                        (String) productData[5], (String) productData[6],
-                                        (int) productData[7]
+                                        (String) productEntry[1], (BigDecimal) productEntry[2],
+                                        (String) productEntry[3], (String) productEntry[4],
+                                        (String) productEntry[5], (String) productEntry[6],
+                                        (int) productEntry[7]
                                 );
                     }
                     case "Games" -> {
                         newProduct = new Game(
-                                (String) productData[1], (BigDecimal) productData[2],
-                                (String) productData[3], (String) productData[4],
-                                (String) productData[5], (int) productData[6]
+                                (String) productEntry[1], (BigDecimal) productEntry[2],
+                                (String) productEntry[3], (String) productEntry[4],
+                                (String) productEntry[5], (int) productEntry[6]
                         );
                     }
                     case "Toys" -> {
                         newProduct = new Toy(
-                                (String) productData[1], (BigDecimal) productData[2],
-                                (String) productData[3], (int) productData[4]
+                                (String) productEntry[1], (BigDecimal) productEntry[2],
+                                (String) productEntry[3], (int) productEntry[4]
                         );
                     }
                 }
                 bookstore.addProduct(productCategory, productGenre, newProduct);
             }
         }
-    }
-    public static class ProductList {
-        public static Object[][][] productData = new Object[][][] {
-                albumData, bookData, filmData, gameData, toyData
-        };
     }
 }

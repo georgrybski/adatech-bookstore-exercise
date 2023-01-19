@@ -17,7 +17,8 @@ public class BookstoreApplication {
 
         Scanner scanner = new Scanner(System.in);
         Bookstore bookstore = new Bookstore();
-        ProductDistribuitor.populateBookstore(bookstore);
+        ProductDistribuitor distribuitor = new ProductDistribuitor();
+        distribuitor.deliverProductShippment(bookstore);
         Account loggedAccount = null;
         boolean run = true;
 
