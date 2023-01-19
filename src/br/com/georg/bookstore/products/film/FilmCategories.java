@@ -1,6 +1,6 @@
 package br.com.georg.bookstore.products.film;
 
-import br.com.georg.bookstore.utilities.HashMapTools;
+import br.com.georg.bookstore.util.HashMapTools;
 
 import java.util.HashMap;
 

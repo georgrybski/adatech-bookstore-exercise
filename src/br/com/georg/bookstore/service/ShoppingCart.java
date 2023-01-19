@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class ShoppingCart {
 
-    private ArrayList<ShoppingCartItem> items;
-    private Account account;
-    private Bookstore bookstore;
+    private final ArrayList<ShoppingCartItem> items;
+    private final Account account;
+    private final Bookstore bookstore;
 
     public ShoppingCart(Account account, Bookstore bookstore) {
         this.account = account;
@@ -18,10 +18,9 @@ public class ShoppingCart {
     }
 
     public BigDecimal getTotal() {
-        BigDecimal total = items.stream()
+        return items.stream()
                 .map(ShoppingCartItem::getItemValue)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        return total;
     }
 
     public ShoppingCartItem productIsInCart(Product product) {
@@ -34,7 +33,6 @@ public class ShoppingCart {
     }
 
     public String addItemToCart(Product product, int quantity) {
-        String message = "";
         ShoppingCartItem itemInCart = productIsInCart(product);
         if (itemInCart == null) {
             items.add(new ShoppingCartItem(product, quantity));
@@ -81,7 +79,7 @@ public class ShoppingCart {
     }
 
     public void emptyCart() {
-        items = new ArrayList<>();
+        items.clear();
     }
 
     public String getUsername() {

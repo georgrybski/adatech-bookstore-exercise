@@ -5,7 +5,7 @@ import br.com.georg.bookstore.products.book.BookCategories;
 import br.com.georg.bookstore.products.film.FilmCategories;
 import br.com.georg.bookstore.products.game.GameCategories;
 import br.com.georg.bookstore.products.toy.ToyCategories;
-import br.com.georg.bookstore.utilities.HashMapTools;
+import br.com.georg.bookstore.util.HashMapTools;
 
 import java.util.HashMap;
 import java.util.Map;

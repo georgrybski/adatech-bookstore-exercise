@@ -1,4 +1,4 @@
-package br.com.georg.bookstore.utilities.printer;
+package br.com.georg.bookstore.util.printer;
 
 import br.com.georg.bookstore.products.ProductCategories;
 import br.com.georg.bookstore.service.Bookstore;

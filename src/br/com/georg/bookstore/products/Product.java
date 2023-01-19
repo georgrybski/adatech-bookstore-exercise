@@ -1,15 +1,6 @@
 package br.com.georg.bookstore.products;
 
-import br.com.georg.bookstore.products.album.AlbumCategories;
-import br.com.georg.bookstore.products.book.BookCategories;
-import br.com.georg.bookstore.products.film.FilmCategories;
-import br.com.georg.bookstore.products.game.GameCategories;
-import br.com.georg.bookstore.products.toy.ToyCategories;
-import br.com.georg.bookstore.utilities.HashMapTools;
-
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 public abstract class Product {
 

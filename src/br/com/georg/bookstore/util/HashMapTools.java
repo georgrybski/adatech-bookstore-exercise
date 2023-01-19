@@ -1,4 +1,4 @@
-package br.com.georg.bookstore.utilities;
+package br.com.georg.bookstore.util;
 
 import java.util.HashMap;
 

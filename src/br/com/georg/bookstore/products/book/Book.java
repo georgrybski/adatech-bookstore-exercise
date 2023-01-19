@@ -1,10 +1,8 @@
 package br.com.georg.bookstore.products.book;
 
 import br.com.georg.bookstore.products.Product;
-import br.com.georg.bookstore.utilities.HashMapTools;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 
 public class Book extends Product {
 

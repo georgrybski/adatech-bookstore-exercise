@@ -1,12 +1,12 @@
-package br.com.georg.bookstore.utilities.printer;
+package br.com.georg.bookstore.util.printer;
 
 import br.com.georg.bookstore.service.Bookstore;
 import br.com.georg.bookstore.service.Order;
 
 import java.util.ArrayList;
 
-import static br.com.georg.bookstore.utilities.printer.Printer.printFrameLine;
-import static br.com.georg.bookstore.utilities.printer.Printer.printIndentedFormattedLine;
+import static br.com.georg.bookstore.util.printer.Printer.printFrameLine;
+import static br.com.georg.bookstore.util.printer.Printer.printIndentedFormattedLine;
 
 public class OrderPrinter {
 

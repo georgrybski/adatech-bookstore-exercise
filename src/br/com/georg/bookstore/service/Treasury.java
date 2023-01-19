@@ -16,11 +16,4 @@ public class Treasury {
         capital.add(moneyRecieved);
     }
 
-    public void recalculateInventoryValueRemovingItem(String ID) {
-        BigDecimal removedItemValue = bookstore.getDatabase().getProductByID(ID).getValueOfItemStack();
-    }
-
-    public BigDecimal getCapital() {
-        return capital;
-    }
 }

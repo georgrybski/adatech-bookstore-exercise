@@ -2,14 +2,20 @@ package br.com.georg.bookstore;
 
 import br.com.georg.bookstore.service.Account;
 import br.com.georg.bookstore.service.Bookstore;
-import br.com.georg.bookstore.utilities.*;
-import br.com.georg.bookstore.utilities.printer.DashboardPrinter;
-import br.com.georg.bookstore.utilities.printer.OrderPrinter;
-import br.com.georg.bookstore.utilities.printer.Printer;
+import br.com.georg.bookstore.util.*;
+import br.com.georg.bookstore.util.input.AccountInput;
+import br.com.georg.bookstore.util.input.ProductInput;
+import br.com.georg.bookstore.util.menu.Menu;
+import br.com.georg.bookstore.util.printer.DashboardPrinter;
+import br.com.georg.bookstore.util.printer.OrderPrinter;
+import br.com.georg.bookstore.util.printer.Printer;
+
+import java.util.Scanner;
 
 public class BookstoreApplication {
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
         Bookstore bookstore = new Bookstore();
         BookstoreTestScenario.populateBookstore(bookstore);
         Account loggedAccount = null;
@@ -21,9 +27,9 @@ public class BookstoreApplication {
             if (notLoggedIn) {
                 switch (Menu.getLoggedOutInput()) {
                     // Create Account
-                    case (1) -> loggedAccount = Input.createNewAccount(bookstore);
+                    case (1) -> loggedAccount = AccountInput.createNewAccount(bookstore);
                     // Log In
-                    case (2) -> loggedAccount = Input.logIn(bookstore);
+                    case (2) -> loggedAccount = AccountInput.logIn(bookstore);
                     // Exit
                     case 3 -> {
                         run = false;
@@ -40,7 +46,7 @@ public class BookstoreApplication {
                         // Browse all products
                         case (1) -> Menu.seeProductList(bookstore);
                         // Add a product to shopping cart
-                        case (2) -> Input.addProductToCartUsingID(bookstore, loggedAccount);
+                        case (2) -> ProductInput.addProductToCartUsingID(bookstore, loggedAccount);
                         // Go to shopping cart
                         case (3) ->  Menu.goToCart(bookstore, loggedAccount);
                         // See my purchase history
@@ -66,9 +72,9 @@ public class BookstoreApplication {
                         // Add new product
                         case (2) -> Menu.addProduct(bookstore);
                         // Modify an existing product
-                        case (3) -> Input.modifyExistingProduct(bookstore);
+                        case (3) -> ProductInput.modifyExistingProduct(bookstore);
                         // Remove a product
-                        case (4) -> Input.removeProductUsingID(bookstore);
+                        case (4) -> ProductInput.removeProductUsingID(bookstore);
                         // See Dashboard
                         case (5) -> DashboardPrinter.printDashboard(bookstore);
                         // See sales history

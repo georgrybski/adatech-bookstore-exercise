@@ -1,4 +1,4 @@
-package br.com.georg.bookstore.utilities.printer;
+package br.com.georg.bookstore.util.printer;
 
 public class Printer {
 

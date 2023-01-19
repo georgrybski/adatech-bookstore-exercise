@@ -1,8 +1,8 @@
 package br.com.georg.bookstore.service;
 
 import br.com.georg.bookstore.products.Product;
-import br.com.georg.bookstore.utilities.printer.OrderPrinter;
-import br.com.georg.bookstore.utilities.printer.Printer;
+import br.com.georg.bookstore.util.printer.OrderPrinter;
+import br.com.georg.bookstore.util.printer.Printer;
 
 public class Account {
     private String username;

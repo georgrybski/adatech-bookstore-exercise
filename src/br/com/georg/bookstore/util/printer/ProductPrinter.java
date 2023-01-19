@@ -1,4 +1,4 @@
-package br.com.georg.bookstore.utilities.printer;
+package br.com.georg.bookstore.util.printer;
 
 import br.com.georg.bookstore.products.*;
 import br.com.georg.bookstore.products.album.Album;
@@ -10,7 +10,7 @@ import br.com.georg.bookstore.service.Bookstore;
 import java.util.HashMap;
 import java.util.Map;
 
-import static br.com.georg.bookstore.utilities.printer.Printer.*;
+import static br.com.georg.bookstore.util.printer.Printer.*;
 
 public class ProductPrinter {
 
