@@ -110,10 +110,6 @@ public class ProductInput {
                 "Invalid Input. Please insert a integer greater than 0") + currentQuantity;
     }
 
-    public static String getProductStudio(String category, String field) {
-        return Input.getString("Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s " + field);
-    }
-
     public static void removeItemFromCartUsingID(Account loggedAccount) {
         Printer.printFormattedMessage(
                 loggedAccount.getShoppingCart().removeItemFromCart(
@@ -123,11 +119,12 @@ public class ProductInput {
     }
 
     public static String getProductName(String category) {
+        String productName = getProductField(category, "name");
+        if (productName.length() > 100) {
+            Printer.printFormattedMessage("Name too long! Maximum length is 100 characters");
+            return getProductName(category);
+        }
         return getProductField(category, "name");
-    }
-
-    public static String getProductGenre(String category) {
-        return getProductField(category, "genre");
     }
 
     public static String getProductAuthor(String category) {

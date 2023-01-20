@@ -59,20 +59,20 @@ public class MenuPrinter {
 
                 // Multiples of these numbers would have duplicity if not checked.
                 boolean notMultipleOfProblematicNumbers = (
-                        optionsMatrix.length != 2 &&
-                                optionsMatrix.length % 3 != 0 &&
-                                optionsMatrix.length % 7 != 0 &&
-                                optionsMatrix.length % 10 != 0 &&
-                                optionsMatrix.length % 11 != 0 &&
-                                optionsMatrix.length % 13 != 0 &&
-                                optionsMatrix.length % 14 != 0 &&
-                                optionsMatrix.length % 16 != 0
+                        (optionsMatrix.length != 2 &&
+                         optionsMatrix.length % 3 != 0 &&
+                         optionsMatrix.length % 7 != 0 &&
+                         optionsMatrix.length % 10 != 0 &&
+                         optionsMatrix.length % 11 != 0 &&
+                         optionsMatrix.length % 13 != 0 &&
+                         optionsMatrix.length % 14 != 0 &&
+                         optionsMatrix.length % 16 != 0 )
                 );
 
                 boolean moreThanOneLineNecessary = (lastIteration && moreThanTwoOptions && evenIterationNumber &&
                         aditionalOptionNumberDifferentThanIterationNumber &&
                         optionNumberDifferentThanSix && notMultipleOfProblematicNumbers)
-                        || (lastIteration && notMultipleOf5 && notMultipleOfProblematicNumbers);
+                        || (lastIteration && notMultipleOf5 && notMultipleOfProblematicNumbers ||  optionsMatrix.length == 10);
 
                 if (moreThanOneLineNecessary) {
                     oddOrEvenOffset =
