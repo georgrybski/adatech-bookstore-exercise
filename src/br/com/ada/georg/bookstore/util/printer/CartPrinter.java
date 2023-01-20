@@ -1,7 +1,7 @@
 package br.com.ada.georg.bookstore.util.printer;
 
-import br.com.ada.georg.bookstore.service.Account;
-import br.com.ada.georg.bookstore.service.ShoppingCart;
+import br.com.ada.georg.bookstore.controller.account.Account;
+import br.com.ada.georg.bookstore.controller.account.shoppingcart.ShoppingCart;
 
 public class CartPrinter {
 

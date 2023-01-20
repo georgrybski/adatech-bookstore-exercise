@@ -1,7 +1,7 @@
 package br.com.ada.georg.bookstore.util.printer;
 
-import br.com.ada.georg.bookstore.service.Bookstore;
-import br.com.ada.georg.bookstore.service.Order;
+import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
+import br.com.ada.georg.bookstore.controller.bookstore.Order;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
 package br.com.ada.georg.bookstore.util.printer;
 
-import br.com.ada.georg.bookstore.products.ProductCategories;
-import br.com.ada.georg.bookstore.service.Bookstore;
-import br.com.ada.georg.bookstore.service.Dashboard;
+import br.com.ada.georg.bookstore.models.ProductCategories;
+import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
+import br.com.ada.georg.bookstore.controller.bookstore.Dashboard;
 
 public class DashboardPrinter {
 

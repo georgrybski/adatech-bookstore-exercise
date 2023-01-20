@@ -1,11 +1,11 @@
 package br.com.ada.georg.bookstore.util.printer;
 
-import br.com.ada.georg.bookstore.products.Product;
-import br.com.ada.georg.bookstore.products.album.Album;
-import br.com.ada.georg.bookstore.products.game.Game;
-import br.com.ada.georg.bookstore.products.book.Book;
-import br.com.ada.georg.bookstore.products.film.Film;
-import br.com.ada.georg.bookstore.service.Bookstore;
+import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.models.album.Album;
+import br.com.ada.georg.bookstore.models.game.Game;
+import br.com.ada.georg.bookstore.models.book.Book;
+import br.com.ada.georg.bookstore.models.film.Film;
+import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 
 import java.util.HashMap;
 import java.util.Map;

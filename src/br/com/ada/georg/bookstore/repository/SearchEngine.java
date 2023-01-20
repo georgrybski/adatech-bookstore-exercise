@@ -1,8 +1,8 @@
 package br.com.ada.georg.bookstore.repository;
 
-import br.com.ada.georg.bookstore.products.Product;
-import br.com.ada.georg.bookstore.service.Order;
-import br.com.ada.georg.bookstore.products.ProductCategories;
+import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.controller.bookstore.Order;
+import br.com.ada.georg.bookstore.models.ProductCategories;
 
 import java.util.ArrayList;
 import java.util.HashMap;
