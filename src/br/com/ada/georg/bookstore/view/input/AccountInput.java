@@ -2,7 +2,7 @@ package br.com.ada.georg.bookstore.view.input;
 
 import br.com.ada.georg.bookstore.controller.account.Account;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
-import br.com.ada.georg.bookstore.util.printer.Printer;
+import br.com.ada.georg.bookstore.util.Printer;
 
 import java.util.Objects;
 

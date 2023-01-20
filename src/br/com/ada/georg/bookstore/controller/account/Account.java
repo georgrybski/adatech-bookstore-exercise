@@ -1,25 +1,22 @@
 package br.com.ada.georg.bookstore.controller.account;
 
-import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.models.products.Product;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 import br.com.ada.georg.bookstore.controller.account.shoppingcart.ShoppingCart;
-import br.com.ada.georg.bookstore.util.printer.OrderPrinter;
-import br.com.ada.georg.bookstore.util.printer.Printer;
+import br.com.ada.georg.bookstore.util.OrderPrinter;
+import br.com.ada.georg.bookstore.util.Printer;
 
 public class Account {
     private String username;
     private String password;
     private Bookstore bookstore;
-    private ShoppingCart shoppingCart;
+    private final ShoppingCart shoppingCart;
 
     public Account(String username, String password, Bookstore bookstore) {
         this.username = username;
         this.password = password;
         this.bookstore = bookstore;
         shoppingCart = new ShoppingCart(this, bookstore);
-    }
-    public void purchaseItemsInCart() {
-        shoppingCart.checkout();
     }
 
     public String addToCart(Product product, int quantity) {
@@ -32,7 +29,6 @@ public class Account {
         }
         OrderPrinter.printOrdersFromList(bookstore.getDatabase().getOrderHistoryFrom(username));
     }
-
 
     public String getUsername() {
         return username;

@@ -1,7 +1,7 @@
 package br.com.ada.georg.bookstore.controller.bookstore;
 
-import br.com.ada.georg.bookstore.models.Product;
-import br.com.ada.georg.bookstore.models.ProductCategories;
+import br.com.ada.georg.bookstore.models.products.Product;
+import br.com.ada.georg.bookstore.models.products.ProductCategories;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

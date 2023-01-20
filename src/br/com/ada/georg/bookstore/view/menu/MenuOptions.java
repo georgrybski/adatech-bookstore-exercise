@@ -1,6 +1,6 @@
 package br.com.ada.georg.bookstore.view.menu;
 
-import br.com.ada.georg.bookstore.models.ProductCategories;
+import br.com.ada.georg.bookstore.models.products.ProductCategories;
 
 public class MenuOptions {
 

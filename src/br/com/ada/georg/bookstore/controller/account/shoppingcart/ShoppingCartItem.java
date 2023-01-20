@@ -1,6 +1,6 @@
 package br.com.ada.georg.bookstore.controller.account.shoppingcart;
 
-import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.models.products.Product;
 
 import java.math.BigDecimal;
 

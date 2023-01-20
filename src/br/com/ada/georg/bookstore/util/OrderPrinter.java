@@ -1,12 +1,9 @@
-package br.com.ada.georg.bookstore.util.printer;
+package br.com.ada.georg.bookstore.util;
 
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 import br.com.ada.georg.bookstore.controller.bookstore.Order;
 
 import java.util.ArrayList;
-
-import static br.com.ada.georg.bookstore.util.printer.Printer.printFrameLine;
-import static br.com.ada.georg.bookstore.util.printer.Printer.printIndentedFormattedLine;
 
 public class OrderPrinter {
 
@@ -16,12 +13,12 @@ public class OrderPrinter {
 
 
     public static void printOrder(Order order) {
-        printFrameLine();
-        printIndentedFormattedLine("User: " + order.getUsername() + " | Date: " + order.getDate());
-        printIndentedFormattedLine("Total: " + order.getTotal() + " USD");
-        printIndentedFormattedLine(" ");
-        printIndentedFormattedLine("Items:");
-        printIndentedFormattedLine(" ");
+        Printer.printFrameLine();
+        Printer.printIndentedFormattedLine("User: " + order.getUsername() + " | Date: " + order.getDate());
+        Printer.printIndentedFormattedLine("Total: " + order.getTotal() + " USD");
+        Printer.printIndentedFormattedLine(" ");
+        Printer.printIndentedFormattedLine("Items:");
+        Printer.printIndentedFormattedLine(" ");
 
                 order.getItems().forEach(product -> {
                     Printer.printFormattedMultiLineString("ID: " + product.getID() + " | Name: " + product.getName());
@@ -29,7 +26,7 @@ public class OrderPrinter {
                     Printer.printFormattedMultiLineString("");
                 });
 
-        printFrameLine();
+        Printer.printFrameLine();
     }
 
     public static void printAllOrders(Bookstore bookstore) {

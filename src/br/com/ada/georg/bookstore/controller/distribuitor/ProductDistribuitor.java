@@ -1,13 +1,13 @@
 package br.com.ada.georg.bookstore.controller.distribuitor;
 
-import br.com.ada.georg.bookstore.models.Product;
-import br.com.ada.georg.bookstore.models.album.Album;
-import br.com.ada.georg.bookstore.models.game.Game;
-import br.com.ada.georg.bookstore.models.book.Book;
-import br.com.ada.georg.bookstore.models.film.Film;
-import br.com.ada.georg.bookstore.models.toy.Toy;
+import br.com.ada.georg.bookstore.models.products.Product;
+import br.com.ada.georg.bookstore.models.products.album.Album;
+import br.com.ada.georg.bookstore.models.products.game.Game;
+import br.com.ada.georg.bookstore.models.products.book.Book;
+import br.com.ada.georg.bookstore.models.products.film.Film;
+import br.com.ada.georg.bookstore.models.products.toy.Toy;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
-import br.com.ada.georg.bookstore.controller.distribuitor.data.*;
+import br.com.ada.georg.bookstore.models.distribuitor.*;
 
 import java.math.BigDecimal;
 
@@ -39,13 +39,12 @@ public class ProductDistribuitor {
                         );
                     }
                     case "Films" -> {
-                        newProduct =
-                                new Film(
-                                        (String) productEntry[1], (BigDecimal) productEntry[2],
-                                        (String) productEntry[3], (String) productEntry[4],
-                                        (String) productEntry[5], (String) productEntry[6],
-                                        (int) productEntry[7]
-                                );
+                        newProduct = new Film(
+                                (String) productEntry[1], (BigDecimal) productEntry[2],
+                                (String) productEntry[3], (String) productEntry[4],
+                                (String) productEntry[5], (String) productEntry[6],
+                                (int) productEntry[7]
+                        );
                     }
                     case "Games" -> {
                         newProduct = new Game(

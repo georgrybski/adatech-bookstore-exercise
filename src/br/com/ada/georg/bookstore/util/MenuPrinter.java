@@ -1,7 +1,7 @@
-package br.com.ada.georg.bookstore.util.printer;
+package br.com.ada.georg.bookstore.util;
 
 
-import static br.com.ada.georg.bookstore.util.printer.Printer.*;
+import static br.com.ada.georg.bookstore.util.Printer.*;
 
 public class MenuPrinter {
 

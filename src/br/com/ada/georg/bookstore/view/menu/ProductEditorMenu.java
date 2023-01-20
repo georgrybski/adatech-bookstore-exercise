@@ -1,15 +1,15 @@
 package br.com.ada.georg.bookstore.view.menu;
 
-import br.com.ada.georg.bookstore.util.printer.ProductPrinter;
-import br.com.ada.georg.bookstore.models.Product;
-import br.com.ada.georg.bookstore.models.album.Album;
-import br.com.ada.georg.bookstore.models.book.Book;
-import br.com.ada.georg.bookstore.models.film.Film;
-import br.com.ada.georg.bookstore.models.game.Game;
-import br.com.ada.georg.bookstore.models.toy.Toy;
+import br.com.ada.georg.bookstore.util.ProductPrinter;
+import br.com.ada.georg.bookstore.models.products.Product;
+import br.com.ada.georg.bookstore.models.products.album.Album;
+import br.com.ada.georg.bookstore.models.products.book.Book;
+import br.com.ada.georg.bookstore.models.products.film.Film;
+import br.com.ada.georg.bookstore.models.products.game.Game;
+import br.com.ada.georg.bookstore.models.products.toy.Toy;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 import br.com.ada.georg.bookstore.view.input.ProductInput;
-import br.com.ada.georg.bookstore.util.printer.Printer;
+import br.com.ada.georg.bookstore.util.Printer;
 
 public class ProductEditorMenu {
 

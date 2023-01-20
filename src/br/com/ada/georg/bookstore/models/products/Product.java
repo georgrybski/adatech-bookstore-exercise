@@ -1,4 +1,4 @@
-package br.com.ada.georg.bookstore.models;
+package br.com.ada.georg.bookstore.models.products;
 
 import java.math.BigDecimal;
 

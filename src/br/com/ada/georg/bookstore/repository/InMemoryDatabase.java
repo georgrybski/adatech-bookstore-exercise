@@ -1,9 +1,9 @@
 package br.com.ada.georg.bookstore.repository;
 
-import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.models.products.Product;
 import br.com.ada.georg.bookstore.controller.bookstore.Order;
 import br.com.ada.georg.bookstore.controller.account.shoppingcart.ShoppingCart;
-import br.com.ada.georg.bookstore.models.ProductCategories;
+import br.com.ada.georg.bookstore.models.products.ProductCategories;
 import br.com.ada.georg.bookstore.controller.account.Account;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 

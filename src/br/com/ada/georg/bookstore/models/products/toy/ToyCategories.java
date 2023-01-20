@@ -1,4 +1,4 @@
-package br.com.ada.georg.bookstore.models.toy;
+package br.com.ada.georg.bookstore.models.products.toy;
 
 import br.com.ada.georg.bookstore.controller.HashMapTools;
 

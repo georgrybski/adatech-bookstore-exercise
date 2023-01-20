@@ -1,4 +1,4 @@
-package br.com.ada.georg.bookstore.util.printer;
+package br.com.ada.georg.bookstore.util;
 
 import br.com.ada.georg.bookstore.controller.account.Account;
 import br.com.ada.georg.bookstore.controller.account.shoppingcart.ShoppingCart;

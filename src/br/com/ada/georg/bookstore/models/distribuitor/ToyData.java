@@ -1,4 +1,4 @@
-package br.com.ada.georg.bookstore.controller.distribuitor.data;
+package br.com.ada.georg.bookstore.models.distribuitor;
 
 import java.math.BigDecimal;
 

@@ -1,10 +1,10 @@
 package br.com.ada.georg.bookstore.view.menu;
 
-import br.com.ada.georg.bookstore.models.album.AlbumCategories;
-import br.com.ada.georg.bookstore.models.toy.ToyCategories;
-import br.com.ada.georg.bookstore.models.book.BookCategories;
-import br.com.ada.georg.bookstore.models.film.FilmCategories;
-import br.com.ada.georg.bookstore.models.game.GameCategories;
+import br.com.ada.georg.bookstore.models.products.album.AlbumCategories;
+import br.com.ada.georg.bookstore.models.products.toy.ToyCategories;
+import br.com.ada.georg.bookstore.models.products.book.BookCategories;
+import br.com.ada.georg.bookstore.models.products.film.FilmCategories;
+import br.com.ada.georg.bookstore.models.products.game.GameCategories;
 
 import java.util.Arrays;
 import java.util.HashMap;

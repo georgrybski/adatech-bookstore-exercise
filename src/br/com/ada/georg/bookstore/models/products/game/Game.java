@@ -1,6 +1,6 @@
-package br.com.ada.georg.bookstore.models.game;
+package br.com.ada.georg.bookstore.models.products.game;
 
-import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.models.products.Product;
 
 import java.math.BigDecimal;
 

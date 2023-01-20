@@ -1,4 +1,4 @@
-package br.com.ada.georg.bookstore.util.printer;
+package br.com.ada.georg.bookstore.util;
 
 public class Printer {
 

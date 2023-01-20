@@ -4,9 +4,9 @@ import br.com.ada.georg.bookstore.controller.distribuitor.ProductDistribuitor;
 import br.com.ada.georg.bookstore.view.input.AccountInput;
 import br.com.ada.georg.bookstore.view.input.ProductInput;
 import br.com.ada.georg.bookstore.view.menu.Menu;
-import br.com.ada.georg.bookstore.util.printer.DashboardPrinter;
-import br.com.ada.georg.bookstore.util.printer.OrderPrinter;
-import br.com.ada.georg.bookstore.util.printer.Printer;
+import br.com.ada.georg.bookstore.util.DashboardPrinter;
+import br.com.ada.georg.bookstore.util.OrderPrinter;
+import br.com.ada.georg.bookstore.util.Printer;
 import br.com.ada.georg.bookstore.controller.account.Account;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 

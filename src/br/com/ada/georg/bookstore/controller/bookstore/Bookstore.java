@@ -1,6 +1,6 @@
 package br.com.ada.georg.bookstore.controller.bookstore;
 
-import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.models.products.Product;
 import br.com.ada.georg.bookstore.repository.InMemoryDatabase;
 import br.com.ada.georg.bookstore.controller.account.Account;
 import br.com.ada.georg.bookstore.controller.account.shoppingcart.ShoppingCart;

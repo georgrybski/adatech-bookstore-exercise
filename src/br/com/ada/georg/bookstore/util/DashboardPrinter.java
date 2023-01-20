@@ -1,6 +1,6 @@
-package br.com.ada.georg.bookstore.util.printer;
+package br.com.ada.georg.bookstore.util;
 
-import br.com.ada.georg.bookstore.models.ProductCategories;
+import br.com.ada.georg.bookstore.models.products.ProductCategories;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 import br.com.ada.georg.bookstore.controller.bookstore.Dashboard;
 

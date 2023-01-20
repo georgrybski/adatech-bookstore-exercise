@@ -15,5 +15,4 @@ public class Treasury {
     public void recieveMoneyFromSale(BigDecimal moneyRecieved) {
         capital.add(moneyRecieved);
     }
-
 }

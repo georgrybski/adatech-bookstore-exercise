@@ -1,16 +1,14 @@
-package br.com.ada.georg.bookstore.util.printer;
+package br.com.ada.georg.bookstore.util;
 
-import br.com.ada.georg.bookstore.models.Product;
-import br.com.ada.georg.bookstore.models.album.Album;
-import br.com.ada.georg.bookstore.models.game.Game;
-import br.com.ada.georg.bookstore.models.book.Book;
-import br.com.ada.georg.bookstore.models.film.Film;
+import br.com.ada.georg.bookstore.models.products.Product;
+import br.com.ada.georg.bookstore.models.products.album.Album;
+import br.com.ada.georg.bookstore.models.products.game.Game;
+import br.com.ada.georg.bookstore.models.products.book.Book;
+import br.com.ada.georg.bookstore.models.products.film.Film;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static br.com.ada.georg.bookstore.util.printer.Printer.*;
 
 public class ProductPrinter {
 
@@ -21,30 +19,30 @@ public class ProductPrinter {
     }
 
     public static void printProduct(Product product, String genreType, String category) {
-        printFrameLine();
-        printIndentedFormattedLine(genreType + " " + category.substring(0, category.length() - 1)+ " | ID: " + product.getID());
-        printIndentedFormattedLine(product.getName() + " | Price: " + product.getPrice() + " USD");
+        Printer.printFrameLine();
+        Printer.printIndentedFormattedLine(genreType + " " + category.substring(0, category.length() - 1)+ " | ID: " + product.getID());
+        Printer.printIndentedFormattedLine(product.getName() + " | Price: " + product.getPrice() + " USD");
 
         switch (category) {
             case "Albums" -> {
                 Album album = (Album) product;
-                printFormattedMultiLineString("Author: " + album.getAuthor() + " | Record label: " + album.getRecordLabel());
+                Printer.printFormattedMultiLineString("Author: " + album.getAuthor() + " | Record label: " + album.getRecordLabel());
             }
             case "Books" -> {
                 Book book = (Book) product;
-                printFormattedMultiLineString("Author: " + book.getAuthor() + " | Published by: " + book.getPublisher());
+                Printer.printFormattedMultiLineString("Author: " + book.getAuthor() + " | Published by: " + book.getPublisher());
             }
             case "Films" -> {
                 Film film = (Film) product;
-                printFormattedMultiLineString("Directed by: " + film.getDirectors() + " | Produced by: " + film.getProducer());
+                Printer.printFormattedMultiLineString("Directed by: " + film.getDirectors() + " | Produced by: " + film.getProducer());
             }
             case "Games" -> {
                 Game game = (Game) product;
-                printFormattedMultiLineString("Studio: " + game.getStudio() + " | Distribuitor: " + game.getDistribuitor());
+                Printer.printFormattedMultiLineString("Studio: " + game.getStudio() + " | Distribuitor: " + game.getDistribuitor());
             }
         }
-        printIndentedFormattedLine(product.getQuantity() > 0 ? "In Stock - Only " + product.getQuantity() + " Left" : "Out of Stock");
-        printFrameLine();
+        Printer.printIndentedFormattedLine(product.getQuantity() > 0 ? "In Stock - Only " + product.getQuantity() + " Left" : "Out of Stock");
+        Printer.printFrameLine();
     }
 
     public static void printProductsOfACategory(Bookstore bookstore, String category) {

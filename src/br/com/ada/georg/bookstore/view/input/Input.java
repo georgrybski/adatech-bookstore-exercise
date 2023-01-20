@@ -1,7 +1,7 @@
 package br.com.ada.georg.bookstore.view.input;
 
-import br.com.ada.georg.bookstore.util.printer.MenuPrinter;
-import br.com.ada.georg.bookstore.util.printer.Printer;
+import br.com.ada.georg.bookstore.util.MenuPrinter;
+import br.com.ada.georg.bookstore.util.Printer;
 
 import java.math.BigDecimal;
 import java.util.InputMismatchException;

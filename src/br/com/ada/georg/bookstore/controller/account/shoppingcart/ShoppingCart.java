@@ -1,6 +1,6 @@
 package br.com.ada.georg.bookstore.controller.account.shoppingcart;
 
-import br.com.ada.georg.bookstore.models.Product;
+import br.com.ada.georg.bookstore.models.products.Product;
 import br.com.ada.georg.bookstore.controller.account.Account;
 import br.com.ada.georg.bookstore.controller.bookstore.Bookstore;
 
@@ -63,7 +63,6 @@ public class ShoppingCart {
         return null;
     }
 
-
     public String removeItemFromCart(String ID) {
         ShoppingCartItem itemInCart = getItemInCart(ID);
         String message = null;
@@ -75,10 +74,6 @@ public class ShoppingCart {
             message = "This ID doesn't match any item in your cart";
         }
         return message;
-    }
-
-    public void checkout() {
-        bookstore.completeSale(this);
     }
 
     public void emptyCart() {
