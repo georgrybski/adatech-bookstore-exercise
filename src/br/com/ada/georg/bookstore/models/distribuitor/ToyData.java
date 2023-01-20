@@ -8,29 +8,29 @@ public class ToyData implements ProductData{
         return new Object[][] {
 //              {String name, BigDecimal price, int quantity, String genre}
 
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Action figure", 100},
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Action figure", 100},
+                {"Toys", "Toy 1", BigDecimal.valueOf(169.99), "Action figure", 100},
+                {"Toys", "Toy 2", BigDecimal.valueOf(169.99), "Action figure", 100},
 
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Animal", 100},
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Animal", 100},
+                {"Toys", "Toy 3", BigDecimal.valueOf(169.99), "Animal", 100},
+                {"Toys", "Toy 4", BigDecimal.valueOf(169.99), "Animal", 100},
 
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Car and radio controlled", 100},
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Car and radio controlled", 100},
+                {"Toys", "Toy 5", BigDecimal.valueOf(169.99), "Car and radio controlled", 100},
+                {"Toys", "Toy 6", BigDecimal.valueOf(169.99), "Car and radio controlled", 100},
 
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Construction", 100},
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Construction", 100},
+                {"Toys", "Toy 7", BigDecimal.valueOf(169.99), "Construction", 100},
+                {"Toys", "Toy 8", BigDecimal.valueOf(169.99), "Construction", 100},
 
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Creative", 100},
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Creative", 100},
+                {"Toys", "Toy 9", BigDecimal.valueOf(169.99), "Creative", 100},
+                {"Toys", "Toy 10", BigDecimal.valueOf(169.99), "Creative", 100},
 
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Doll", 100},
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Doll", 100},
+                {"Toys", "Toy 11", BigDecimal.valueOf(169.99), "Doll", 100},
+                {"Toys", "Toy 12", BigDecimal.valueOf(169.99), "Doll", 100},
 
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Educational", 100},
-                {"Toys", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Educational", 100},
+                {"Toys", "Toy 13", BigDecimal.valueOf(169.99), "Educational", 100},
+                {"Toys", "Toy 14", BigDecimal.valueOf(169.99), "Educational", 100},
 
-                {"Toys", "Lego Porche 911 RSR - 42096", BigDecimal.valueOf(169.99), "Electronic", 100},
-                {"Toys", "Lego Hogwarts Castle - 71043 ", BigDecimal.valueOf(469.99), "Electronic", 100},
+                {"Toys", "Toy 15", BigDecimal.valueOf(169.99), "Electronic", 100},
+                {"Toys", "Toy 16", BigDecimal.valueOf(469.99), "Electronic", 100},
 
                 {"Toys", "Perpetual Motion Desktop Gadget", BigDecimal.valueOf(35.36), "Executive", 100},
                 {"Toys", "Golden Winged Fidget Spinner", BigDecimal.valueOf(57.99), "Executive", 100},
