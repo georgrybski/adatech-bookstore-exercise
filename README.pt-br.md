@@ -131,6 +131,32 @@ A lista resultante será exibida da seguinte forma:
 
 ![Lista de produtos - Exemplo Book](images/see-products-result.png)
 
+### Purchasing products and viewing orders
+
+When logged in as a customer, products can be added and removed form the cart. Upon completion of the purchase,
+the order will be saved to the purchase history, and it is visible to the customer's account and to the admin account.
+
+#### Adicionar itens ao carrinho de compras
+
+Itens podem ser adicionados ao carrinho através do ID, como mostrado abaixo:
+
+![Add item to cart](images/add-item-to-cart.png)
+
+#### Ver carrinho de compras
+
+Durante a visualização do carrinho de compras, você poderá concluir a compra, adicionar ou remover itens e voltar às compras:
+
+![](images/view-cart.png)
+
+Após concluir uma compra, o carrinho é esvaziado e uma ordem é criada e adicionada ao histórico de compras 
+da conta, que pode ser visualizado pela conta e pelo admin.
+
+#### Visualizando pedidos
+
+A visualização de pedidos se dá da seguinte forma: 
+
+![Visualizar pedidos](images/view-orders.png)
+
 ## Executando o código
 
 Para executar este projeto, clone o repositório e importe-o em seu ambiente de desenvolvimento Java preferido.

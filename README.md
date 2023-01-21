@@ -141,8 +141,14 @@ add or remove items from cart and go back to shopping, as shown below:
 
 ![](images/view-cart.png)
 
-After checkout, the cart is emptied and the a order is created and added to the account's purchase history, 
+After checkout, the cart is emptied and the order is created and added to the account's purchase history, 
 which can be viewed by the account and by the admin.
+
+#### View orders
+
+Orders are viewed in the following way:
+
+![Visualizar pedidos](images/view-orders.png)
 
 ## Running the Code
 
