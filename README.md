@@ -56,6 +56,38 @@ To do this, I opted for the simple solution of creating an ID with the 3 first c
 
 This way, I only needed to create methods to "translate" these 6 character identifiers to the keys necessary to access the HashMap where the item is located.
 
+### Menus
+
+User interactions are made mostly using menus, which are printed taking into account the number of options, represented by String arrays. 
+
+There are three initial menus, 
+
+### Manipulating products 
+
+Products can be added, modified and removed by logging in with the username and password `admin`.
+
+#### Adding products
+
+When adding products, you will be prompted to chose between the categories: `Albums`, `Books`, `Films`,`Games` and `Toys`, followed by selecting one of the genres/types of the chosen category.
+
+![Add Item Menu - Album Example](images/add-item-menu.png)
+
+#### Modifying products
+
+When modifying products, you will be prompted to insert the products ID, and will be prompted with the following menu:
+
+#### Seeing product list
+
+You can see the product list logged in as a customer or with the `admin` account. 
+
+Upon selecting the `1 - See product list` option, you will be prompted on what products you want to see. You can choose to see all products, all products from a category, or products from a specific genre/type within a category.
+
+![See Products List - Toy Example](images/see-products-menu.png)
+
+The resulting list will be displayed in the following way: 
+
+[Product list - Book Example](images/see-products-result.png)
+
 ## Running the Code
 
 To run this project, clone the repository and import it into your favorite Java development environment.
