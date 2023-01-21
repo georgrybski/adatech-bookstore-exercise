@@ -66,6 +66,42 @@ seguido pelos 3 primeiros caracteres do gênero/tipo e, finalmente, um ID numér
 Dessa maneira, só precisei criar métodos para "traduzir" esses identificadores de 6 caracteres para as chaves
 necessárias para acessar o HashMap onde o item está localizado.
 
+### Menus
+
+As interações do usuário são feitas principalmente usando menus, que são impressos levando em conta o número de opções,
+representadas por matrizes de String.
+
+Existem três menus iniciais,
+
+### Manipulando produtos
+
+Os produtos podem ser adicionados, modificados e removidos fazendo login com o nome de usuário e senha `admin`.
+
+#### Adicionando produtos
+
+Ao adicionar produtos, você será convidado a escolher entre as categorias: '`Albums`, `Books`, `Films`, `Games` 
+e `Toys`, seguido de selecionar um dos gêneros/tipos da categoria escolhida.
+
+![Menu de adicionar itens - Exemplo Album](images/add-item-menu.png)
+
+#### Modificando produtos
+
+Ao modificar produtos, você será convidado a inserir o ID do produto e será convidado com o seguinte menu:
+
+#### Visualizando lista de produtos
+
+Você pode acessar a lista de produtos enquanto estiver logado como um cliente ou com a conta `admin`.
+
+Ao selecionar a opção `1 - See product list`, você será convidado a ver quais produtos deseja ver.
+Você pode escolher ver todos os produtos, todos os produtos de uma categoria ou produtos de um
+gênero/tipo específico dentro de uma categoria.
+
+![Ver lista de produtos - Exemplo Toy](images/see-products-menu.png)
+
+A lista resultante será exibida da seguinte forma:
+
+[Lista de produtos - Exemplo Book](images/see-products-result.png)
+
 ## Executando o código
 
 Para executar este projeto, clone o repositório e importe-o em seu ambiente de desenvolvimento Java preferido.
