@@ -177,7 +177,7 @@ public class ProductEditorMenu {
 
             switch (Menu.getIntFrom(new String[]{"1 - Change name", "2 - Change price",
                     "3 - Change stock", "4 - Change distribuitor",
-                    "5 - Change genre", "6 - Change studio", "7 - Finish changes"})) {
+                    "5 - Change type", "6 - Finish changes"})) {
 
                 case 1 -> toy.setName(ProductInput.getProductName("Toys"));
 
@@ -198,7 +198,7 @@ public class ProductEditorMenu {
                     }
                 }
 
-                case 7 -> changesInProgress = false;
+                case 6 -> changesInProgress = false;
             }
         }
         return toy;
