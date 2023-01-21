@@ -8,29 +8,29 @@ public class ToyData implements ProductData{
         return new Object[][] {
 //              {String name, BigDecimal price, int quantity, String genre}
 
-                {"Toys", "Toy 1", BigDecimal.valueOf(169.99), "Action figure", 100},
-                {"Toys", "Toy 2", BigDecimal.valueOf(169.99), "Action figure", 100},
+                {"Toys", "Tamashi Nations - Star Wars: Ronin Mandalorian & Grougu", BigDecimal.valueOf(129.53), "Action figure", 100},
+                {"Toys", "Tamashi Nations - Star Wars: Daimyo Boba Fett", BigDecimal.valueOf(169.99), "Action figure", 100},
 
-                {"Toys", "Toy 3", BigDecimal.valueOf(169.99), "Animal", 100},
-                {"Toys", "Toy 4", BigDecimal.valueOf(169.99), "Animal", 100},
+                {"Toys", "Safari Animals Figures Toys", BigDecimal.valueOf(38.99), "Animal", 100},
+                {"Toys", "Talking Hamster", BigDecimal.valueOf(25.67), "Animal", 100},
 
-                {"Toys", "Toy 5", BigDecimal.valueOf(169.99), "Car and radio controlled", 100},
-                {"Toys", "Toy 6", BigDecimal.valueOf(169.99), "Car and radio controlled", 100},
+                {"Toys", "VOLANTEXRC Brushless Remote Control Boat VectorSR80", BigDecimal.valueOf(339.99), "Car and radio controlled", 100},
+                {"Toys", "Deejoy RC Gesture Sensor Double Sided Car", BigDecimal.valueOf(42.99), "Car and radio controlled", 100},
 
-                {"Toys", "Toy 7", BigDecimal.valueOf(169.99), "Construction", 100},
-                {"Toys", "Toy 8", BigDecimal.valueOf(169.99), "Construction", 100},
+                {"Toys", "LEGO Architecture Great Pyramid of Giza", BigDecimal.valueOf(129.99), "Construction", 100},
+                {"Toys", "LEGO Architecture Great Wall of China", BigDecimal.valueOf(109.95), "Construction", 100},
 
-                {"Toys", "Toy 9", BigDecimal.valueOf(169.99), "Creative", 100},
-                {"Toys", "Toy 10", BigDecimal.valueOf(169.99), "Creative", 100},
+                {"Toys", "Lego Porche 911 RSR - 42096", BigDecimal.valueOf(169.99), "Creative", 100},
+                {"Toys", "Lego Hogwarts Castle - 71043 ", BigDecimal.valueOf(469.99), "Creative", 100},
 
-                {"Toys", "Toy 11", BigDecimal.valueOf(169.99), "Doll", 100},
-                {"Toys", "Toy 12", BigDecimal.valueOf(169.99), "Doll", 100},
+                {"Toys", "Barbie 60th Celebration Dreamhouse Playset", BigDecimal.valueOf(274.99), "Doll", 100},
+                {"Toys", "Lottie Dolls Toy Horse Pony Pals", BigDecimal.valueOf(169.99), "Doll", 100},
 
-                {"Toys", "Toy 13", BigDecimal.valueOf(169.99), "Educational", 100},
-                {"Toys", "Toy 14", BigDecimal.valueOf(169.99), "Educational", 100},
+                {"Toys", "ABC Monster", BigDecimal.valueOf(65.98), "Educational", 100},
+                {"Toys", "Cell Shape Sorter", BigDecimal.valueOf(39.95), "Educational", 100},
 
-                {"Toys", "Toy 15", BigDecimal.valueOf(169.99), "Electronic", 100},
-                {"Toys", "Toy 16", BigDecimal.valueOf(469.99), "Electronic", 100},
+                {"Toys", "Elenco Jr. SC-100 Electronics Exploration Kit", BigDecimal.valueOf(19.59), "Electronic", 100},
+                {"Toys", "Star Wars The Child Animatronic Edition", BigDecimal.valueOf(66.99), "Electronic", 100},
 
                 {"Toys", "Perpetual Motion Desktop Gadget", BigDecimal.valueOf(35.36), "Executive", 100},
                 {"Toys", "Golden Winged Fidget Spinner", BigDecimal.valueOf(57.99), "Executive", 100},

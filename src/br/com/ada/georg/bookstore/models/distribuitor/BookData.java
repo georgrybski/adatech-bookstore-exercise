@@ -14,25 +14,25 @@ public class BookData implements ProductData {
                 {"Books", "Frankenstein", BigDecimal.valueOf(7.79), "Classics", "Mary Shelley", "Lackington, Hughes, Harding, Mavor & Jones", 100},
                 {"Books", "Wuthering Heights", BigDecimal.valueOf(10.59), "Classics", "Emily Brontë", "Thomas Cautley Newby", 100},
 
-                {"Books", "", BigDecimal.valueOf(169.99), "Crime", "Author", "Publisher", 100},
+                {"Books", "The Silent Patient", BigDecimal.valueOf(12.99), "Crime", "Alex Michaelides", "Celadon Books", 100},
                 {"Books", "Lego Porche 911 RSR 42096", BigDecimal.valueOf(169.99), "Crime", "Author", "Publisher", 100},
 
                 {"Books", "Grimm's Complete Fairy Tales", BigDecimal.valueOf(13.99), "Fairy tales, fables, and folk tales", "Jacob & Wilhelm Grimm ", "Canterbury Classics", 100},
                 {"Books", "Aesop's Fables Hardcover", BigDecimal.valueOf(13.29), "Fairy tales, fables, and folk tales", "Aesop", "Publisher", 100},
 
-                {"Books", "Unknown Book 1", BigDecimal.valueOf(169.99), "Fantasy", "Author", "Publisher", 100},
-                {"Books", "Unknown Book 2", BigDecimal.valueOf(169.99), "Fantasy", "Author", "Publisher", 100},
+                {"Books", "Dune Saga 6-Book Boxed Set", BigDecimal.valueOf(59.37), "Fantasy", "Frank Herbert", "Ace", 100},
+                {"Books", "J.R.R. Tolkien 4-Book Boxed Set", BigDecimal.valueOf(71.99), "Fantasy", "J.R.R. Tolkien ", "Del Rey", 100},
 
-                {"Books", "Unknown Book 3", BigDecimal.valueOf(169.99), "Historical fiction", "Author", "Publisher", 100},
-                {"Books", "Unknown Book 4", BigDecimal.valueOf(169.99), "Historical fiction", "Author", "Publisher", 100},
+                {"Books", "Metro 2033", BigDecimal.valueOf(15.27), "Historical fiction", "Dmitry Glukhovsky", "Gollancz", 100},
+                {"Books", "Roadside Picnic", BigDecimal.valueOf(14.99), "Historical fiction", " Arkady & Boris Strugatsky", "Chicago Review Press", 100},
 
                 {"Books", "Complete Cthulhu Mythos Tales", BigDecimal.valueOf(25.00), "Horror", "H. P. Lovecraft", "Barnes & Noble", 100},
                 {"Books", "Three-Body Problem Boxed Set", BigDecimal.valueOf(40.99), "Horror", "Cixin Liu", "Tor Books", 100},
 
-                {"Books", "Unknown Book 5", BigDecimal.valueOf(169.99), "Humour and satire", "Author", "Publisher", 100},
-                {"Books", "Unknown Book 7", BigDecimal.valueOf(169.99), "Humour and satire", "Author", "Publisher", 100},
+                {"Books", "OOF: An Online Outrage Fiesta for the ages", BigDecimal.valueOf(10.99), "Humour and satire", "Strobe Witherspoon", "Marginal Books", 100},
+                {"Books", "Star Cat - Infinity Claws (Book 1)", BigDecimal.valueOf(14.99), "Humour and satire", "Andrew Mackay", "Independently published", 100},
 
-                {"Books", "Unknown Book 8", BigDecimal.valueOf(169.99), "Mystery", "Author", "Publisher", 100},
+                {"Books", "If You Tell", BigDecimal.valueOf(169.99), "Mystery", "Gregg Olsen", "Thomas & Mercer", 100},
                 {"Books", "Unknown Book 10", BigDecimal.valueOf(169.99), "Mystery", "Author", "Publisher", 100},
 
                 {"Books", "Unknown Book 11", BigDecimal.valueOf(169.99), "Poetry", "Author", "Publisher", 100},
