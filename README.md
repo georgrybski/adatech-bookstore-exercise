@@ -67,7 +67,30 @@ the HashMap where the item is located.
 User interactions are made mostly using menus, which are printed taking into account the number of options,
 represented by String arrays. 
 
-There are three initial menus, 
+#### Log in menu 
+
+The log in menu can be used to access any created account or the admin acount
+
+The admin account is pre-created and has access to all manipulation and visualization tools, 
+such as manipulating products, viewing orders and viewing the inventory and sales dashboard 
+
+To access the admin account, select `1 - Log in` and insert the username `admin` and the password `admin`. 
+
+Here is the login process and the admin account menu:
+
+![Acessing the admin account](images/logging-in-admin.png)
+
+#### Account creation
+
+To acess the shopping functionality, you must create a customer account.
+
+An example of the process is shown below:
+
+![Creating account](images/create-account-menu.png)
+
+Immediately after creation, you will be logged in the account. 
+
+Accounts, shopping carts and purchases persist during the execution of the application. 
 
 ### Manipulating products 
 
@@ -99,6 +122,17 @@ genre/type within a category.
 The resulting list will be displayed in the following way: 
 
 ![Product list - Book Example](images/see-products-result.png)
+
+### Purchasing products and viewing orders
+
+When logged in as a customer, products can be added and removed form the cart. Upon completion of the purchase, 
+the order will be saved to the purchase history, and it is visible to the customer's account and to the admin account.
+
+#### Adding items to cart
+
+Items can be added to the cart through their ID, as shown below:
+
+
 
 ## Running the Code
 

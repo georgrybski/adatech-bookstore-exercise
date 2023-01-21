@@ -45,7 +45,7 @@ public class MenuPrinter {
 
                 // Checking if the number of options is odd helps avoid value duplicity in the last menu line when
                 // option number is odd and bigger than 3
-                boolean evenIterationNumber = (i % 2 == 0);
+                boolean evenIterationNumber = (i % 2 != 0);
 
                 // Checking if the iteration number is different from the added options number avoids missing options
                 // and duplication in some cases.
@@ -62,7 +62,7 @@ public class MenuPrinter {
                         (optionsMatrix.length != 2 &&
                          optionsMatrix.length % 3 != 0 &&
                          optionsMatrix.length % 7 != 0 &&
-                         optionsMatrix.length % 8 != 0 &&
+//                         optionsMatrix.length % 8 != 0 &&
                          optionsMatrix.length % 10 != 0 &&
                          optionsMatrix.length % 11 != 0 &&
                          optionsMatrix.length % 13 != 0 &&

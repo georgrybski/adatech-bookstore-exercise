@@ -58,7 +58,7 @@ As opções de menu e o input aceito também funcionam com base nesses arrays, t
 
 Como há múltiplas camadas de HashMaps, o ID deve carregar informações sobre onde este item estará localizado. 
 Como os itens são organizados por categoria e, em seguida, por gênero/tipo, o ID deve carregar identificadores 
-para que possa rapidamente olhar para a terceira camada de HashMaps, que contém os produtos.
+para poder rapidamente olhar para a terceira camada de HashMaps, que contém os produtos.
 
 Para fazer isso, optei pela solução simples de criar um ID com os 3 primeiros caracteres da categoria,
 seguido pelos 3 primeiros caracteres do gênero/tipo e, finalmente, um ID numérico.
@@ -68,10 +68,37 @@ necessárias para acessar o HashMap onde o item está localizado.
 
 ### Menus
 
-As interações do usuário são feitas principalmente usando menus, que são impressos levando em conta o número de opções,
+As interações do usuário são feitas principalmente usando menus, impressos considerando o número de opções,
 representadas por matrizes de String.
 
-Existem três menus iniciais,
+#### Log in menu
+
+The log in menu can be used to access any created account or the admin acount
+
+The admin account is pre-created and has access to all manipulation and visualization tools,
+such as manipulating products, viewing orders and viewing the inventory and sales dashboard
+
+A conta admin é criada durante a inicialização do banco de dados em memória. 
+Ela tem acesso à todas as ferramentas de manipulação e visualização,
+como a manipulação de produtos, visualziação de ordens e de inventário e dashboard de vendas.
+
+Para acessar a conta admin, selecione `1 - Log in` e insira o usuário `admin` e a senha `admin`.
+
+Segue o processo de login e o menu da conta admin:
+
+![Acessando a conta admin](images/logging-in-admin.png)
+
+#### Criação de contas
+
+Para acessar a funcionalidade de compras, você deverá criar uma conta
+
+Um exemplo do processo:
+
+![Criação de uma conta](images/create-account-menu.png)
+
+Imediatamente após a criação, você estará logado na conta.
+
+Contas, carrinhos de compras e pedidos persistem durante a execução da aplicação.
 
 ### Manipulando produtos
 
