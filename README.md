@@ -132,7 +132,17 @@ the order will be saved to the purchase history, and it is visible to the custom
 
 Items can be added to the cart through their ID, as shown below:
 
+![Add item to cart](images/add-item-to-cart.png)
 
+#### Viewing shopping cart
+
+When viewing the shopping cart, you will be given the option to checkout, 
+add or remove items from cart and go back to shopping, as shown below:
+
+![](images/view-cart.png)
+
+After checkout, the cart is emptied and the a order is created and added to the account's purchase history, 
+which can be viewed by the account and by the admin.
 
 ## Running the Code
 

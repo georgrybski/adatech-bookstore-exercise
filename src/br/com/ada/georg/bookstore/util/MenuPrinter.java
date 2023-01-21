@@ -66,7 +66,8 @@ public class MenuPrinter {
                          optionsMatrix.length % 10 != 0 &&
                          optionsMatrix.length % 11 != 0 &&
                          optionsMatrix.length % 13 != 0 &&
-                         optionsMatrix.length % 14 != 0)
+                         optionsMatrix.length % 14 != 0 &&
+                         optionsMatrix.length % 16 != 0)
                 );
 
                 boolean moreThanOneLineNecessary = (lastIteration && moreThanTwoOptions && evenIterationNumber &&
