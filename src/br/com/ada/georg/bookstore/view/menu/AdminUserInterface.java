@@ -20,9 +20,7 @@ public class AdminUserInterface {
     public void run() {
 
         if (controller.noAccountLoggedIn()) return;
-
         if (controller.adminLoggedIn()) {
-            controller.printAccountStatus();
             switch (Menu.getAdminInput()) {
                 // See products list
                 case (1) -> Menu.seeProductList(bookstore);

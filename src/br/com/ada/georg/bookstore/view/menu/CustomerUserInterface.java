@@ -20,7 +20,6 @@ public class CustomerUserInterface {
         if (controller.noAccountLoggedIn()) return;
 
         if (controller.customerLoggedIn()) {
-            controller.printAccountStatus();
             switch (Menu.getCustomerInput()) {
                 // Browse all products
                 case (1) -> Menu.seeProductList(bookstore);

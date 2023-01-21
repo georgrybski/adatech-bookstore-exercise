@@ -84,6 +84,8 @@ and `Toys`, followed by selecting one of the genres/types of the chosen category
 
 When modifying products, you will be prompted to insert the products ID, and will be prompted with the following menu:
 
+![Modify Item Menu - Book Example](images/modify-product-menu.png)
+
 #### Viewing product list
 
 You can access the product list while logged in as a customer or with the `admin` account. 
@@ -96,7 +98,7 @@ genre/type within a category.
 
 The resulting list will be displayed in the following way: 
 
-[Product list - Book Example](images/see-products-result.png)
+![Product list - Book Example](images/see-products-result.png)
 
 ## Running the Code
 

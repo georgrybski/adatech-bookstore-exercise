@@ -25,7 +25,7 @@ public class ProductEditorMenu {
 
                 case 2 -> album.setPrice(ProductInput.getProductPrice("Albums"));
 
-                case 3 -> album.setQuantity(ProductInput.getProductQuantity(album.getQuantity()));
+                case 3 -> album.setQuantity(ProductInput.changeProductQuantity(album.getQuantity()));
 
                 case 4 -> album.setAuthor(ProductInput.getProductAuthor("Albums"));
 
@@ -64,7 +64,7 @@ public class ProductEditorMenu {
 
                 case 2 -> book.setPrice(ProductInput.getProductPrice("Books"));
 
-                case 3 -> book.setQuantity(ProductInput.getProductQuantity(book.getQuantity()));
+                case 3 -> book.setQuantity(ProductInput.changeProductQuantity(book.getQuantity()));
 
                 case 4 -> book.setAuthor(ProductInput.getProductAuthor("Books"));
 
@@ -103,7 +103,7 @@ public class ProductEditorMenu {
 
                 case 2 -> film.setPrice(ProductInput.getProductPrice("Films"));
 
-                case 3 -> film.setQuantity(ProductInput.getProductQuantity(film.getQuantity()));
+                case 3 -> film.setQuantity(ProductInput.changeProductQuantity(film.getQuantity()));
 
                 case 4 -> film.setStudio(ProductInput.getStudio("Films"));
 
@@ -144,7 +144,7 @@ public class ProductEditorMenu {
 
                 case 2 -> game.setPrice(ProductInput.getProductPrice("Games"));
 
-                case 3 -> game.setQuantity(ProductInput.getProductQuantity(game.getQuantity()));
+                case 3 -> game.setQuantity(ProductInput.changeProductQuantity(game.getQuantity()));
 
                 case 4 -> game.setDistribuitor(ProductInput.getDistribuitor());
 
@@ -176,16 +176,15 @@ public class ProductEditorMenu {
             ProductPrinter.printProduct(toy, toy.getType(), "Toys");
 
             switch (Menu.getIntFrom(new String[]{"1 - Change name", "2 - Change price",
-                    "3 - Change stock", "4 - Change distribuitor",
-                    "5 - Change type", "6 - Finish changes"})) {
+                    "3 - Change stock", "4 - Change type", "5 - Finish changes"})) {
 
                 case 1 -> toy.setName(ProductInput.getProductName("Toys"));
 
                 case 2 -> toy.setPrice(ProductInput.getProductPrice("Toys"));
 
-                case 3 -> toy.setQuantity(ProductInput.getProductQuantity(toy.getQuantity()));
+                case 3 -> toy.setQuantity(ProductInput.changeProductQuantity(toy.getQuantity()));
 
-                case 5 -> {
+                case 4 -> {
                     String oldGenre = toy.getType();
                     int genreTypeNumber = Menu.getIntFrom(MenuTools.getGenreTypeArray("Toys"));
                     String newGenreType = MenuTools.getGenreTypeArrays().get("Toys")[genreTypeNumber - 1];
@@ -198,7 +197,7 @@ public class ProductEditorMenu {
                     }
                 }
 
-                case 6 -> changesInProgress = false;
+                case 5 -> changesInProgress = false;
             }
         }
         return toy;

@@ -16,7 +16,6 @@ public class LoggedOutUserInterface {
     }
 
     public void run() {
-        controller.printAccountStatus();
         if (controller.noAccountLoggedIn()) {
             switch (Menu.getLoggedOutInput()) {
                 // Create Account

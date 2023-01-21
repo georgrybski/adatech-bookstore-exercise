@@ -86,13 +86,14 @@ public class ProductInput {
                 }
                 bookstore.getDashboard().recieveProductUpdateData(oldProduct, newProduct);
             }
+        } else {
+            Printer.printFormattedMessage("The ID inserted is invalid");
         }
-        Printer.printFormattedMessage("The ID inserted is invalid");
     }
 
     public static BigDecimal getProductPrice(String category) {
         return Input.getBigDecimal(
-                "Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s price ($USD)",
+                "Insert the " + category.substring(0,category.length()-1).toLowerCase() + "'s price (USD)",
                 "Invalid input! Please insert a positive value, separeted by a dot(.) if necessary.",
                 true
         );
@@ -108,6 +109,11 @@ public class ProductInput {
         return Input.getInteger(1, Integer.MAX_VALUE,
                 "Insert the number of items to be added to stock",
                 "Invalid Input. Please insert a integer greater than 0") + currentQuantity;
+    }
+    public static Integer changeProductQuantity(Integer currentQuantity) {
+        return Input.getInteger(- currentQuantity, Integer.MAX_VALUE,
+                "Insert number of items to be added or subtracted from stock",
+                "Invalid Input. Please insert a integer greater than ") + (- currentQuantity);
     }
 
     public static void removeItemFromCartUsingID(Account loggedAccount) {

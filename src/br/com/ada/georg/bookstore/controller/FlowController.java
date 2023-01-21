@@ -27,7 +27,7 @@ public class FlowController {
 
     public void run() {
         while (run) {
-
+            printAccountStatus();
             loggedOutUserInterface.run();
             adminUserInterface.run();
             customerUserInterface.run();

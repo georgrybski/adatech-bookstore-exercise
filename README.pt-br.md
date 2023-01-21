@@ -86,7 +86,9 @@ e `Toys`, seguido de selecionar um dos gêneros/tipos da categoria escolhida.
 
 #### Modificando produtos
 
-Ao modificar produtos, você será convidado a inserir o ID do produto e será convidado com o seguinte menu:
+Ao modificar produtos, você terá que inserir o ID do produto e lhe será mostrado o seguinte menu:
+
+![Menu de modificar itens - Exemplo Book](images/modify-product-menu.png)
 
 #### Visualizando lista de produtos
 
@@ -100,7 +102,7 @@ gênero/tipo específico dentro de uma categoria.
 
 A lista resultante será exibida da seguinte forma:
 
-[Lista de produtos - Exemplo Book](images/see-products-result.png)
+![Lista de produtos - Exemplo Book](images/see-products-result.png)
 
 ## Executando o código
 
