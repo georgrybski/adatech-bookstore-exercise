@@ -165,7 +165,7 @@ which can be viewed by the account and by the admin.
 Orders are viewed in the following way:
 
 <p align="center">
-  <img src="images/view-cart.png" alt="View orders">
+  <img src="images/view-orders.png" alt="View orders">
 </p>
 
 #### Viewing the Orders Dashboard
