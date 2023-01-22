@@ -9,20 +9,20 @@ git sde tecnologia [Ada](https://ada.tech/sou-aluno) e a [Americanas](https://ca
 ### Requisitos
 
 O sistema deve ser capaz de registrar os seguintes produtos:
-- Livros: Devem ter nome, id, preço, gênero, escritor, editora.
-- Jogos: Devem ter nome, id, preço, distribuidora, gênero e estúdio.
-- Filmes: Devem ter nome, id, preço, estúdio, diretor, gênero e produtor.
-- Álbuns de música: Devem ter nome, id, preço, músico/banda, gênero e selo.
-- Brinquedos: Devem ter nome, id, preço e tipo.
+- Livros: Devem conter nome, id, preço, gênero, escritor, editora.
+- Jogos: Devem conter  id, preço, distribuidora, gênero e estúdio.
+- Filmes: Devem conter nome, id, preço, estúdio, diretor, gênero e produtor.
+- Álbuns de música: Devem conter nome, id, preço, músico/banda, gênero e selo.
+- Brinquedos: Devem conter nome, id, preço e tipo.
 
-Além disso, o sistema deve possuir um caixa, que deve ter informações sobre o dinheiro presente nele.
+Além disso, o sistema deve possuir um caixa, que deve conter informações sobre o dinheiro presente nele.
 
 O sistema deve ter as seguintes funcionalidades:
 - Adicionar, visualizar, alterar e remover qualquer produto do sistema.
 - Ver quantos itens de um tipo específico existem no estoque.
 - Ver a listagem completa dos itens em estoque.
 - Ver a listagem dos itens em estoque por categoria.
-- Realizar a operação de compra, ao realizar esta operação os produtos comprados são removidos do estoque e o dinheiro pago deve ser adicionado ao caixa.
+- Realizar a operação de compra. Ao realizar esta operação os produtos comprados são removidos do estoque e o dinheiro pago deve ser adicionado ao caixa.
 
 ## Minha Implementação
 
@@ -33,7 +33,7 @@ Para armazenar e recuperar os itens, criei um HashMap tridimensional.
 A primeira dimensão deste HashMap contém HashMaps que armazenam todos os HashMaps de itens de uma determinada categoria,
 com o nome da categoria sendo a chave usada para acessá-la (por exemplo, "Livros").
 
-Dentro desses HashMaps, estão os HashMaps que contêm itens de um determinado gênero ou tipo, com o gênero/tipo sendo a
+Dentro desses HashMaps, estão os HashMaps que contém itens de um determinado gênero ou tipo, com o gênero/tipo sendo a
 chave (por exemplo, "Ficção científica", "Romance", etc.).
 
 Dentro da camada final de HashMap, todos os itens dessa categoria e gênero podem ser encontrados, com o ID do produto 
@@ -50,7 +50,7 @@ desnecessários ao procurar por todos os itens de uma categoria e/ou gênero esp
 Neste projeto, optei por oferecer uma lista pré-selecionada de gêneros/tipos, que o usuário poderá selecionar via um menu impresso.
 
 Para tornar modificações, como a adição de novas categorias e gêneros/tipos, o mais fácil possível, todos os HashMaps são criados automaticamente,
-inicializando o número certo de HashMaps na localização certa, baseado em arrays que contêm todas as categorias.
+inicializando o número certo de HashMaps na localização certa, baseado em arrays que contém todas as categorias.
 
 As opções de menu e o input aceito também funcionam com base nesses arrays, tornando a adição de mais gêneros tão fácil quanto adicionar uma string a um array.
 
@@ -71,16 +71,13 @@ necessárias para acessar o HashMap onde o item está localizado.
 As interações do usuário são feitas principalmente usando menus, impressos considerando o número de opções,
 representadas por matrizes de String.
 
-#### Log in menu
+#### Menu Log In
 
-The log in menu can be used to access any created account or the admin acount
-
-The admin account is pre-created and has access to all manipulation and visualization tools,
-such as manipulating products, viewing orders and viewing the inventory and sales dashboard
+O menu de login pode ser usado para acessar qualquer conta criada ou a conta admin
 
 A conta admin é criada durante a inicialização do banco de dados em memória. 
 Ela tem acesso à todas as ferramentas de manipulação e visualização,
-como a manipulação de produtos, visualziação de ordens e de inventário e dashboard de vendas.
+como a manipulação de produtos, visualização de ordens e de inventário e dashboard de vendas.
 
 Para acessar a conta admin, selecione `1 - Log in` e insira o usuário `admin` e a senha `admin`.
 
@@ -106,7 +103,7 @@ Os produtos podem ser adicionados, modificados e removidos fazendo login com o n
 
 #### Adicionando produtos
 
-Ao adicionar produtos, você será convidado a escolher entre as categorias: '`Albums`, `Books`, `Films`, `Games` 
+Ao adicionar produtos, você será convidado a escolher entre as categorias: `Albums`, `Books`, `Films`, `Games` 
 e `Toys`, seguido de selecionar um dos gêneros/tipos da categoria escolhida.
 
 <p style="text-align:center;"><img src="images/add-item-menu.png" alt="Menu de adicionar itens - Exemplo Album"></p>
@@ -131,10 +128,10 @@ A lista resultante será exibida da seguinte forma:
 
 <p style="text-align:center;"><img src="images/see-products-result.png" alt="Lista de produtos - Exemplo Book"></p>
 
-### Purchasing products and viewing orders
+### Comprando produtos e visualizando pedidos
 
-When logged in as a customer, products can be added and removed form the cart. Upon completion of the purchase,
-the order will be saved to the purchase history, and it is visible to the customer's account and to the admin account.
+Quando estiver logado como cliente, os produtos podem ser adicionados e removidos do carrinho.
+Ao concluir a compra, o pedido será salvo no histórico de compras e será visível na conta do cliente e na conta admin.
 
 #### Adicionar itens ao carrinho de compras
 
