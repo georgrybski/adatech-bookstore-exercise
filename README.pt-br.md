@@ -71,6 +71,8 @@ necessárias para acessar o HashMap onde o item está localizado.
 As interações do usuário são feitas principalmente usando menus, impressos considerando o número de opções,
 representadas por matrizes de String.
 
+Os menus apresentam ao usuário 'botões' contendo um número e uma opção. Para selecionar uma opção, o usuário deve inserir o respectivo número.
+
 #### Menu Log In
 
 O menu de login pode ser usado para acessar qualquer conta criada ou a conta admin
@@ -166,19 +168,19 @@ da conta, que pode ser visualizado pela conta e pelo admin.
 
 #### Visualizando pedidos
 
-A visualização de pedidos se dá da seguinte forma: 
+Pedidos podem ser visualizados selecionando `6 - See sales history` quando logado como admin, ou  `4 - See my purchase history` quando logado como cliente: 
 
 <p align="center">
   <img src="images/view-orders.png" alt="Visualizar pedidos">
 </p>
 
-#### Visualizando Dashboard de pedidos
+#### Visualizando Dashboard de vendas
 
 No dashboard será possivel ver a quantidade e valor de todos itens no estoque, por categoria e no total.
 
 Será possivel ver também a quantidade de itens vendidos por categoria, assim como o valor das vendas, por categoria e no total.
 
-O dashboard pode ser acessado quando logado na conta `admin`, como mostrado abaixo:
+O dashboard pode ser acessado selecionando `5 - See sales dashboard` quando logado na conta `admin`:
 
 <p align="center">
   <img src="images/dashboard.png" alt="Visualizar dashboard">

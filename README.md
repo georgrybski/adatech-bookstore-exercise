@@ -67,6 +67,8 @@ the HashMap where the item is located.
 User interactions are made mostly using menus, which are printed taking into account the number of options,
 represented by String arrays. 
 
+The menus will prompt the user with 'buttons', containing a number and an option. To select an option, the user must insert its number.
+
 #### Log in menu 
 
 The log in menu can be used to access any created account or the admin acount
@@ -74,7 +76,7 @@ The log in menu can be used to access any created account or the admin acount
 The admin account is pre-created and has access to all manipulation and visualization tools, 
 such as manipulating products, viewing orders and viewing the inventory and sales dashboard 
 
-To access the admin account, select `1 - Log in` and insert the username `admin` and the password `admin`. 
+To access the admin account, select `2 - Log in` and insert the username `admin` and the password `admin`. 
 
 Here is the login process and the admin account menu:
 
@@ -162,19 +164,19 @@ which can be viewed by the account and by the admin.
 
 #### View orders
 
-Orders are viewed in the following way:
+Orders can be viewed by selecting `6 - See sales history` while logged in as admin, or  `4 - See my purchase history` while logged in as a customer:
 
 <p align="center">
   <img src="images/view-orders.png" alt="View orders">
 </p>
 
-#### Viewing the Orders Dashboard
+#### Viewing the sales dashboard
 
 On the dashboard, it will be possible to see the quantity and value of all items in stock, by category and in total.
 
 It will also be possible to see the quantity of items sold by category, as well as the value of sales, by category and in total.
 
-The dashboard can be accessed when logged in to the admin account, as shown below:
+The dashboard can be accessed by selecting `5 - See sales dashboard` when logged in to the admin account:
 
 <p align="center">
   <img src="images/dashboard.png" alt="View dashboard">
