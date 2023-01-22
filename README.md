@@ -78,7 +78,7 @@ To access the admin account, select `1 - Log in` and insert the username `admin`
 
 Here is the login process and the admin account menu:
 
-![Acessing the admin account](images/logging-in-admin.png)
+<p style="text-align:center;"><img src="images/logging-in-admin.png" alt="Acessing the admin account"></p>
 
 #### Account creation
 
@@ -86,7 +86,7 @@ To acess the shopping functionality, you must create a customer account.
 
 An example of the process is shown below:
 
-![Creating account](images/create-account-menu.png)
+<p style="text-align:center;"><img src="images/create-account-menu.png" alt="Creating account"></p>
 
 Immediately after creation, you will be logged in the account. 
 
@@ -101,13 +101,13 @@ Products can be added, modified and removed by logging in with the username and 
 When adding products, you will be prompted to chose between the categories: `Albums`, `Books`, `Films`,`Games`
 and `Toys`, followed by selecting one of the genres/types of the chosen category.
 
-![Add Item Menu - Album Example](images/add-item-menu.png)
+<p style="text-align:center;"><img src="images/add-item-menu.png" alt="Add Item Menu - Album Example"></p>
 
 #### Modifying products
 
 When modifying products, you will be prompted to insert the products ID, and will be prompted with the following menu:
 
-![Modify Item Menu - Book Example](images/modify-product-menu.png)
+<p style="text-align:center;"><img src="images/modify-product-menu.png" alt="Modify Item Menu - Book Example"></p>
 
 #### Viewing product list
 
@@ -117,11 +117,11 @@ Upon selecting the `1 - See product list` option, you will be prompted on what p
 You can choose to see all products, all products from a category, or products from a specific
 genre/type within a category.
 
-![See Products List - Toy Example](images/see-products-menu.png)
+<p style="text-align:center;"><img src="images/see-products-menu.png" alt="See Products List - Toy Example"></p>
 
 The resulting list will be displayed in the following way: 
 
-![Product list - Book Example](images/see-products-result.png)
+<p style="text-align:center;"><img src="images/see-products-result.png" alt="Product list - Book Example"></p>
 
 ### Purchasing products and viewing orders
 
@@ -132,14 +132,14 @@ the order will be saved to the purchase history, and it is visible to the custom
 
 Items can be added to the cart through their ID, as shown below:
 
-![Add item to cart](images/add-item-to-cart.png)
+<p style="text-align:center;"><img src="images/add-item-to-cart.png" alt="Add item to cart"></p>
 
 #### Viewing shopping cart
 
-When viewing the shopping cart, you will be given the option to checkout, 
+When viewing the shopping cart, you will be given the option to check out, 
 add or remove items from cart and go back to shopping, as shown below:
 
-![](images/view-cart.png)
+<p style="text-align:center;"><img src="images/view-cart.png" alt="View shopping cart"></p>
 
 After checkout, the cart is emptied and the order is created and added to the account's purchase history, 
 which can be viewed by the account and by the admin.
@@ -148,8 +148,17 @@ which can be viewed by the account and by the admin.
 
 Orders are viewed in the following way:
 
-![Visualizar pedidos](images/view-orders.png)
+<p style="text-align:center;"><img src="images/view-cart.png" alt="View orders"></p>
 
+#### Viewing the Orders Dashboard
+
+On the dashboard, it will be possible to see the quantity and value of all items in stock, by category and in total.
+
+It will also be possible to see the quantity of items sold by category, as well as the value of sales, by category and in total.
+
+The dashboard can be accessed when logged in to the admin account, as shown below:
+
+<p style="text-align:center;"><img src="images/dashboard.png" alt="View dashboard"></p>
 ## Running the Code
 
 To run this project, clone the repository and import it into your favorite Java development environment.
