@@ -81,7 +81,7 @@ A conta admin é criada durante a inicialização do banco de dados em memória.
 Ela tem acesso à todas as ferramentas de manipulação e visualização,
 como a manipulação de produtos, visualização de ordens e de inventário e dashboard de vendas.
 
-Para acessar a conta admin, selecione `1 - Log in` e insira o usuário `admin` e a senha `admin`.
+Para acessar a conta admin, selecione `2 - Log in` e insira o usuário `admin` e a senha `admin`.
 
 Segue o processo de login e o menu da conta admin:
 
