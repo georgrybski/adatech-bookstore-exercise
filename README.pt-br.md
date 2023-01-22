@@ -169,7 +169,7 @@ da conta, que pode ser visualizado pela conta e pelo admin.
 A visualização de pedidos se dá da seguinte forma: 
 
 <p align="center">
-  <img src="images/view-cart.png" alt="Visualizar pedidos">
+  <img src="images/view-orders.png" alt="Visualizar pedidos">
 </p>
 
 #### Visualizando Dashboard de pedidos
