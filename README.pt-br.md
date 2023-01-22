@@ -83,7 +83,9 @@ Para acessar a conta admin, selecione `1 - Log in` e insira o usuário `admin` e
 
 Segue o processo de login e o menu da conta admin:
 
-![Acessando a conta admin](images/logging-in-admin.png)
+<p align="center">
+  <img src="images/logging-in-admin.png" alt="Acessando a conta admin">
+</p>
 
 #### Criação de contas
 
@@ -91,7 +93,9 @@ Para acessar a funcionalidade de compras, você deverá criar uma conta
 
 Um exemplo do processo:
 
-![Criação de uma conta](images/create-account-menu.png)
+<p align="center">
+  <img src="images/create-account-menu.png" alt="Criação de uma conta">
+</p>
 
 Imediatamente após a criação, você estará logado na conta.
 
@@ -106,13 +110,17 @@ Os produtos podem ser adicionados, modificados e removidos fazendo login com o n
 Ao adicionar produtos, você será convidado a escolher entre as categorias: `Albums`, `Books`, `Films`, `Games` 
 e `Toys`, seguido de selecionar um dos gêneros/tipos da categoria escolhida.
 
-<p style="text-align:center;"><img src="images/add-item-menu.png" alt="Menu de adicionar itens - Exemplo Album"></p>
+<p align="center">
+  <img src="images/add-item-menu.png" alt="Menu de adicionar itens - Exemplo Album">
+</p>
 
 #### Modificando produtos
 
 Ao modificar produtos, você terá que inserir o ID do produto e lhe será mostrado o seguinte menu:
 
-<p style="text-align:center;"><img src="images/modify-product-menu.png" alt="Menu de modificar itens - Exemplo Book"></p>
+<p align="center">
+  <img src="images/modify-product-menu.png" alt="Menu de modificar itens - Exemplo Book">
+</p>
 
 #### Visualizando lista de produtos
 
@@ -122,11 +130,15 @@ Ao selecionar a opção `1 - See product list`, você será convidado a ver quai
 Você pode escolher ver todos os produtos, todos os produtos de uma categoria ou produtos de um
 gênero/tipo específico dentro de uma categoria.
 
-<p style="text-align:center;"><img src="images/see-products-menu.png" alt="Ver lista de produtos - Exemplo Toy"></p>
+<p align="center">
+  <img src="images/see-products-menu.png" alt="Ver lista de produtos - Exemplo Toy">
+</p>
 
 A lista resultante será exibida da seguinte forma:
 
-<p style="text-align:center;"><img src="images/see-products-result.png" alt="Lista de produtos - Exemplo Book"></p>
+<p align="center">
+  <img src="images/see-products-result.png" alt="Lista de produtos - Exemplo Book">
+</p>
 
 ### Comprando produtos e visualizando pedidos
 
@@ -137,13 +149,17 @@ Ao concluir a compra, o pedido será salvo no histórico de compras e será vis�
 
 Itens podem ser adicionados ao carrinho através do ID, como mostrado abaixo:
 
-<p style="text-align:center;"><img src="images/add-item-to-cart.png" alt="Adicionar itens ao carrinho"></p>
+<p align="center">
+  <img src="images/add-item-to-cart.png" alt="Adicionar itens ao carrinho">
+</p>
 
 #### Ver carrinho de compras
 
 Durante a visualização do carrinho de compras, você poderá concluir a compra, adicionar ou remover itens e voltar às compras:
 
-<p style="text-align:center;"><img src="images/view-cart.png" alt="Ver carrinho de compras"></p>
+<p align="center">
+  <img src="images/view-cart.png" alt="Ver carrinho de compras">
+</p>
 
 Após concluir uma compra, o carrinho é esvaziado e uma ordem é criada e adicionada ao histórico de compras 
 da conta, que pode ser visualizado pela conta e pelo admin.
@@ -152,7 +168,9 @@ da conta, que pode ser visualizado pela conta e pelo admin.
 
 A visualização de pedidos se dá da seguinte forma: 
 
-<p style="text-align:center;"><img src="images/view-cart.png" alt="Visualizar pedidos"></p>
+<p align="center">
+  <img src="images/view-cart.png" alt="Visualizar pedidos">
+</p>
 
 #### Visualizando Dashboard de pedidos
 
@@ -162,7 +180,9 @@ Será possivel ver também a quantidade de itens vendidos por categoria, assim c
 
 O dashboard pode ser acessado quando logado na conta `admin`, como mostrado abaixo:
 
-<p style="text-align:center;"><img src="images/dashboard.png" alt="Visualizar dashboard"></p>
+<p align="center">
+  <img src="images/dashboard.png" alt="Visualizar dashboard">
+</p>
 
 ## Executando o código
 
