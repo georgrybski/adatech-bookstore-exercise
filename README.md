@@ -153,7 +153,9 @@ Items can be added to the cart through their ID, as shown below:
 When viewing the shopping cart, you will be given the option to check out, 
 add or remove items from cart and go back to shopping, as shown below:
 
-<p style="text-align:center;"><img src="images/view-cart.png" alt="View shopping cart"></p>
+<p align="center">
+  <img src="images/view-cart.png" alt="View shopping cart">
+</p>
 
 After checkout, the cart is emptied and the order is created and added to the account's purchase history, 
 which can be viewed by the account and by the admin.
