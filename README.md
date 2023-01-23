@@ -26,7 +26,7 @@ The system must have the following functionalities:
 
 ## My Implementation
 
-### Database
+### In-Memory Database
 
 To store and fetch the items, I created a three-dimensional HashMap. 
 
