@@ -31,18 +31,11 @@ public abstract class Product {
         this.ID = ID;
     }
 
-    /*
-    Evaluate making this class abstract and the copy method return this
-     */
-    public Product copy(Integer quantity) {
-        return this;
-    }
+    public abstract Product copy(Integer quantity);
 
-    public String getCategory() {
-        return null;
-    }
+    public abstract String getCategory();
 
-    public String getGenreType() {return null;}
+    public abstract String getGenreType();
 
     public String getName() {
         return name;
